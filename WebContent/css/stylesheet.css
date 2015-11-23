@@ -1,0 +1,228 @@
+@CHARSET "ISO-8859-1";
+/* #header {
+	position: absolute;
+	top: 0;
+	width: 100%;
+} */
+.top {
+    position: relative;
+    background-color: #ffffff;
+    height: 68px;
+    width:100%;
+    padding-top: 20px;
+    line-height: 50px;
+    overflow: hidden;
+    z-index: 1;
+}
+.top .tab{
+	margin-top: 5px;
+    width: 440px;
+    float:right;  
+    height:100px; 
+    padding-bottom: 9px;
+    text-align: right;
+    margin-right: 8px;
+}
+.header-right {
+    float: right !important;
+}
+.text-wide {
+	font-family: "Segoe UI",Arial,sans-serif;
+    letter-spacing: 2px;
+}
+
+.header .container {
+    padding: 1px 16px;
+    padding-top: 1px;
+    padding-right: 16px;
+    padding-bottom: 1px;
+    padding-left: 16px;
+} 
+.nav-font{
+	font-size: 20px;
+	font-color: black;
+}
+.nav-box {
+	position: relative; 
+	margin-top: auto;
+	margin-left: auto;
+    margin-right: auto;
+	box-shadow:0 2px 4px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12) !important
+}
+.topnav {
+    font-size: .9375rem;
+    width: 100%;
+    position: fixed;
+    z-index: 100;
+    line-height: 1.25;
+    background-color: #fff;
+    border-bottom: 1px solid #f4f5f5;
+    height: 90px;
+    text-align: left;
+    clear: both;
+    overflow: hidden;
+}
+.topnav-nav {
+	float:left;
+	width:90%; 
+	overflow:hidden; 
+	height:44px
+}
+.topnav a {
+    text-decoration: none;
+    padding-top: 10px;
+    padding-right: 15px;
+    padding-bottom: 9px;
+   	border-bottom-width: initial;
+    border-bottom-style: none;
+    border-bottom-color: initial;
+    padding-left: 15px;
+    border-bottom: none;
+    display: inline-block;
+    -webkit-tap-highlight-color: transparent;
+    background-color: transparent;
+  }
+.topnav a:hover{
+	border-bottom:3px solid #fff;
+	z-index: 987;
+}
+
+.cart {
+    text-transform: uppercase;
+    display: inline-block;
+    zoom: 1;
+    font-size: .938rem;
+    line-height: 1.875rem;
+    color: #dbd8d3;
+    letter-spacing: .05em;
+}
+	
+.header-cart {
+    float: right;
+    clear: right;
+    z-index: 10;
+    width:30%;
+    position: relative;
+    display: inline-block;
+    text-align: right;
+    vertical-align: middle;
+    margin: 0;
+    padding: 1px 0;
+    overflow:hidden;
+}
+.icon-cart {
+    background-image: url(icon/cart.png);
+    background-position: -133px 0;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    display: inline-block;
+    height: 22px;
+    width: 22px;
+}
+#cartToggle {
+    padding: 28px 10px;
+    border-right: solid 1px #fff;
+    border-left: solid 1px #fff;
+}
+#cartToggle #cartCount {
+    font-family: blenderbold,Verdana,sans-serif;
+    font-weight: lighter;
+}
+
+.body_container{
+	padding-top: 200px;
+}
+a {
+    color: #333;
+    text-decoration: none;
+}
+.rtop_btn {
+    width: 60px;
+    height: 60px;
+	display: block;
+    position: fixed;
+    z-index: 5;
+    right: 60px;
+    bottom: 60px;
+}
+}
+body .rtop_btn .toplink .totop{
+    display: inline-block;
+    overflow: hidden;
+	width: 20%;
+
+	position: fixed;
+	right: 20px;
+	bottom: 20px;
+
+ }
+
+.footer{
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 60px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 100px 50px;
+    background-color: #222;
+	clear:both; 
+}
+
+
+.footer .social-follow {
+    width: 31.91489%;
+    float: left;
+    margin-right: 2.12766%;
+    text-align: left;
+}
+.footer .social-follow .follow {
+    font-family: blenderbold,Verdana,sans-serif;
+    font-weight: lighter;
+    display: block;
+    text-transform: uppercase;
+    color: #b1aca1;
+    letter-spacing: .05em;
+}
+
+.footer .social-follow .social-icons {
+    width: 100%;
+    display: block;
+    padding: 0;
+    margin-top: 10px;
+
+}
+
+.footer .social-icons .sfooter-twitter {
+    background-image: url(icon/twitter.png);
+    background-position: center left !important;
+    background-repeat: no-repeat;
+    background-size: contain !important;
+    overflow: hidden; 
+    display: inline-block;
+    height: 66px;
+    width: 60px;
+}
+.footer .social-icons .sfooter-facebook {
+    background-image: url(icon/facebook.png);
+    background-position: center left !important;
+    background-repeat: no-repeat;
+    background-size: contain !important;
+    overflow: hidden;
+    display: inline-block;
+    height: 66px;
+    width: 60px;
+}
+.footer .social-icons .sfooter-instagram {
+    background-image: url(icon/instagram.png);
+    background-position: center right !important;
+    background-repeat: no-repeat;
+    background-size: contain !important;
+    overflow: hidden;
+    display: inline-block;
+    height: 66px;
+    width: 60px;
+}
+div {
+    display: block;
+}
