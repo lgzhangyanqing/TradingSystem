@@ -4,7 +4,7 @@ import java.io.*;
 import java.net.*;
 import java.util.List;
 
-import com.mercury.model.Stock;
+import com.mercury.beans.Stock;
 
 public class YahooFinance {
 	private static void getPrice(Stock stock) {

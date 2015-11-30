@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:sec="http://www.springframework.org/schema/security"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/security
+		http://www.springframework.org/schema/security/spring-security-3.1.xsd">
+			
+	<sec:http auto-config="true">
+    	<sec:intercept-url pattern="/login*" access="ROLE_USER"/>
+    	<sec:form-login 
+        	login-page="/main.jsp#/login"
+        	authentication-failure-url="/main.jsp#/login?login_error=1" 
+        />
+        <sec:logout logout-success-url="/login.html"/>
+	</sec:http>
+ 	
+	<sec:authentication-manager alias="authenticationManager">
+        <sec:authentication-provider user-service-ref="customUserDetailsService"/>
+    </sec:authentication-manager>
+    
+    <bean id="customUserDetailsService" class="com.mercury.service.CustomUserDetailsService">
+    	<property name="pd" ref="personDao"/>
+    </bean>
+    <bean id="personDao" class="com.mercury.dao.impl.PersonDaoImpl"/>
+</beans>
