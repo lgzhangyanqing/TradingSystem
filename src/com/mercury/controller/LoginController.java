@@ -9,15 +9,15 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class LoginController {
 	
-	/*@RequestMapping(value="/login", method = RequestMethod.GET)
+	@RequestMapping(value="/login", method = RequestMethod.GET)
 	public String login(ModelMap model) {
-		return "userpage";
-	}*/
+		return "login";
+	}
 	
 	@RequestMapping(value="/main", method = RequestMethod.GET)
 	public ModelAndView mainPage() {	
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("hello");
+		mav.setViewName("main");
 		mav.addObject("title", "Hello, welcome to Customized Spring Security");
 		return mav;
 	}

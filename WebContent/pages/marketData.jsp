@@ -1,12 +1,13 @@
-
-<div class="panel panel-default" ng-controller="stockController" id="main">
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<div class="container"  ng-controller="stockController" id="main">
+<div class="panel panel-default">
 	<div>
 		<h4>Pick up your <span class="glyphicons glyphicons-heart-empty"></span> stock</h4>
 	</div>
 	<div class="panel-head">
 		<form class="form">
 			<div class="form-group col-md-6">
-				<label>Stock ID</label>
+				<label>Stock Symbol</label>
 				<input class="form-control" type="text" ng-model="stock.id">
 			</div>
 			<!-- <div calss="form-group col-md-6">
@@ -20,7 +21,7 @@
 		<table class="table table-stripped">
 			<tr>
 				<th>
-					<a href="" ng-click="order('id')">Stock ID</a>
+					<a href="" ng-click="order('id')">Stock Symbol</a>
 					<span class="sortorder" ng-show="predicate === 'id'" ng-class="{reverse:reverse}"></span>
 				</th>
 				<th>
@@ -58,5 +59,5 @@
 		</table>
 	</div>
 </div>
-
+</div>
 <script src="js/app.js"></script>

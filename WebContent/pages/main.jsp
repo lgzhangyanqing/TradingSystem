@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib uri="http://www.springframework.org/security/tags" prefix="sec"%>
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -11,6 +13,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.0-beta.1/angular.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular-messages.js"></script>
 	<script src="https://code.angularjs.org/1.2.28/angular-route.min.js"></script>
 	<script type="text/javascript" src="js/app.js"></script>
 	<script src="js/angular.min.js"></script>
@@ -40,65 +43,107 @@
 			position: relative;
 		}
 	</style>
-	<!-- <script>
-		$(document).ready(function() {
-			if ("<c:out value='${param.login_error}'/>" != "") {
-			  	$('#wrongCredentials').show();
-			}
-			$("#signin").on("click", loginValidation);	
-		});
 	
-		function loginValidation() {
-			$("#usernameAndPasswordReq").hide();
-			$("#usernameReq").hide();
-			$("#passwordReq").hide();   
-			$("#wrongCredentials").hide();	
-		  	if($("#j_username").val().length == 0 && $("#j_password").val().length == 0) {
-		  		$("#usernameAndPasswordReq").show();
-		  		return false;
-		  	} else if ($("#j_username").val().length == 0) {
-		  		$('#usernameReq').show();
-		  		return false;
-		  	} else if ($("#j_password").val().length == 0) {
-		  		$("#passwordReq").show();
-		  		return false;
-		  	} else {
-		  		return true;
-		  	}
-		}
-	</script>	
- -->
+	<base href="/Project1/">
+	
 </head>
 <body ng-app="main" data-spy="scroll" data-target=".navbar" data-offset="50" class="background">
 
 	<div class="container-fluid">
 		<div class="top headerLinks">
-			<a href="#">
+			<a href="home">
 				<img width="130" height="60" src="icon/icon.jpg">
 			</a>
-			<ul class="nav navbar-nav navbar-right col-md-2">
-		        	<li><a href="#signup"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-		        	<li><a href="#login" data-toggle="modal" data-target="#mylogin"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+			<sec:authorize access="hasAnyRole('ROLE_ADMIN', 'ROLE_USER')?false:true">
+				<ul class="nav navbar-nav navbar-right col-md-2" >
+			        <li style="float:right;">
+	                  	<a href="login" data-target="mylogin">
+	                  	 	<span class="glyphicon glyphicon-log-in" ></span> Sign in
+	                  	</a>
+
+		        	<%-- <sec:authorize access="hasAnyRole('ROLE_ADMIN', 'ROLE_USER')?false:true"> 
+		        		<a href="login"  data-target="#mylogin" ><span class="glyphicon glyphicon-log-in" ></span> Sign in</a>
+		        	</sec:authorize>
+		        	<sec:authorize access="hasRole('ROLE_USER')">
+		    			<a href="<c:url value='/j_spring_security_logout'/>"><span class="glyphicon glyphicon-log-out" ></span> Log out</a>
+		    		</sec:authorize> --%>
+		        </li>
+		    	<%-- <sec:authorize access="hasRole('ROLE_USER')">
+		    		<a href="<c:url value='/j_spring_security_logout'/>"><span class="glyphicon glyphicon-log-out" ></span> Log out</a>
+		    	</sec:authorize> --%>
 		    </ul>
+		    </sec:authorize>
 		</div>
 	</div>
 	<nav class="navbar navbar-default" data-spy="affix" data-offset-top="197">		
 		<div class="container-fluid" ng-controller="MainController">
 			<ul class="nav navbar-nav">
-			    <li><a href="#" class="nav-font">Home</a></li>
+			    <li><a href="home" class="nav-font">Home</a></li>
 			    <li>
-			    	<a href="#marketdata" class="nav-font">MarketData</a>
+			    	<a href="marketdata" class="nav-font">MarketData</a>
 			    </li>
-			    <li>
+			   <!--  <li>
 			    	<a href="#transaction" class="nav-font">Transaction</a>
-			    </li>
-			    <li>
-			    	<a href="#history" class="nav-font">History</a>
-			    </li>
-			    <li>
-			    	<a href="#search" class="nav-font">Search</a>
-			    </li>
+			    </li> -->
+			    <sec:authorize access="hasRole('ROLE_USER')">
+                  <li>
+                      <a class="nav-font" href="portfolio">
+                          <i class="icon_desktop"></i>
+                          <span>My Portfolio</span>
+                      </a>
+                  </li>
+                  <li>
+                      <a class="nav-font" href="history">
+                          <i class="icon_document_alt"></i>
+                          <span>History</span>
+                      </a>
+                  </li> 
+                 </sec:authorize>
+                 <%-- <sec:authorize access="hasAnyRole('ROLE_ADMIN', 'ROLE_USER')">
+                  <!-- user login dropdown start-->
+                  <li class="dropdown" navbar-right ng-controller="headerCtrl">
+                      <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                          <span class="profile-ava">
+                              <img alt="" src="img/images.jpg" width="30" height="30">
+                          </span>
+                          <span class="username">Hello, {{user.userName}}</span>
+                          <b class="caret"></b>
+                      </a>
+                      <ul class="dropdown-menu extended logout">
+                          <div class="log-arrow-up"></div>
+                          <li class="prof-info-container">
+                          	<div class="profile-ava prof-big"><img alt="" src="img/images.jpg" width="50" height="50"></div>
+                          	<div class="prof-info">
+                          		<ul>
+                          			<li>{{user.firstName}} {{user.lastName}}</li>
+                          			<li>{{user.email}}
+                          		</ul>                          	
+                          	</div>
+                          </li>
+                          <li>
+                          	<a href="<c:url value='/j_spring_security_logout'/>"><i class="icon_key_alt"></i>Logout</a>
+                          </li>
+                      </ul>
+                  </li>
+                  </sec:authorize> --%>
 			</ul>
+			<sec:authorize access="hasRole('ROLE_USER')">
+			<ul class="nav navbar-nav navbar-right">
+				<li>
+					<div class="dropdown navbar-right">
+						<button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+				  		<span class="glyphicons glyphicons-user">User</span>
+				  		<span class="caret"></span></button>
+				  		<ul class="dropdown-menu">
+						    <li><a href="#">My Portfolio</a></li>
+						    <li><a href="#"></a></li>
+						    <li><a href="<c:url value='/j_spring_security_logout'/>">Sign out</a></li>
+				  		</ul>
+					</div>
+				</li>
+			</ul>
+			</sec:authorize>
+			
 			<!-- <ul class="nav navbar-nav navbar-right">
 				<li>
 					<a href="#cart">
@@ -114,26 +159,26 @@
 	</div>
 	
 	
-	<div class="rtop_btn" id="rtop_btn">
+	<!-- <div class="rtop_btn" id="rtop_btn">
 		<a href="#0" class="toplink cd-top">
 			<img src="icon/backtotop.png" class="totop" width="60" height="60">
 		</a>
-	</div>
+	</div> -->
 	
 	
 	
 	<div class="alert" style="display:none;" id="usernameAndPasswordReq">
-		<p>Username and password are required</p>
+		<p>Email and password are required</p>
 	</div>
 	
 	<div class="alert" style="display:none;" id="usernameReq">
-		<p>Username is required</p>
+		<p>Email is required</p>
 	</div>
 	<div class="alert" style="display:none;" id="passwordReq">
 		<p>Password is required</p>
 	</div>
 	<div class="alert" id="wrongCredentials" style="display:none;">
-		<p>The username or password supplied is incorrect</p>
+		<p>The email or password supplied is incorrect</p>
 	</div>	
 	
 	<footer class="container-fluid bg-4">

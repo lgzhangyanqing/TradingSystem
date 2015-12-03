@@ -8,21 +8,42 @@
 		http://www.springframework.org/schema/security
 		http://www.springframework.org/schema/security/spring-security-3.1.xsd">
 			
-	<sec:http auto-config="true">
-    	<sec:intercept-url pattern="/login*" access="ROLE_USER"/>
-    	<sec:form-login 
-        	login-page="/main.jsp#/login"
-        	authentication-failure-url="/main.jsp#/login?login_error=1" 
-        />
-        <sec:logout logout-success-url="/login.html"/>
+	<sec:http auto-config="true" use-expressions="true">
+    	<sec:intercept-url pattern="/login*" access="hasRole('ROLE_USER')"/>
+    	<!-- <sec:intercept-url pattern="/main*" access="isAnonymous()"/> -->
+    	<!--  <sec:form-login 
+        	login-page="/login"
+        	default-target-url="/main.html"
+        	authentication-failure-url="/login?login_error=1" 
+        /> --> 
+        <sec:logout logout-success-url="/"/>
 	</sec:http>
  	
-	<sec:authentication-manager alias="authenticationManager">
+ 	<sec:authentication-manager alias="authenticationManager">
+        <sec:authentication-provider>
+        	 <sec:jdbc-user-service data-source-ref="dataSource"
+		   		users-by-username-query="
+		      		select username, password, enabled 
+		      		from yfts_user where username=?"
+		      	      		
+		     />  
+		    <!-- <sec:user-service>
+				<sec:user name="peter" password="1234" authorities="ROLE_USER"/>
+			</sec:user-service> -->
+		</sec:authentication-provider> 
+	</sec:authentication-manager> 
+	
+
+    <!--  <bean id="UserService" class="com.mercury.service.UserService">
+    	<property name="ud" ref="userDao"/>
+    </bean>
+    <bean id="userDao" class="com.mercury.dao.impl.UserDaoImpl"/>   -->
+    
+   <!-- <sec:authentication-manager alias="authenticationManager">
         <sec:authentication-provider user-service-ref="customUserDetailsService"/>
     </sec:authentication-manager>
-    
     <bean id="customUserDetailsService" class="com.mercury.service.CustomUserDetailsService">
     	<property name="pd" ref="personDao"/>
     </bean>
-    <bean id="personDao" class="com.mercury.dao.impl.PersonDaoImpl"/>
+    <bean id="personDao" class="com.mercury.dao.impl.PersonDaoImpl"/>  -->
 </beans>
