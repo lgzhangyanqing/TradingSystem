@@ -19,19 +19,17 @@
         <sec:logout logout-success-url="/"/>
 	</sec:http>
  	
- 	<sec:authentication-manager alias="authenticationManager">
+	<sec:authentication-manager alias="authenticationManager">
         <sec:authentication-provider>
-        	 <sec:jdbc-user-service data-source-ref="dataSource"
+        	<sec:jdbc-user-service id="jdbcUserService" data-source-ref="dataSource"
 		   		users-by-username-query="
 		      		select username, password, enabled 
 		      		from yfts_user where username=?"
-		      	      		
-		     />  
-		    <!-- <sec:user-service>
-				<sec:user name="peter" password="1234" authorities="ROLE_USER"/>
-			</sec:user-service> -->
-		</sec:authentication-provider> 
-	</sec:authentication-manager> 
+				authorities-by-username-query="
+		      		select username, authority from yfts_user 
+		      		where username =?" />
+		</sec:authentication-provider>
+	</sec:authentication-manager>
 	
 
     <!--  <bean id="UserService" class="com.mercury.service.UserService">
