@@ -1,42 +1,42 @@
 package com.mercury.beans;
 
+import javax.persistence.*;
+
+import org.hibernate.annotations.GenericGenerator;
+
+@Entity
+@Table(name="yfts_stock")
 public class Stock {
-	private String id;
-	private String name;
-	private double price;
-	private double change;
-	private String pchange;
+	private String sid;
+	private String symbol;
+	private String sDesc;
+	
+	@Id
+	@GenericGenerator(name = "generator", strategy = "increment")
+	@GeneratedValue(generator = "generator")
+	@Column(name="Stock_id")
+	public String getSid() {
+		return sid;
+	}
+	public void setSid(String sid) {
+		this.sid = sid;
+	}
+	
+	@Column(name="Symbol")
+	public String getSymbol() {
+		return symbol;
+	}
+	public void setSymbol(String symbol) {
+		this.symbol = symbol;
+	}
+	@Column(name="Stockname")
+	public String getsDesc() {
+		return sDesc;
+	}
+	public void setsDesc(String sDesc) {
+		this.sDesc = sDesc;
+	}
 	
 	
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public String getId() {
-		return id;
-	}
-	public void setId(String id) {
-		this.id = id;
-	}
-	public double getPrice() {
-		return price;
-	}
-	public void setPrice(double price) {
-		this.price = price;
-	}
-	public double getChange() {
-		return change;
-	}
-	public void setChange(double change) {
-		this.change = change;
-	}
-	public String getPchange() {
-		return pchange;
-	}
-	public void setPchange(String pchange) {
-		this.pchange = pchange;
-	}
 	
 }

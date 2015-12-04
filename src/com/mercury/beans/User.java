@@ -22,6 +22,7 @@ public class User implements Serializable{
 	private int balance;
 	private String authority;
 	private int enabled;
+	
 	/*private Set<OwnershipInfo> owns = new HashSet<OwnershipInfo>();
 	private Set<Transaction> trans = new HashSet<Transaction>();
 	*/

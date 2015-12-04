@@ -17,51 +17,42 @@
         http://www.springframework.org/schema/util 
         http://www.springframework.org/schema/util/spring-util-3.0.xsd">
     <context:component-scan base-package="com.mercury" />
+   
     
-    <mvc:annotation-driven /> 
+     <mvc:annotation-driven /> 
    
  <!--    <tx:annotation-driven />  -->
-    <util:list id="stocks">
-    	<bean class="com.mercury.beans.Stock">
-    		<property name="id" value="BAC"/>
-    	</bean>
-    	<bean class="com.mercury.beans.Stock">
-    		<property name="id" value="C"/>
-    	</bean>
-    	<bean class="com.mercury.beans.Stock">
-    		<property name="id" value="BABA"/>
-    	</bean>
-    	<bean class="com.mercury.beans.Stock">
-    		<property name="id" value="DRYS"/>
-    	</bean>
-    </util:list> 
-    
-    <!--  <bean id="userDao" class="com.mercury.dao.impl.UserDaoImpl">
-		<property name="sessionFactory" ref="sessionFactory" />
-	</bean> 
-	Hibernate Annotation
-	<bean id="sessionFactory"
-		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
-		<property name="dataSource" ref="dataSource" />
-		<property name="annotatedClasses">
-			<list>
-				<value>com.mercury.beans.User</value>
-			</list>
-		</property>
-		<property name="hibernateProperties">
-			<props>
-				<prop key="hibernate.dialect">org.hibernate.dialect.OracleDialect</prop>
-				<prop key="hibernate.show_sql">true</prop>
-			</props>
-		</property>
-	</bean> -->
-    <bean id="viewResolver"
+ 	<!-- Spring MVC -->
+	<bean id="viewResolver"
         class="org.springframework.web.servlet.view.UrlBasedViewResolver">
         <property name="viewClass"
             value="org.springframework.web.servlet.view.JstlView" />
         <property name="prefix" value="/pages/" />
         <property name="suffix" value=".jsp" />
     </bean>
+    
+     <!-- <bean id="stockDao" class="com.mercury.dao.impl.StockDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>  -->
+	
+	<!-- Hibernate Annotation -->
+	<!-- <bean id="sessionFactory"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="annotatedClasses">
+			<list>
+				<value>com.mercury.beans.Stock</value>
+			</list>
+		</property>
+		<property name="packagesToScan" value="com.mercury.beans"/>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.OracleDialect</prop>
+				<prop key="hibernate.show_sql">true</prop>
+			</props>
+		</property>
+	</bean>  -->
+   
     
     
    <!--  <bean id="loginController" class="com.mercury.controller.LoginController"/> -->

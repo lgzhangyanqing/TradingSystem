@@ -128,8 +128,8 @@
                   </sec:authorize> --%>
 			</ul>
 			<sec:authorize access="hasRole('ROLE_USER')">
-			<ul class="nav navbar-nav navbar-right">
-				<li>
+			<ul class="nav navbar-nav pull-right">
+				<%-- <li>
 					<div class="dropdown navbar-right">
 						<button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
 				  		<span class="glyphicons glyphicons-user">User</span>
@@ -140,7 +140,31 @@
 						    <li><a href="<c:url value='/j_spring_security_logout'/>">Sign out</a></li>
 				  		</ul>
 					</div>
-				</li>
+				</li> --%>
+					<li class="dropdown" ng-controller="headerCtrl">
+                      <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                          <span class="profile-ava">
+                              <img alt="" src="icon/user.png" width="30" height="30">
+                          </span>
+                          <span class="username">Hello, {{user.userName}}</span>
+                          <b class="caret"></b>
+                      </a>
+                      <ul class="dropdown-menu extended logout">
+                          <div class="log-arrow-up"></div>
+                          <li class="prof-info-container">
+                          	<div class="profile-ava prof-big"><img alt="" src="icon/user.png" width="50" height="50"></div>
+                          	<div class="prof-info">
+                          		<ul>
+                          			<li>{{user.firstName}} {{user.lastName}}</li>
+                          			<li>{{user.email}}
+                          		</ul>                          	
+                          	</div>
+                          </li>
+                          <li>
+                          	<a href="<c:url value='/j_spring_security_logout'/>"><i class="icon_key_alt"></i>Logout</a>
+                          </li>
+                      </ul>
+                  </li>
 			</ul>
 			</sec:authorize>
 			
@@ -154,7 +178,7 @@
 		</div>
 	</nav>
 
-	<div class="container-fluid" id="main">
+	<div class="container-fluid" id="main" style="z-index:-1;">
 		<div ng-view></div>
 	</div>
 	

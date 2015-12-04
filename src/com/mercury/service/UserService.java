@@ -44,7 +44,7 @@ public class UserService {
 		return ud.findByUserName(username);
 	}
 	
-	/*@Transactional
+	@Transactional
 	public UserInfo userLogin(String username) {
 		UserInfo userInfo = new UserInfo();
 		userInfo.setMessage("Hello "+ username);
@@ -52,7 +52,7 @@ public class UserService {
 		return userInfo;
 	}
 	
-	@Transactional
+	/*@Transactional
 	public List<OwnershipInfo> findOwnByUserName(String username){
 		User user = findUserByUserName(username);
 		return od.findOwnByUser(user);

@@ -1,7 +1,7 @@
 @CHARSET "ISO-8859-1";
 
  body {
-      position: relative; 
+      position: relative;  
       backgroud-img:url(icon/back.jpg);
       width: 100%; /* Set width to 100% */
       margin: auto;
