@@ -17,6 +17,11 @@
 	<script src="https://code.angularjs.org/1.2.28/angular-route.min.js"></script>
 	<script type="text/javascript" src="js/app.js"></script>
 	<script src="js/angular.min.js"></script>
+	<link href="css/landing-page.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
 	<script type="text/javascript">
 		$('#status').fadeOut(800);
 		

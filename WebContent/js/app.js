@@ -36,11 +36,11 @@
 	app.config(function($routeProvider, $locationProvider) {
 	  $routeProvider
 		  .when('/', {
-		    templateUrl: 'pages/home.jsp',
+		    templateUrl: 'pages/landing.jsp',
 		    controller: 'homeController',
 		  })
 		  .when('/home', {
-			    templateUrl: 'pages/home.jsp',
+			    templateUrl: 'pages/landing.jsp',
 			    controller: 'signController',
 		  })
 		  .when('/login', {
