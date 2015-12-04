@@ -21,8 +21,8 @@
 		<table class="table table-stripped">
 			<tr>
 				<th>
-					<a href="" ng-click="order('id')">Stock Symbol</a>
-					<span class="sortorder" ng-show="predicate === 'id'" ng-class="{reverse:reverse}"></span>
+					<a href="" ng-click="order('symbol')">Stock Symbol</a>
+					<span class="sortorder" ng-show="predicate === 'symbol'" ng-class="{reverse:reverse}"></span>
 				</th>
 				<th>
 					<a href="" ng-click="order('name')">Stock Name</a>
@@ -41,8 +41,8 @@
 					<span class="sortorder" ng-show="predicate === 'pchange'" ng-class="{reverse:reverse}"></span>					
 				</th>
 			</tr>
-			<tr ng-repeat="stock in stocksArray | orderBy:predicate:reverse | filter:stock.id">
-				<td>{{stock.id}}</td>
+			<tr ng-repeat="stock in stocksArray | orderBy:predicate:reverse | filter:stock.symbol">
+				<td>{{stock.stock.symbol}}</td>
 				<td>{{stock.name}}</td>
 				<td>{{stock.price}}</td>
 				<td>

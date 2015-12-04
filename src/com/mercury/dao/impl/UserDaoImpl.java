@@ -10,7 +10,7 @@ import com.mercury.beans.User;
 import com.mercury.dao.UserDao;
 
 public class UserDaoImpl implements UserDao {
-private SessionFactory sessionFactory;
+	private SessionFactory sessionFactory;
 	
 	public SessionFactory getSessionFactory() {
 		return sessionFactory;

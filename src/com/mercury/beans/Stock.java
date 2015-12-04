@@ -36,7 +36,4 @@ public class Stock {
 	public void setsDesc(String sDesc) {
 		this.sDesc = sDesc;
 	}
-	
-	
-	
 }

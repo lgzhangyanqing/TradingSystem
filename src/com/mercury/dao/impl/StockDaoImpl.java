@@ -2,6 +2,8 @@ package com.mercury.dao.impl;
 
 import java.util.List;
 
+import javax.annotation.Resource;
+
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
@@ -10,9 +12,9 @@ import org.springframework.stereotype.Repository;
 import com.mercury.beans.Stock;
 import com.mercury.dao.StockDao;
 
-//@Repository
+@Repository
 public class StockDaoImpl implements StockDao {
-	
+	@Resource
 	private SessionFactory sessionFactory;
 	
 	public SessionFactory getSessionFactory() {
@@ -37,11 +39,9 @@ public class StockDaoImpl implements StockDao {
 		return (Stock) sessionFactory.getCurrentSession().get(Stock.class, sid);
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
-	public List<Stock> findBySymbol(String symbol) {
-		return sessionFactory.getCurrentSession().createCriteria(Stock.class)
-				.add(Restrictions.eq("symbol", symbol)).list();
+	public Stock findBySymbol(String symbol) {
+		return (Stock) sessionFactory.getCurrentSession().get(Stock.class, symbol);
 	}
 
 	@SuppressWarnings("unchecked")

@@ -1,6 +1,6 @@
 (function(){
 	var app = angular.module('main', ['ngRoute','ngMessages'])
-	/*app.service("shared", function() {
+	app.service("shared", function() {
 	var _stock = null;
 	var _user = null;
 	var _stockInfo = null;
@@ -24,7 +24,7 @@
 			_stockInfo = stockInfo;
 		}
 		};
-	});*/
+	});
 	app.controller('MainController', function($scope, $interval, $http, $route, $routeParams, $location) {
 	     $scope.$route = $route;
 	     $scope.$location = $location;
@@ -39,10 +39,10 @@
 		    templateUrl: 'pages/home.jsp',
 		    controller: 'homeController',
 		  })
-		  /*.when('/home', {
+		  .when('/home', {
 			    templateUrl: 'pages/home.jsp',
 			    controller: 'signController',
-		  })*/
+		  })
 		  .when('/login', {
 			    templateUrl: 'pages/login.jsp',
 			    controller: 'loginController',
@@ -95,7 +95,7 @@
 		
 		
 			
-		/*$scope.hasStock = function(stock) {
+		$scope.hasStock = function(stock) {
 			console.log(stock);
 			for (var i=0; i<$scope.stockInfo.length; i++){
 				if (stock.stock.sid == $scope.stockInfo[i].stock.sid){
@@ -104,7 +104,7 @@
 			}
 			return false;
 		};
-		*/
+		
 		$scope.predicate = 'stock.stock.symbol';
 	    $scope.reverse = true;
 	    $scope.order = function(predicate) {

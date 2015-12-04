@@ -6,6 +6,7 @@ public class StockInfo {
 	private double price;
 	private double change;
 	private String pchange;
+	private Stock stock;
 	
 	public StockInfo(){}
 	
@@ -40,4 +41,13 @@ public class StockInfo {
 	public void setPchange(String pchange) {
 		this.pchange = pchange;
 	}
+
+	public Stock getStock() {
+		return stock;
+	}
+
+	public void setStock(Stock stock) {
+		this.stock = stock;
+	}
+	
 }

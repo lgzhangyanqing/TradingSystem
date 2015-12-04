@@ -33,7 +33,7 @@ public class LoginController {
 	public ModelAndView mainPage() {	
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("main");
-		mav.addObject("title", "Hello, welcome to Customized Spring Security");
+		mav.addObject("title", "Hello, welcome to YF Trading System!");
 		return mav;
 	}
 	
