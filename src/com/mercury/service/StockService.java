@@ -89,7 +89,7 @@ public class StockService {
 	public StockInfo getStockInfo(Stock stock) {
 		String yahoo_quote = "http://finance.yahoo.com/d/quotes.csv?s=" + stock.getSymbol() + "&f=snc1l1p2&e=.c";
 		String pchange = null;
-		String name = null;
+		String name = " ";
 		double price = 0;
 		double change = 0;
 		try {
@@ -99,11 +99,18 @@ public class StockService {
 			String content = in.readLine();
 			System.out.println(content);
 			content = content.replace((char)34, (char)32);//' ' replace '"'
-			String[] tokens = content.split(",");			
+			String[] tokens = content.split(",");
+			int length = tokens.length;
+			if (tokens.length <4) return null;
+			if(!tokens[tokens.length-4].trim().equals("N/A")){
+				for (int i= length-4; i>0; i--){
+					name = tokens[i].trim() + name;
+				}
 			pchange = tokens[tokens.length-1].trim();
 			price = Double.parseDouble(tokens[tokens.length-2].trim());
 			change = Double.parseDouble(tokens[tokens.length-3].trim());
-			name =  tokens[tokens.length-4].trim();
+			/*name =  tokens[tokens.length-4].trim();*/
+			}
 		}catch (Exception e) {
 				e.printStackTrace();
 			}
