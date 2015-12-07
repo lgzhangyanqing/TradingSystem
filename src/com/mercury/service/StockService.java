@@ -87,8 +87,9 @@ public class StockService {
 	}
 	
 	public StockInfo getStockInfo(Stock stock) {
-		String yahoo_quote = "http://finance.yahoo.com/d/quotes.csv?s=" + stock.getSymbol() + "&f=snc1l1&e=.c";
-		String stockName = "";
+		String yahoo_quote = "http://finance.yahoo.com/d/quotes.csv?s=" + stock.getSymbol() + "&f=snc1l1p2&e=.c";
+		String pchange = null;
+		String name = null;
 		double price = 0;
 		double change = 0;
 		try {
@@ -98,25 +99,21 @@ public class StockService {
 			String content = in.readLine();
 			System.out.println(content);
 			content = content.replace((char)34, (char)32);//' ' replace '"'
-			String[] tokens = content.split(",");
-			int length = tokens.length;
-			if (tokens.length <3) return null;
-			if(!tokens[tokens.length-3].trim().equals("N/A")){
-				for (int i= length-3; i>0; i--){
-					stockName = tokens[i].trim() + stockName;
-				}
-				price = Double.parseDouble(tokens[length-1].trim());
-				change = Double.parseDouble(tokens[length-2].trim());
+			String[] tokens = content.split(",");			
+			pchange = tokens[tokens.length-1].trim();
+			price = Double.parseDouble(tokens[tokens.length-2].trim());
+			change = Double.parseDouble(tokens[tokens.length-3].trim());
+			name =  tokens[tokens.length-4].trim();
+		}catch (Exception e) {
+				e.printStackTrace();
 			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		StockInfo si = new StockInfo();
-		si.setStock(stock);
-		si.setStockName(stockName);
-		si.setPrice(price);
-		si.setChange(change);
-		return si;
+			StockInfo si = new StockInfo();
+			si.setStock(stock);
+			si.setStockName(name);
+			si.setPchange(pchange);
+			si.setPrice(price);
+			si.setChange(change);
+			return si;	
 	}
 	
 	//get real time stockInfo

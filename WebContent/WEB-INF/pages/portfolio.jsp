@@ -83,24 +83,8 @@
           <section class="wrapper" ng-controller="mainController">
 			<!-- page start-->
 			   <div class="row">
-			   	 <div class="col-lg-12" >
-                      <section class="panel">
-                          <header class="panel-heading">
-                              Balance
-                          </header>
-                          <div class="panel-body">
-								<div ng-controller="ModalDemoCtrl" style="text-align:center">
-										<button id="addBalance" class="btn btn-primary btn-sm"
-											ng-click="openAdd()">Add Balance</button>
-										<span>Current Balance: <b style="color: #0099CC;vertical-align: sub;font-size: 35px;margin-left: 5px;">$ {{user.balance}}</b></span>	
-										<div id="addSuccess" ng-show="addSuccess&&!sellSuccess&&!sellSuccess">Adding money Success!</div>	
-									
-								</div>
-								
-							</div>
-                      </section>
-                 </div>
-                  <div class="col-lg-12" ng-controller="ModalDemoCtrl">
+			   	 
+                  <div class="col-lg-9" ng-controller="ModalDemoCtrl">
                       <section class="panel">
                           <header class="panel-heading">
                               Stock
@@ -110,16 +94,17 @@
                           <table class="table table-striped table-advance table-hover" >
                            <tbody>
                               <tr>
-                                 <th><i class="icon_star"></i> Stock Id</th>
+                                 <!-- <th><i class="icon_star"></i> Stock Id</th> -->
                                  <th><i class="icon_calendar"></i> Symbol</th>
-                                 <th><i class="icon_datareport_alt"></i> Stock Name</th>
-                                 <th><i class="icon_currency_alt"></i> Stock Price</th>
-                                 <th><i class="icon_currency"></i> Stock Change</th>
+                                 <th><i class="icon_datareport_alt"></i> StockName</th>
+                                 <th><i class="icon_currency_alt"></i>Price</th>
+                                 <th><i class="icon_currency"></i>Change</th>
+                                 <th>Change%</th>
                                  <th><i class="icon_calendar"></i> Quantity</th>
                                  <th><i class="icon_cogs"></i> Action</th>
                               </tr>
                               <tr ng-repeat=" stock in stockInfo">
-								<td>{{stock.stock.sid}}</td>
+								<!-- <td>{{stock.stock.sid}}</td> -->
 								<td>{{stock.stock.symbol}}</td>
 								<td>{{stock.stockName}}</td>
 								<td>{{stock.price}}</td>
@@ -128,6 +113,12 @@
 									<b ng-if="stock.change<0" style="color:red">{{stock.change}}</b>
 									<b ng-if="stock.change==0" style="color:black">{{stock.change}}</b>
 								</td>
+								<td>
+									<b ng-if="stock.pchange.indexOf('-')>-1" style="color:red">{{stock.pchange}}</b>
+									<b ng-if="stock.pchange.indexOf('+')>-1" style="color:green">{{stock.pchange}}</b>
+									<b ng-if="stock.pchange.indexOf('0')==0" style="color:black">{{stock.pchange}}</b>
+								</td>
+								
 								<td>{{stock.quantity}}</td>
 								<sec:authorize access="hasAnyRole('ROLE_ADMIN', 'ROLE_USER')">
                                  <td>
@@ -161,6 +152,22 @@
 	              </div>
                       </section>
                   </div>
+                  <div class="col-lg-3" >
+                      <section class="panel">
+                          <header class="panel-heading">
+                              Balance
+                          </header>
+                          <div class="panel-body">
+								<div ng-controller="ModalDemoCtrl" style="text-align:center">
+										<span>Current Balance: <b style="color: #0099CC;vertical-align: sub;font-size: 35px;margin-left: 5px;">$ {{user.balance}}</b></span>	
+										<div id="addSuccess" ng-show="addSuccess&&!sellSuccess&&!sellSuccess">Adding money Success!</div>	
+										<button id="addBalance" class="btn btn-primary btn-sm"
+											ng-click="openAdd()">Manage Balance</button>
+								</div>
+								
+							</div>
+                      </section>
+                 </div>
               </div>
               
     <!-- <div ng-controller="mainController">

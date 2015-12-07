@@ -95,25 +95,40 @@
                           </header>
                            <div class="panel-body">
                           <div ng-controller="mainController">
+                          <form class="form">
+									<div class="form-group col-md-6">
+										<label>Stock Symbol</label>
+										<input class="form-control" type="text" ng-model="stock.symbol">
+									</div>
+									<!-- <div calss="form-group col-md-6">
+										<button class="btn btn-primary" ng-click="search()">
+											<span class="glyphicon glyphicon-search"></span> Search
+										</button>
+									</div> -->
+								</form>
                           <table class="table table-striped table-advance table-hover" id="stockList">
                            <tbody>
                               <tr>
                                  <th>
-                                 	<a href="" ng-click="order('stock.symbol')">Stock Symbol</a>
+                                 	<a href="" ng-click="order('stock.symbol')">StockSymbol</a>
        								<span class="sortorder" ng-show="predicate === 'stock.symbol'" ng-class="{reverse:reverse}"></span>
                                  </th>
                                 
                                  <th>
-                                 	<a href="" ng-click="order('stockName')">Stock Name</a>
+                                 	<a href="" ng-click="order('stockName')">StockName</a>
        								<span class="sortorder" ng-show="predicate === 'stockName'" ng-class="{reverse:reverse}"></span>
                                  </th>
                                  <th>
-                                 	<a href="" ng-click="order('price')">Stock Price</a>
+                                 	<a href="" ng-click="order('price')">Price</a>
        								<span class="sortorder" ng-show="predicate === 'price'" ng-class="{reverse:reverse}"></span>
                                  </th>
                                  <th>
-                                 	<a href="" ng-click="order('change')">Stock Change</a>
+                                 	<a href="" ng-click="order('change')">Change</a>
        								<span class="sortorder" ng-show="predicate === 'change'" ng-class="{reverse:reverse}"></span>
+                                 </th>
+                                  <th>
+                                 	<a href="" ng-click="order('pchange')">Change%</a>
+       								<span class="sortorder" ng-show="predicate === 'pchange'" ng-class="{reverse:reverse}"></span>
                                  </th>
 								 <sec:authorize access="hasRole('ROLE_USER')">
 									<th style="color:#007aff">Transaction</th>
@@ -128,6 +143,11 @@
 									<b ng-if="stock.change<0" style="color:red">{{stock.change}}</b>
 									<b ng-if="stock.change==0" style="color:black">{{stock.change}}</b>
 								</td>
+								<td>
+									<b ng-if="stock.pchange.indexOf('-')>-1" style="color:red">{{stock.pchange}}</b>
+									<b ng-if="stock.pchange.indexOf('+')>-1" style="color:green">{{stock.pchange}}</b>
+									<b ng-if="stock.pchange.indexOf('0')==0" style="color:black">{{stock.pchange}}</b>
+								</td>
 								<sec:authorize access="hasRole('ROLE_USER')">
                                  <td>
                                   <div class="btn-group">
@@ -141,7 +161,7 @@
                            </tbody>
                         </table>
                         <!-- loading bar -->
-						<div class = "loadbox" ng-hide="loading">
+						<!-- <div class = "loadbox" ng-hide="loading">
 							<div class = "loadbar">
 								<div class="progress progress-striped active progress-sm" >
 							    	<div class="progress-bar progress-bar-success"  role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:{{percent}}">
@@ -150,7 +170,7 @@
 					    		</div>
 					     		<p>Loading...</p>
 					    	</div>
-					   </div>
+					   </div> -->
 					   </div>
 					   </div>
                       </section>

@@ -26,7 +26,7 @@
 			<sec:authorize access="hasAnyRole('ROLE_ADMIN', 'ROLE_USER')?false:true">
 				<ul class="nav navbar-nav navbar-right col-md-2" >
 			        <li style="float:right;">
-	                  	<a href="#login_up">
+	                  	<a href="login#login_up">
 	                  	 	<span class="glyphicon glyphicon-log-in" ></span> Sign in
 	                  	</a> 
 	                  	<!-- <span class="glyphicon glyphicon-log-in" data-toggle="modal" data-target="#login_up"></span> Sign in -->

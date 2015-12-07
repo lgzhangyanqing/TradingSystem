@@ -26,6 +26,8 @@
     <link href="css/stylesheet.css" rel="stylesheet">
     <link href="css/landing-page.css" rel="stylesheet">
 	<!-- <link href="css/agency.css" rel="stylesheet">  -->
+	<link rel="stylesheet" href="css/animate.min.css" type="text/css">
+	<link rel="stylesheet" href="css/creative.css" type="text/css">
 	
     <!-- Custom Fonts -->
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -198,7 +200,7 @@
             <!-- Brand and toggle get grouped for better mobile display -->
             <!-- Collect the nav links, forms, and other content for toggling -->
 			<ul class="nav navbar-nav">
-			    <li><a href="#land" class="nav-font">Home</a></li>
+			    <li><a href="#" class="nav-font">Home</a></li>
 			    <li>
 			    	<a href="marketdata" class="nav-font">MarketData</a>
 			    </li>
@@ -222,7 +224,6 @@
 			</ul>
             </div>
             <!-- /.navbar-collapse -->
-        </div>
         <!-- /.container-fluid -->
     </nav>
 
@@ -235,95 +236,66 @@
                         <h1>We see your Financial Life in total</h1>
                         <h3>Upgrade your Stock Trading with Yahoo Finance Trading System</h3>
                         <hr class="intro-divider">
-                       <!--  <ul class="list-inline intro-social-buttons">
-                            <li>
-                                <a href="https://twitter.com/SBootstrap" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">Twitter</span></a>
-                            </li>
-                            <li>
-                                <a href="https://github.com/IronSummitMedia/startbootstrap" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name">Github</span></a>
-                            </li>
-                            <li>
-                                <a href="#" class="btn btn-default btn-lg"><i class="fa fa-linkedin fa-fw"></i> <span class="network-name">Linkedin</span></a>
-                            </li>
-                        </ul> -->
+                        <a href="#service" class="btn btn-primary btn-xl page-scroll">Find Out More</a>
                     </div>
                 </div>
             </div>
 
         </div>
         <!-- /.container -->
-        <a  name="services"></a>
-	    <div class="content-section-a">
-	
-	        <div class="container">
-	            <div class="row">
-	                <div class="col-lg-5 col-sm-6">
-	                    <hr class="section-heading-spacer">
-	                    <div class="clearfix"></div>
-	                    <h2 class="section-heading">Death to the Stock Photo:<br>Special Thanks</h2>
-	                    <p class="lead">A special thanks to <a target="_blank" href="http://join.deathtothestockphoto.com/">Death to the Stock Photo</a> for providing the photographs that you see in this template. Visit their website to become a member.</p>
-	                </div>
-	                <div class="col-lg-5 col-lg-offset-2 col-sm-6">
-	                    <img class="img-responsive" src="img/ipad.png" alt="">
-	                </div>
-	            </div>
-	
-	        </div>
-	        <!-- /.container -->
-	
-	    </div>
-    	<!-- /.content-section-a -->
-
-	    <div class="content-section-b">
-	
-	        <div class="container">
-	
-	            <div class="row">
-	                <div class="col-lg-5 col-lg-offset-1 col-sm-push-6  col-sm-6">
-	                    <hr class="section-heading-spacer">
-	                    <div class="clearfix"></div>
-	                    <h2 class="section-heading">3D Device Mockups<br>by PSDCovers</h2>
-	                    <p class="lead">Turn your 2D designs into high quality, 3D product shots in seconds using free Photoshop actions by <a target="_blank" href="http://www.psdcovers.com/">PSDCovers</a>! Visit their website to download some of their awesome, free photoshop actions!</p>
-	                </div>
-	                <div class="col-lg-5 col-sm-pull-6  col-sm-6">
-	                    <img class="img-responsive" src="img/dog.png" alt="">
-	                </div>
-	            </div>
-	
-	        </div>
-	        <!-- /.container -->
-	
-	    </div>
-	    <!-- /.content-section-b -->
-
-	    <div class="content-section-a">
-	
-	        <div class="container">
-	
-	            <div class="row">
-	                <div class="col-lg-5 col-sm-6">
-	                    <hr class="section-heading-spacer">
-	                    <div class="clearfix"></div>
-	                    <h2 class="section-heading">Google Web Fonts and<br>Font Awesome Icons</h2>
-	                    <p class="lead">This template features the 'Lato' font, part of the <a target="_blank" href="http://www.google.com/fonts">Google Web Font library</a>, as well as <a target="_blank" href="http://fontawesome.io">icons from Font Awesome</a>.</p>
-	                </div>
-	                <div class="col-lg-5 col-lg-offset-2 col-sm-6">
-	                    <img class="img-responsive" src="img/phones.png" alt="">
-	                </div>
-	            </div>
-	
-	        </div>
-	        <!-- /.container -->
-	
-	    </div>
-
     </div>
-    <!-- Contact Section -->
-    <div class="banner">
-		
+   <a name="service"></a>
+    <div class="content-section-a">
         <div class="container">
             <div class="row">
-                    <section id="login_up" style="margin-top: 60px;">
+                <div class="col-lg-12 text-center">
+                <br>
+                <br>
+                    <h2 class="section-heading">At Your Service</h2>
+                    <hr class="primary">
+                </div>
+            </div>
+        </div>
+        <div class="container section-footer">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 text-center">
+                    <div class="service-box">
+                        <i class="fa fa-4x fa-exchange wow bounceIn text-primary" ></i>
+                        <h3>Trade Your Way</h3>
+                        <p class="text-muted">Buy or Sell stocks can never be easy like this.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 text-center">
+                    <div class="service-box">
+                        <i class="fa fa-4x fa-pie-chart wow bounceIn text-primary" data-wow-delay=".1s"></i>
+                        <h3>Check Your Record</h3>
+                        <p class="text-muted">Get your individual portfolio charting on Yahoo Finance Trading System.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 text-center">
+                    <div class="service-box">
+                        <i class="fa fa-4x fa-newspaper-o wow bounceIn text-primary" data-wow-delay=".2s"></i>
+                        <h3>Up to Date</h3>
+                        <p class="text-muted">View the real-time market data in Yahoo.com.</p>
+                    </div>
+                </div>
+               <!--  <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <i class="fa fa-4x fa-heart wow bounceIn text-primary" data-wow-delay=".3s"></i>
+                        <h3>Made with Love</h3>
+                        <p class="text-muted">You have to make your websites with love these days!</p>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </div>
+    <!-- Contact Section -->
+    <a name="login_up"></a>
+    <div class="banner">
+    	<div class="content-section-c">
+        <div class="container">
+            <div class="row">
+                    <section style="margin-top: 60px;">
 				        <div class="container">
 				    	<div class="row">
 				    	<sec:authorize access="hasAnyRole('ROLE_ADMIN', 'ROLE_USER')?false:true">
@@ -439,7 +411,7 @@
 				    </section>
                 </div>
             </div>
-
+</div>
         </div>
         <!-- /.container -->
 
