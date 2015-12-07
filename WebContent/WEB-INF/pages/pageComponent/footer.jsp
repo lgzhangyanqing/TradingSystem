@@ -7,9 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
- <footer class="container-fluid bg-4">
+<footer class="container-fluid bg-4 text-center" style="text-align: center;">
 		<div class="row">
-		<div class="social-follow col-md-4">
+		<div class="social-follow col-md-4 " style="text-align: center;">
 			<span class="follow">Follow Us</span>
 			<div class="social-icons">
 				<a href="https://twitter.com" class="twitter" target="_blank"><img src="icon/twitter.png" style=" height: 66px; width: 60px;"></a>
@@ -23,6 +23,14 @@
 				<p><span class="glyphicon glyphicon-map-marker"></span> Princeton, US</p>
       			<p><span class="glyphicon glyphicon-phone"></span> Phone: +01 1234567890</p>
       			<p><span class="glyphicon glyphicon-envelope"></span> Email: mail@mail.com</p>	
+			</div>
+		</div>
+		<div class="contact-us col-md-3">
+			<span class="links">Useful Links</span>
+			<div>
+				<p><span class="glyphicon glyphicon-home"></span><a	href="#">  HOME</a></p>
+				<p><span class="glyphicon glyphicon-transfer"></span><a href="marketdata">  MARKET DATAE</a></p>
+      			<p><span class="glyphicon glyphicon-glass"></span><a href="#login_up">  JOIN US</a></p>	
 			</div>
 		</div>
 		</div>

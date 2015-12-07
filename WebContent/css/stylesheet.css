@@ -2,10 +2,11 @@
 
  body {
       position: relative;  
-      backgroud-img:url(icon/back.jpg);
       width: 100%; /* Set width to 100% */
       margin: auto;
+/*       background: url('../img/bg.jpg') no-repeat center center fixed; */
   }
+
 
   .affix {
       top:0;
@@ -20,10 +21,10 @@
      top: 50px;
   }
  
-  #marketdata {padding-top:50px;height:500px;color: #fff; background-color: #673ab7;}
+ /*  #marketdata {padding-top:50px;height:500px;color: #fff; background-color: #673ab7;}
   #transaction {padding-top:50px;height:500px;color: #fff; background-color: #ff9800;}
   #history {padding-top:50px;height:500px;color: #fff; background-color: #00bcd4;}
-  #search{padding-top:50px;height:500px;color: #fff; background-color: #009688;}
+  #search{padding-top:50px;height:500px;color: #fff; background-color: #009688;} */
 .top {
     position: relative;
     background-color: #ffffff;
@@ -65,22 +66,23 @@
   }
 
 
-.cart {
-    text-transform: uppercase;
-    display: inline-block;
-    font-size: 11px !important;
-    line-height: 1.875rem;
-    color: #00ff00;
-    letter-spacing: .05em;
-    width:30%;
-    position: relative; 
-}
-	
-
-#cartCount {
+footer a{
+ 	color:white;
+ 	font-family: blenderbold,Verdana,sans-serif;
+    font-size:12px;
+ 	}
+ footer a:hover{
+ 	color:grey;
+ 	text-decoration: none;
+ }
+ .links{
     font-family: blenderbold,Verdana,sans-serif;
     font-weight: lighter;
-    font-size: 11px;
+    font-size:20px;
+    display: block;
+    text-transform: uppercase;
+    color: #b1aca1;
+    letter-spacing: .05em;
 }
 
 .rtop_btn {
