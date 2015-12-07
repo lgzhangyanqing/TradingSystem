@@ -1,20 +1,24 @@
 package com.mercury.service;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.mercury.beans.OwnershipInfo;
+import com.mercury.beans.User;
+import com.mercury.beans.UserInfo;
+import com.mercury.dao.OwnInfoDao;
+import com.mercury.dao.UserDao;
 
-import com.mercury.beans.*;
-import com.mercury.dao.*;
-
-
+@Service
 public class UserService {
 	@Autowired
 	private UserDao ud;
-	/*@Autowired
-	private OwnInfoDao od;*/
+	@Autowired
+	private OwnInfoDao od;
 	
 	public UserDao getUd() {
 		return ud;
@@ -22,7 +26,7 @@ public class UserService {
 	public void setUd(UserDao ud) {
 		this.ud = ud;
 	}
-
+	
 	@Transactional
 	public boolean isUserExist(String username) {
 		if(ud.findByUserName(username) == null){
@@ -51,16 +55,16 @@ public class UserService {
 		userInfo.setUsers(ud.queryAll());
 		return userInfo;
 	}
-	
-	/*@Transactional
+
+	@Transactional
 	public List<OwnershipInfo> findOwnByUserName(String username){
 		User user = findUserByUserName(username);
 		return od.findOwnByUser(user);
 	}
-	*/
+	
 	@Transactional
 	public void addBalance(String username, int addMoney) {
-		com.mercury.beans.User user =ud.findByUserName(username);
+		User user =ud.findByUserName(username);
 		int newBalance =user.getBalance() + addMoney;
 		user.setBalance(newBalance <= 2147483647 ? newBalance : 2147483647);
 		ud.update(user);
@@ -69,5 +73,4 @@ public class UserService {
 	public int getBalance(String username) {
 		return ud.findByUserName(username).getBalance();
 	}
-	
 }

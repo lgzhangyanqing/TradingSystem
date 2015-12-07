@@ -1,31 +1,29 @@
 <div class="container"  ng-controller="porController" id="main">
 	<div class="row">
 		<div class="panel panel-default col-md-10">
-			<div class="panel-head">
+			<header class="panel-heading">
+                  Stock
+            </header>
+				<div class="panel-head">
 				<div class="container">
-					<div>
-						<h4>Pick up your <span class="glyphicons glyphicons-heart-empty"></span> stock</h4>
-					</div>
 					<form class="form">
 						<div class="form-group">
-							<label class="control-lable col-md-1">Stock Symbol: </label>
-							<div class="col-md-4">
+							<h4>Quick Check: </h4>
+						</div>
+						<div class="form-group">
+							<label class="control-lable col-sm-2">Stock Symbol: </label>
+							<div class="col-sm-3">
 							<input class="form-control" type="text" ng-model="stock.symbol">
 							</div>
-							<button class="btn btn-primary" ng-click="add()">
-								<span class="glyphicon glyphicon-adding"></span> Add to My Portfolio
-							</button>
 						</div>
-						<!-- <div calss="form-group">
-							<button class="btn btn-primary" ng-click="add()">
-								<span class="glyphicon glyphicon-adding"></span> Add to My Portfolio
-							</button>
-						</div> -->
 					</form>
 				</div>
-			</div>
+			</div> 
+			
 			<div class="panel-body">
-				<table class="table">
+			<form action="portfolio" id="listUserStocks" method="post">
+				<table class="table table-striped table-advance table-hover">
+					
 					<tr>
 						<th>
 							<a href="" ng-click="order('symbol')">Stock Symbol</a>
@@ -54,8 +52,8 @@
 							Transaction
 						</th>
 					</tr>
-					<tr ng-repeat="stock in stocksArray | orderBy:predicate:reverse | filter:stock.id">
-						<td>{{stock.id}}</td>
+					<tr ng-repeat="stock in stocksArray | orderBy:predicate:reverse | filter:stock.symbol">
+						<td>{{stock.stock.symbol}}</td>
 						<td>{{stock.name}}</td>
 						<td>{{stock.price}}</td>
 						<td>
@@ -81,6 +79,7 @@
 					    </td>
 					</tr>
 				</table>
+				</form>
 			</div>
 		</div>
 		<div class="panel panel-default col-md-2">
@@ -88,9 +87,85 @@
 			<h3>My Balance:</h3>
 			<p>$ {{user.balance}}</p>
 			<button class="btn btn-success" ng-click="openAdd()">Manage</button>
-			</br>
 			</div>
 		</div>
 	</div>
 </div>
 <script src="js/app.js"></script>
+<div>
+    <script type="text/ng-template" id="buyContent.html">
+        <div class="modal-header">
+            <h3 class="modal-title">Buy stocks: {{buyItem.stockName}}</h3>
+        </div>
+        <div class="modal-body">
+            <label>Stock Symbol: </label>
+			<b style="color:red">{{buyItem.stock.symbol}}</b><br/>
+			<label>Stock Name: </label>
+			<b style="color:red">{{buyItem.stockName}}</b><br/>
+			<label>Unit Price: </label>
+			<b style="color:red">{{buyItem.price}}</b><br/>
+			<label>Quantity: </label>
+			<input type="number" min="1" max={{upper}} value={{quan}} ng-model="quan"/>
+			<input type="range" min="1" max={{upper}} value={{quan}} ng-model="quan"/>
+			<br/>	
+        </div>				
+        <div class="modal-footer">
+		<div>		
+			<label style="margin-right:50px">Ready to buy <span style="color:red">{{quan}}</span>
+			shares of <span style="color:red">{{buyItem.stock.symbol}}</span>? 
+			Balance after transaction: <span style="color:red">$
+			{{Math.round(user.balance - buyItem.price * quan)}}</span> </label>
+		</div><br/>
+            <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
+            <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+        </div>
+    </script>
+    <script type="text/ng-template" id="sellContent.html">
+        <div class="modal-header">
+            <h3 class="modal-title">Sell stocks: {{sellItem.stockName}} 
+				(Currently own {{getAmount(sellItem)}})</h3>
+        </div>
+        <div class="modal-body">
+            <label>Stock Symbol: </label>
+			<b style="color:red">{{sellItem.stock.symbol}}</b><br/>
+			<label>Stock Name: </label>
+			<b style="color:red">{{sellItem.stockName}}</b><br/>
+			<label>Unit Price: </label>
+			<b style="color:red">{{sellItem.price}}</b><br/>
+			<label>Quantity: </label>
+			<input type="number" min="1" max={{getAmount(sellItem)}} value={{quan}} ng-model="quan"/>
+			<input type="range" min="1" max={{getAmount(sellItem)}} value={{quan}} ng-model="quan"/>
+			<br/>	
+        </div>				
+        <div class="modal-footer">
+		<div>		
+			<label style="margin-right:50px">Ready to sell <span style="color:red">{{quan}}</span>
+			shares of <span style="color:red">{{sellItem.stock.symbol}}</span>? 
+			Balance after transaction: <span style="color:red">$
+			{{Math.round(user.balance + sellItem.price * quan)}}</span></label>
+		</div><br/>
+            <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
+            <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+        </div>
+    </script>
+    <script type="text/ng-template" id="addContent.html">
+        <div class="modal-header">
+            <h3 class="modal-title">Add Balance (Currently have {{balance}})</h3>
+        </div>
+        <div class="modal-body">
+			<label>Amount: </label>
+			<input type="number" min="1" max={{2147483647-balance}} value={{quan}} ng-model="quan"/>
+			<input type="range" min="1" max={{2147483647-balance}} value={{quan}} ng-model="quan"/>
+			<br/>
+        </div>		
+        <div class="modal-footer">
+		<div>		
+			<label style="margin-right:50px">Ready to add <span style="color:red">$ {{quan}}</span>
+				 to your account? <br/>
+				Balance after adding: <span style="color:red">$ {{balance + quan}}</span></label>
+		</div><br/>
+            <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
+            <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+        </div>
+    </script>
+</div>	

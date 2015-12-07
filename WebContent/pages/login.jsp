@@ -4,27 +4,56 @@
 		if ("<c:out value='${param.login_error}'/>" != "") {
 		  	$('#wrongCredentials').show();
 		}
+		$("#j_userName").on("click", function(){
+			$("#usernameExist").hide();
+		});
+		$("#j_email").on("click", function(){
+			$("#emailExist").hide();
+		});
 		$("#signin").on("click", loginValidation);	
+		$("#clear2").on("click", function(){
+			$("#usernameExist").hide();
+			$("#emailExist").hide();
+		});	
+		$("#j_userName").on("blur",function(){
+			if($("#j_userName").val()){
+				$.ajax({
+					url: "registervalidation",
+					type: "post",
+					dataType: "text",
+					data: {userName: $("#j_userName").val()},
+					//async:false,//disable async
+					success: function(response) {
+						if(response=="true"){
+							$("#usernameExist").show();
+						}
+					},
+					error: function (e) {
+				        alert(e);
+				    }
+				});
+			}
+		});	
+		$("#j_email").on("blur",function(){
+			if($("#j_email").val()&&$("#j_userName").val()){
+				$.ajax({
+					url: "registervalidation",
+					type: "post",
+					dataType: "text",
+					data: {email: $("#j_email").val()},
+					//async:false,//disable async
+					success: function(response) {
+						if(response=="true"){
+							$("#emailExist").show();
+						}
+					},
+					error: function (e) {
+				        alert(e);
+				    }
+				});
+			}
+		});
 	});
-
-	function loginValidation() {
-		$("#usernameAndPasswordReq").hide();
-		$("#usernameReq").hide();
-		$("#passwordReq").hide();   
-		$("#wrongCredentials").hide();	
-	  	if($("#j_username").val().length == 0 && $("#j_password").val().length == 0) {
-	  		$("#usernameAndPasswordReq").show();
-	  		return false;
-	  	} else if ($("#j_username").val().length == 0) {
-	  		$('#usernameReq').show();
-	  		return false;
-	  	} else if ($("#j_password").val().length == 0) {
-	  		$("#passwordReq").show();
-	  		return false;
-	  	} else {
-	  		return true;
-	  	}
-	}
 </script>
 <div class="container" id="myLogin" ng-controller="loginController" style="background-img:url(icon/back.jpg);">
 	<section id="login_up">
@@ -53,7 +82,7 @@
 								<!-- Login Form -->
 								
 								<h4>Please Sign in.</h4>
-								<h5>If you don't have an account, you can create one here! <a href="#sign"><button class="btn btn-danger">Create</button></a></h5>
+								<h5>If you don't have an account, you can create one here! <a href="#/sign"><button class="btn btn-danger">Create</button></a></h5>
 								<form class="login-form" role="login-form" name="f" action="<c:url value='j_spring_security_check'/>" method="POST" id="login-form">
 									<div class="form-group">
 										<label for="uname"> Username:</label>

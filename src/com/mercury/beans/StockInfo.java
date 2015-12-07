@@ -1,27 +1,29 @@
 package com.mercury.beans;
 
 public class StockInfo {
-	private String symbol;
-	private String name;
+	private int quantity;
 	private double price;
 	private double change;
-	private String pchange;
+	private String stockName;
 	private Stock stock;
 	
-	public StockInfo(){}
-	
-	public String getName() {
-		return name;
+	public int getQuantity() {
+		return quantity;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
 	}
-	
-	public String getSymbol() {
-		return symbol;
+	public Stock getStock() {
+		return stock;
 	}
-	public void setSymbol(String symbol) {
-		this.symbol = symbol;
+	public void setStock(Stock stock) {
+		this.stock = stock;
+	}
+	public String getStockName() {
+		return stockName;
+	}
+	public void setStockName(String stockName) {
+		this.stockName = stockName;
 	}
 	public double getPrice() {
 		return price;
@@ -35,19 +37,4 @@ public class StockInfo {
 	public void setChange(double change) {
 		this.change = change;
 	}
-	public String getPchange() {
-		return pchange;
-	}
-	public void setPchange(String pchange) {
-		this.pchange = pchange;
-	}
-
-	public Stock getStock() {
-		return stock;
-	}
-
-	public void setStock(Stock stock) {
-		this.stock = stock;
-	}
-	
 }

@@ -46,7 +46,7 @@
  .navbar {
       font-family: Montserrat, sans-serif;
       margin-bottom: 0;
-      background-color: #2d2d30;
+      /* background-color: #2d2d30; */
       border: 0;
       font-size: 11px !important;
       letter-spacing: 1px;
@@ -213,6 +213,9 @@ body .rtop_btn .toplink .totop{
       border-bottom-right-radius: 0;
       border-bottom-left-radius: 0;
   }
+	#register-form lable{
+	    font-color: black;
+	}
 
 /* .cd-top.cd-is-visible {
   the button becomes visible

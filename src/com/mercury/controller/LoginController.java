@@ -1,27 +1,52 @@
 package com.mercury.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.mercury.beans.User;
+import com.mercury.beans.UserInfo;
+import com.mercury.service.CustomUserDetailsService;
+import com.mercury.service.RegisterService;
 import com.mercury.service.UserService;
 
 @Controller
 public class LoginController {
+	/*@Autowired
+	@Qualifier("jdbcUserService")  // <-- this references the bean id
+	public UserDetails userDetailsManager;*/
 	
+	@Autowired
 	private UserService us;
+	@Autowired
+	private RegisterService rs;
+	/*@Autowired 
+	private CustomUserDetailsService cuserDetailsSvc;*/
 	
 	public UserService getUs() {
 		return us;
 	}
-
 	public void setUs(UserService us) {
 		this.us = us;
+	}
+	public RegisterService getRs() {
+		return rs;
+	}
+	public void setRs(RegisterService rs) {
+		this.rs = rs;
 	}
 
 	@RequestMapping(value="/login", method = RequestMethod.GET)
@@ -36,6 +61,13 @@ public class LoginController {
 		mav.addObject("title", "Hello, welcome to YF Trading System!");
 		return mav;
 	}
+	/*@RequestMapping(value="/j_spring_security_logout", method = RequestMethod.GET)
+	public ModelAndView LogoutPage() {	
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("logout");
+		mav.addObject("title", "Hello, welcome to YF Trading System!");
+		return mav;
+	}*/
 	
 	@RequestMapping(value="/header")
 	@ResponseBody
@@ -44,4 +76,77 @@ public class LoginController {
 		User user = us.findUserByUserName(username);
 		return user;
 	}
+		//for sign up
+		@RequestMapping(value="/confirmation", method=RequestMethod.POST)
+		public ModelAndView process(@ModelAttribute("user") 
+				User user, BindingResult result) {
+			UserInfo userInfo = rs.register(user);
+			rs.sendMail(user.getUserName(), user.getEmail());
+			ModelAndView mav = new ModelAndView();
+			mav.setViewName("confirmation");
+			mav.addObject("userInfo", userInfo);
+			return mav;
+		}
+		
+		@RequestMapping(value="/activateAccount", method = RequestMethod.GET)
+		public ModelAndView activeMail(HttpServletRequest request) {
+			String username = request.getParameter("username");
+			User user = us.findUserByUserName(username);
+			String checkcode = request.getParameter("checkcode");
+			ModelAndView mav = new ModelAndView();
+			System.out.println(rs.md5(username).equals(checkcode));
+			if(rs.md5(username).equals(checkcode)){
+				int enabled = user.getEnabled();
+				if(enabled==1){
+					mav.setViewName("linkoutoftime");
+					return mav;
+				}
+				rs.ActivateUser(username);
+				mav.setViewName("active_confirm");
+				mav.addObject("userName", username);
+				return mav;
+			}
+			mav.setViewName("error");
+			mav.addObject("content","invalid link");
+			return mav;
+			
+		}
+		
+		@RequestMapping(value="/registervalidation", method=RequestMethod.POST)
+		@ResponseBody
+		public String isUserExist(HttpServletRequest request){
+			String username = request.getParameter("userName");
+			System.out.println(username);
+			if(us.isUserExist(username)) {
+				System.out.println("name existeddd...........................");
+				return "true";
+			}
+			if(request.getParameter("email")!=null){ 
+				String email = request.getParameter("email");
+				System.out.println(email);
+				if(us.isEmailExist(email)){
+					System.out.println("email existedd...........................");
+					return "true";
+				}
+			}
+			return "false";
+		}
+		
+		/*@RequestMapping(value="login_auto", method = RequestMethod.POST)
+		public String loginAuto(HttpServletRequest request) {
+			String username = request.getParameter("j_username");
+			String password = us.findUserByUserName(username).getPassWord();
+			try {
+				UserDetails userDetails = cuserDetailsSvc.loadUserByUsername(username);
+				UsernamePasswordAuthenticationToken auth = new UsernamePasswordAuthenticationToken(userDetails, password, userDetails.getAuthorities());
+			    // redirect into secured main page if authentication successful
+			    if(auth.isAuthenticated()) {
+			    	SecurityContextHolder.getContext().setAuthentication(auth);
+			        return "redirect:/home";
+			    }
+			} catch (Exception e) {
+				e.getStackTrace();
+			}
+			return "redirect:/error";
+		}*/
 }

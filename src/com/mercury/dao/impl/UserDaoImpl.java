@@ -5,7 +5,6 @@ import java.util.List;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
-
 import com.mercury.beans.User;
 import com.mercury.dao.UserDao;
 
@@ -74,4 +73,5 @@ public class UserDaoImpl implements UserDao {
 		// TODO Auto-generated method stub
 		return (User) sessionFactory.getCurrentSession().get(User.class, user);
 	}
+
 }

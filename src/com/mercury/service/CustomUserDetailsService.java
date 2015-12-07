@@ -3,28 +3,30 @@ package com.mercury.service;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.mercury.beans.Person;
-import com.mercury.dao.PersonDao;
+import com.mercury.dao.UserDao;
 
 @Service
 @Transactional(readOnly=true)
 public class CustomUserDetailsService implements UserDetailsService{
-	private PersonDao pd;
+	@Autowired
+	private UserDao ud;
 		
-	public PersonDao getPd() {
-		return pd;
+	public UserDao getUd() {
+		return ud;
 	}
-	public void setPd(PersonDao pd) {
-		this.pd = pd;
+	public void setUd(UserDao ud) {
+		this.ud = ud;
 	}
 
 	@Override
@@ -32,12 +34,12 @@ public class CustomUserDetailsService implements UserDetailsService{
 		// TODO Auto-generated method stub
 		UserDetails user = null;  
 		try {
-			Person person = pd.findPersonByEmail(email);	
+			com.mercury.beans.User u = ud.findByEmail(email);	
 			Collection<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
-			authorities.add(new SimpleGrantedAuthority(person.getAuthority()));
+			authorities.add(new SimpleGrantedAuthority(u.getAuthority()));
 			user = new User(
-						person.getUsername(),
-						person.getPassword(),
+						u.getUserName(),
+						u.getPassWord(),
 						true,
 						true,
 						true,
