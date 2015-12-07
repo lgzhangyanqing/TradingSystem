@@ -12,7 +12,7 @@
     <meta name="keyword" content="Creative, Dashboard, Admin, Template, Theme, Bootstrap, Responsive, Retina, Minimal">
     <link rel="shortcut icon" href="img/favicon.png">
 
-<title>Real Time Market Data</title>
+<title>Real Time Market Data ver2.0</title>
     <script src="js/angular.min.js"></script>
     <script src="js/ui-bootstrap-tpls-0.13.4.min.js"></script>
     <script src="js/angular-animate.min.js"></script>
@@ -141,6 +141,7 @@
                            </tbody>
                         </table>
                         <!-- loading bar -->
+                        <!-- 
 						<div class = "loadbox" ng-hide="loading">
 							<div class = "loadbar">
 								<div class="progress progress-striped active progress-sm" >
@@ -151,6 +152,7 @@
 					     		<p>Loading...</p>
 					    	</div>
 					   </div>
+					    -->
 					   </div>
 					   </div>
                       </section>
