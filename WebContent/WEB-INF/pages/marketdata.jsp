@@ -12,7 +12,7 @@
     <meta name="keyword" content="Creative, Dashboard, Admin, Template, Theme, Bootstrap, Responsive, Retina, Minimal">
     <link rel="shortcut icon" href="img/favicon.png">
 
-<title>Real Time Market Data</title>
+<title>Real Time Market Data ver2.0</title>
     <script src="js/angular.min.js"></script>
     <script src="js/ui-bootstrap-tpls-0.13.4.min.js"></script>
     <script src="js/angular-animate.min.js"></script>
@@ -161,7 +161,12 @@
                            </tbody>
                         </table>
                         <!-- loading bar -->
+<<<<<<< HEAD
 						<!-- <div class = "loadbox" ng-hide="loading">
+=======
+                        <!-- 
+						<div class = "loadbox" ng-hide="loading">
+>>>>>>> origin/master
 							<div class = "loadbar">
 								<div class="progress progress-striped active progress-sm" >
 							    	<div class="progress-bar progress-bar-success"  role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:{{percent}}">
@@ -170,7 +175,12 @@
 					    		</div>
 					     		<p>Loading...</p>
 					    	</div>
+<<<<<<< HEAD
 					   </div> -->
+=======
+					   </div>
+					    -->
+>>>>>>> origin/master
 					   </div>
 					   </div>
                       </section>

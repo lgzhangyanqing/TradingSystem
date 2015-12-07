@@ -44,14 +44,14 @@ app.controller("mainController", ["$scope", "$interval", "$http", "$rootScope", 
 
 	
 	$scope.stocksArray = [];
-//	$interval(function() {
+	$interval(function() {
 		$http.get("market")
 		.success(function(data) {
 			$scope.stocksArray = data;
 		}).error(function(data) {
 			console.log("AJAX ERROR!");
 		});
-//	}, 2000);
+	}, 2000);
 	$scope.pass = function(stock) {
 		shared.setStock(stock);
 	};
