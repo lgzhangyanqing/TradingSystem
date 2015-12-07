@@ -85,8 +85,8 @@ public class RegisterService {
     }    
 	
 	public void sendMail(String username, String email) {
-		final String fromMail = "m.yahoof201506@gmail.com";
-		final String password = "mercury201506";
+		final String fromMail = "yftsemailsystem@gmail.com";
+		final String password = "yftspassword";
 		
 		final String SSL_FACTORY = "javax.net.ssl.SSLSocketFactory";  
         Properties prop = System.getProperties();
@@ -120,7 +120,7 @@ public class RegisterService {
             BodyPart messageBodyPart = new MimeBodyPart();
             //now set the actual message
             //messageBodyPart.setText("Dear " + username +",\n\nWelcome to Yahoo Finance!");
-            String link = "http://localhost:8080/YFTS/activateAccount.html?username=" + username + "&" + "checkcode" + "=" + md5(username);  
+            String link = "http://localhost:8080/TradingSystem/activateAccount.html?username=" + username + "&" + "checkcode" + "=" + md5(username);  
             messageBodyPart.setContent("Dear " + username + "<br><br>Welcome to Yahoo Finance!<br>" + 
             		"<a href='" + link +"'>Please click this link to activate your account</a>","text/html;charset=utf-8");  
             // Create a multipart message

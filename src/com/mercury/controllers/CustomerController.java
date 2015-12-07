@@ -1,17 +1,10 @@
 package com.mercury.controllers;
 
-import java.math.BigDecimal;
 import java.security.Principal;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
 
-import javax.ws.rs.FormParam;
 
-import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -22,11 +15,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.mercury.beans.Ownership;
 import com.mercury.beans.OwnershipInfo;
 import com.mercury.beans.StockInfo;
-import com.mercury.beans.User;
-import com.mercury.beans.UserInfo;
 import com.mercury.service.StockService;
 import com.mercury.service.UserService;
 
