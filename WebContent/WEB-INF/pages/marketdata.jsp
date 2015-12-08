@@ -22,7 +22,6 @@
     
     <!-- for header and footer -->
 <link rel="stylesheet" href="css/bootstrap.min.css">
-<link href="css/extra/bootstrap-theme.css" rel="stylesheet">
 <link href="css/extra/elegant-icons-style.css" rel="stylesheet" />
 <link href="css/extra/font-awesome.min.css" rel="stylesheet" />    
 <link href="css/extra/style.css" rel="stylesheet">
@@ -47,6 +46,7 @@
       <script src="js/respond.min.js"></script>
       <script src="js/lte-ie7.js"></script>
     <![endif]-->
+
 <style>
 	h3 {
 		color: blue;
@@ -76,7 +76,7 @@
       <!--main content start-->
       <section id="main-content">
           <section class="wrapper">
-		  <div class="row">
+		   <!-- <div class="row">
 				<div class="col-lg-12">
 					<h3 class="page-header"><i class="fa fa-globe"></i>Real-Time Market Data</h3>
 					<ol class="breadcrumb">
@@ -84,7 +84,7 @@
 						<li><i class="fa fa-globe"></i>MarketData</li>
 					</ol>
 				</div>
-			</div>
+			</div> --> 
               <!-- page start-->
 
               <div class="row">
@@ -106,7 +106,7 @@
 										</button>
 									</div> -->
 								</form>
-                          <table class="table table-striped table-advance table-hover" id="stockList">
+                          <table class="table table-striped table-advance table-hover" id="stockList" >
                            <tbody>
                               <tr>
                                  <th>
@@ -134,7 +134,7 @@
 									<th style="color:#007aff">Transaction</th>
 								 </sec:authorize>
                               </tr>
-                              <tr ng-repeat="stock in stocksArray | orderBy:predicate:reverse">
+                              <tr ng-repeat="stock in stocksArray | orderBy:predicate:reverse | filter:stock.symbol">
 								<td>{{stock.stock.symbol}}</td>
 								<td>{{stock.stockName}}</td>
 								<td>{{stock.price}}</td>
@@ -161,6 +161,7 @@
                            </tbody>
                         </table>
                         <!-- loading bar -->
+                        
 						<!-- <div class = "loadbox" ng-hide="loading">
 							<div class = "loadbar">
 								<div class="progress progress-striped active progress-sm" >

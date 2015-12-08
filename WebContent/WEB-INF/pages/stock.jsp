@@ -117,7 +117,7 @@
       <!--main content start-->
       <section id="main-content">
           <section class="wrapper">
-		  <div class="row">
+		 <!--  <div class="row">
 				<div class="col-lg-12">
 					<h3 class="page-header"><i class="fa fa-table"></i> Stock</h3>
 					<ol class="breadcrumb">
@@ -125,7 +125,7 @@
 						<li><i class="fa fa-table"></i>Stock Process</li>
 					</ol>
 				</div>
-			</div>
+			</div> -->
               <!-- page start-->
               <div class="row" ng-controller="mainController">
                   <div class="col-lg-8" >
@@ -171,26 +171,26 @@
                          <div class="panel-body">
                          <h2>Add Stock</h2>
                          <p> You can add stock here by using valid stock symbol</p>
-	<div class="errors" id="stock_error"" ng-show="!ifValid">{{errorMsg}}</div>
-	<form action="addStock" id="j_addForm" name="addForm" method="post">
-		<label style="width: 100px">Stock Symbol</label> 
-		<input type="text" name="symbol" id="j_symbol" ng-model="symbol" ng-blur="validStock()"
-		 	ng-model-options="{updateOn:'default blur'}" placeholder="e.g. YHOO" required />
-		<span>*&nbsp;</span>
-		<span class="errors" id="symbol_error" ng-show="addForm.symbol.$dirty && addForm.symbol.$invalid">
-			Please enter the stock symbol!
-		</span><br/>
-		<label style="width: 100px">Description</label> 
-		<input type="text" name="stockDesc" id="j_stockDesc" ng-model="desc"
-			ng-model-options="{updateOn:'default blur'}" placeholder="e.g. Yahoo!" required/>
-		<span>*&nbsp;</span>
-		<span class="errors" id="desc_error" ng-show="addForm.stockDesc.$dirty && addForm.stockDesc.$invalid">
-			Please enter the stock description!
-		</span><br/>
-		<input class="btn btn-info popovers" style="background-color:blue" type="reset" value="Reset" id="j_reset"/>
-		<input class="btn btn-info popovers" type="submit" value="Submit" id="j_submit" 
-			ng-disabled="!ifValid || addForm.stockDesc.$invalid"/>
-	</form>
+							<div class="errors" id="stock_error"" ng-show="!ifValid">{{errorMsg}}</div>
+							<form action="addStock" id="j_addForm" name="addForm" method="post">
+								<label style="width: 100px">Stock Symbol</label> 
+								<input type="text" name="symbol" id="j_symbol" ng-model="symbol" ng-blur="validStock()"
+								 	ng-model-options="{updateOn:'default blur'}" placeholder="e.g. YHOO" required />
+								<span>*&nbsp;</span>
+								<span class="errors" id="symbol_error" ng-show="addForm.symbol.$dirty && addForm.symbol.$invalid">
+									Please enter the stock symbol!
+								</span><br/>
+								<label style="width: 100px">Description</label> 
+								<input type="text" name="stockDesc" id="j_stockDesc" ng-model="desc"
+									ng-model-options="{updateOn:'default blur'}" placeholder="e.g. Yahoo!" required/>
+								<span>*&nbsp;</span>
+								<span class="errors" id="desc_error" ng-show="addForm.stockDesc.$dirty && addForm.stockDesc.$invalid">
+									Please enter the stock description!
+								</span><br/>
+								<input class="btn btn-info popovers" style="background-color:blue" type="reset" value="Reset" id="j_reset"/>
+								<input class="btn btn-info popovers" type="submit" value="Submit" id="j_submit" 
+									ng-disabled="!ifValid || addForm.stockDesc.$invalid"/>
+							</form>
                         </div>
                       </section>
                   </div>

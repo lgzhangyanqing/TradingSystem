@@ -5,12 +5,11 @@ import java.util.List;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
-import org.springframework.stereotype.Repository;
 
 import com.mercury.beans.Stock;
 import com.mercury.dao.StockDao;
 
-@Repository
+
 public class StockDaoImpl implements StockDao {
 	private SessionFactory sessionFactory;
 	

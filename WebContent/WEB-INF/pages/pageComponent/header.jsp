@@ -6,8 +6,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<!-- <link href="css/landing-page.css" rel="stylesheet"> -->
+ <link href="css/landing-page.css" rel="stylesheet"> 
 <link href="css/stylesheet.css" rel="stylesheet">
+
 <!-- Custom Fonts -->
 <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
@@ -21,63 +22,67 @@
 			<a href="#">
 				<img width="130" height="60" src="icon/icon.jpg">
 			</a>
-			<sec:authorize access="hasRole('ROLE_ADMIN')">
-				<h2>ADMIN PAGE</h2></sec:authorize>
+			<ul class="nav navbar-nav navbar-right col-md-2" >
 			<sec:authorize access="hasAnyRole('ROLE_ADMIN', 'ROLE_USER')?false:true">
-				<ul class="nav navbar-nav navbar-right col-md-2" >
+				
 			        <li style="float:right;">
 	                  	<a href="login#login_up">
 	                  	 	<span class="glyphicon glyphicon-log-in" ></span> Sign in
 	                  	</a> 
-	                  	<!-- <span class="glyphicon glyphicon-log-in" data-toggle="modal" data-target="#login_up"></span> Sign in -->
-	                  	
 		        </li>
-		    </ul>
+		   
 		    </sec:authorize>
+		    <sec:authorize access="hasRole('ROLE_ADMIN')">
+              	<li style="float:right;">	
+					<span><strong>ADMIN PAGE</strong></span>
+              	</li>  
+            </sec:authorize>  
+             </ul>
 		</div>
 		</div>
 	
-	<nav class="navbar navbar-default" data-spy="affix" data-offset-top="197">	
+	<nav class="navbar navbar-default navbar-inverse" data-spy="affix" data-offset-top="197">	
         <div class="container-fluid">
               <!-- sidebar menu start-->
-              <ul class="nav navbar-nav">             
-                  <li class="active">
+              <ul class="nav navbar-nav">  
+              	       
+                  <li class="nav-font">
                       <a class="" href="home">
-                          <i class="icon_house_alt"></i>
+                          <!-- <i class="icon_house_alt"></i> -->
                           <span>Home</span>
                       </a>
                   </li>
-                  <li>
+                  <li class="nav-font">
                       <a class="" href="marketdata">
-                          <i class="icon_globe-2"></i>
+                        <!--   <i class="icon_globe-2"></i> -->
                           <span>MarketData</span>
                       </a>
                   </li>
 				  <sec:authorize access="hasRole('ROLE_USER')">
-                  <li>
+                  <li class="nav-font">
                       <a class="" href="portfolio">
-                          <i class="icon_desktop"></i>
+                        <!--   <i class="icon_desktop"></i> -->
                           <span>My Portfolio</span>
                       </a>
                   </li>
-                  <li>
+                  <li class="nav-font">
                       <a class="" href="history">
-                          <i class="icon_document_alt"></i>
+                        <!--   <i class="icon_document_alt"></i> -->
                           <span>History</span>
                       </a>
                   </li> 
                   </sec:authorize>
                   <sec:authorize access="hasRole('ROLE_ADMIN')">
-                  <li>
+                  <li class="nav-font">
                       <a class="" href="pending">
-                          <i class="icon_pens"></i>
-                          <span>Pending Process</span>
+                    <!--       <i class="icon_pens"></i> -->
+                          <span>Recent Transaction</span>
                       </a>
                   </li>
-                  <li>
+                  <li class="nav-font">
                       <a class="" href="stock">
-                          <i class="icon_currency"></i>
-                          <span>Stock Process</span>
+                          <!-- <i class="icon_currency"></i> -->
+                          <span>Stock Manage</span>
                       </a>
                   </li> 
                   </sec:authorize>

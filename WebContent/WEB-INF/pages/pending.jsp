@@ -86,7 +86,7 @@ app.controller("mainController", function($scope, $http) {
       <!--main content start-->
       <section id="main-content">
           <section class="wrapper">
-		  <div class="row">
+		  <!-- <div class="row">
 				<div class="col-lg-12">
 					<h3 class="page-header"><i class="fa fa-table"></i>Pending Process</h3>
 					<ol class="breadcrumb">
@@ -94,7 +94,7 @@ app.controller("mainController", function($scope, $http) {
 						<li><i class="fa fa-table"></i>Pending Process</li>
 					</ol>
 				</div>
-			</div>
+			</div> -->
               <!-- page start-->
 
               <div class="row">

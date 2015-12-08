@@ -134,7 +134,10 @@
                         </table>
                         
                         </form>
-                        <!-- loading bar -->
+                        <!-- Loading -->
+
+                       
+                       <!--  <!-- loading bar 
 						<div class = "loadbox" ng-hide="loading">
 							<div class = "loadbar">
 								<div class="progress progress-striped active progress-sm" >
@@ -144,7 +147,7 @@
 					    		</div>
 					     		<p>Loading...</p>
 					    	</div>
-					   </div>
+					   </div>  -->
                         
                         
                   <div id="buySuccess" ng-show="buySuccess&&!sellSuccess&&!addSuccess">Buying Transaction Success!</div>
@@ -159,7 +162,9 @@
                           </header>
                           <div class="panel-body">
 								<div ng-controller="ModalDemoCtrl" style="text-align:center">
-										<span>Current Balance: <b style="color: #0099CC;vertical-align: sub;font-size: 35px;margin-left: 5px;">$ {{user.balance}}</b></span>	
+										<span>Current Balance: <b style="color: #0099CC;vertical-align: sub;font-size: 28px;margin-left: 5px;">
+										<br>
+										 {{user.balance | currency}}</b></span>	
 										<div id="addSuccess" ng-show="addSuccess&&!sellSuccess&&!sellSuccess">Adding money Success!</div>	
 										<button id="addBalance" class="btn btn-primary btn-sm"
 											ng-click="openAdd()">Manage Balance</button>
@@ -239,12 +244,11 @@
     </script>
     <script type="text/ng-template" id="addContent.html">
         <div class="modal-header">
-            <h3 class="modal-title">Add Balance (Currently have {{balance}})</h3>
+            <h3 class="modal-title">Add Balance (Currently have {{balance | currency}})</h3>
         </div>
         <div class="modal-body">
-			<label>Amount: </label>
+			<label style="text-center">Amount: </label>
 			<input type="number" min="1" max={{2147483647-balance}} value={{quan}} ng-model="quan"/>
-			<input type="range" min="1" max={{2147483647-balance}} value={{quan}} ng-model="quan"/>
 			<br/>
         </div>		
         <div class="modal-footer">
@@ -253,7 +257,7 @@
 				 to your account? <br/>
 				Balance after adding: <span style="color:red">$ {{balance + quan}}</span></label>
 		</div><br/>
-            <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
+            <button class="btn btn-primary" type="button" ng-click="ok()">Add</button>
             <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
         </div>
     </script>
@@ -263,8 +267,8 @@
               <!-- chart morris start -->
               	<div class="col-lg-12">
                 	<section class="panel">
-                    	<header class="panel-heading">
-                        	<h3>OWNERSHIP SUMMARY CHARTS</Char>
+                    	<header class="panel-heading" style="font-size:25px;">
+                        	Ownership Summary
                       	</header>
                       	<div class="panel-body">
                         	<div class="tab-pane" id="chartjs">

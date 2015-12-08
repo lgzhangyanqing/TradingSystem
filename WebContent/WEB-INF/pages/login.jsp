@@ -10,7 +10,6 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="viewport" content="width-device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -28,13 +27,13 @@
 	<!-- <link href="css/agency.css" rel="stylesheet">  -->
 	<link rel="stylesheet" href="css/animate.min.css" type="text/css">
 	<link rel="stylesheet" href="css/creative.css" type="text/css">
-	
+<!-- 	<link rel="stylesheet" href="css/agency.css" type="text/css"> -->
     <!-- Custom Fonts -->
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <!-- <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'> -->
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -178,8 +177,6 @@
 			<a href="#">
 				<img width="130" height="60" src="icon/icon.jpg">
 			</a>
-			<sec:authorize access="hasRole('ROLE_ADMIN')">
-				<h2>ADMIN PAGE</h2></sec:authorize>
 			<sec:authorize access="hasAnyRole('ROLE_ADMIN', 'ROLE_USER')?false:true">
 				<ul class="nav navbar-nav navbar-right col-md-2" >
 			        <li style="float:right;">
@@ -209,13 +206,13 @@
 			    </li> -->
 			    <sec:authorize access="hasRole('ROLE_USER')">
                   <li>
-                      <a class="nav-font" href="#portfolio">
+                      <a class="nav-font" href="portfolio">
                           <i class="icon_desktop"></i>
                           <span>My Portfolio</span>
                       </a>
                   </li>
                   <li>
-                      <a class="nav-font" href="#history">
+                      <a class="nav-font" href="history">
                           <i class="icon_document_alt"></i>
                           <span>History</span>
                       </a>
@@ -244,7 +241,8 @@
         </div>
         <!-- /.container -->
     </div>
-   <a name="service"></a>
+    
+  <!--  <a name="service"></a>
     <div class="content-section-a">
         <div class="container">
             <div class="row">
@@ -279,32 +277,105 @@
                         <p class="text-muted">View the real-time market data in Yahoo.com.</p>
                     </div>
                 </div>
-               <!--  <div class="col-lg-3 col-md-6 text-center">
+                <div class="col-lg-3 col-md-6 text-center">
                     <div class="service-box">
                         <i class="fa fa-4x fa-heart wow bounceIn text-primary" data-wow-delay=".3s"></i>
                         <h3>Made with Love</h3>
                         <p class="text-muted">You have to make your websites with love these days!</p>
                     </div>
-                </div> -->
+                </div>
             </div>
         </div>
+    </div> -->
+    
+    <!-- service with timeline -->
+    <a name="service"></a>
+    <div class="content-section-a">
+    	<div class="container">
+    		<div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Our Service</h2>
+                    <hr class="primary">
+                </div>
+            </div>
+            <div class="row">
+            	 <div class="col-lg-12">
+            	 	<ul class="timeline">
+            	 	<li>
+            	 		<div class="timeline-image">
+            	 			<img class="img-circle img-responsive" src="img/about/1.jpg" alt="">
+                        </div>
+                        <div class="timeline-panel">
+                        	<div class="timeline-heading">
+                        		<h4>Market Data</h4>
+                        		<h4 class="subheading">Up to Date</h4>
+                            </div>
+                            <div class="timeline-body">
+                            	<p class="text-muted">View the real-time market data in Finance.Yahoo.com.</p>
+                            </div>
+                         </div>
+                      </li>
+                      
+                      <li class="timeline-inverted">
+                      	<div class="timeline-image">
+                      		<img class="img-circle img-responsive" src="img/about/2.jpg" alt="">
+                      	</div>
+                      	<div class="timeline-panel" style="padding-top:40px;">
+                      		<div class="timeline-heading">
+                      			<h4>Trading Online</h4>
+                      			<h4 class="subheading">Trade Your Way</h4>
+                            </div>
+                            <div class="timeline-body">
+                            	<p class="text-muted">Buy or Sell stocks can never be easy like this.</p>
+                            </div>
+                        </div>
+                        </li>
+                       <li>
+                           <div class="timeline-image">
+                               <img class="img-circle img-responsive" src="img/about/3.jpg" alt="">
+                           </div>
+                           <div class="timeline-panel">
+                               <div class="timeline-heading">
+                                   <h4>Own Portfolio</h4>
+                                   <h4 class="subheading">Check Your Record</h4>
+                               </div>
+                               <div class="timeline-body">
+                                   <p class="text-muted">Get your individual portfolio charting on Yahoo Finance Trading System.</p>
+                               </div>
+                            </div>
+                        </li>
+                        
+                        <li class="timeline-inverted">
+                            <div class="timeline-image">
+                                <h4>To Be
+                                    <br>Continued
+                                    <br>...</h4>
+                            </div>
+                        </li>
+            	 	</ul>
+            	 </div>
+            </div>
+            
+    	</div>
     </div>
-    <!-- Contact Section -->
+    
+    
+    <!-- Login Section -->
     <a name="login_up"></a>
     <div class="banner">
     	<div class="content-section-c">
         <div class="container">
             <div class="row">
-                    <section style="margin-top: 60px;">
+                    <section style="margin-top: 30px;">
 				        <div class="container">
 				    	<div class="row">
 				    	<sec:authorize access="hasAnyRole('ROLE_ADMIN', 'ROLE_USER')?false:true">
 							<div class="col-md-6 col-md-offset-3">
 								<div class="panel panel-login">
-									<div class="panel-heading">
+									<div class="panel-heading" style="height:60px;text-align: center; font-size:18px;color: #666;font-weight: bold;">
 										<div class="row">
 											<div class="col-xs-6">
-												<a href="#login-form"  id="login-form-link">Login</a>
+												<a href="#login-form"  id="login-form-link" class="active">Login</a>
 											</div>
 											<div class="col-xs-6">
 												<a href="#register-form" id="register-form-link">Register</a>
@@ -333,18 +404,20 @@
 												<form id="login-form" name="login-form" class="form-validate"
 												action="<c:url value='j_spring_security_check'/>" method="POST" style="display: block;">
 													<div class="form-group">
+														<label for="uname" style="color:black;"> Username:</label>
 														<input type="text" name="j_username" id="j_username" tabindex="1" class="form-control" placeholder="Username">
 													</div>
-													<div class="form-group">
+													<div class="form-group" style="color:black;">
+														<label for="uname"> Password:</label>
 														<input type="password" name="j_password" id="j_password" tabindex="2" class="form-control" placeholder="Password">
 													</div>
 													<div class="form-group text-center">
-														<input type="checkbox" tabindex="3" class="" name="remember" id="remember">
-														<label for="remember"> Remember Me</label>
+														<input type="checkbox" tabindex="3" class="" name="remember-me" id="remember-me">
+														<label for="remember" style="color:black;"> Remember Me</label>
 													</div>
 													<div class="form-group">
 														<div class="row">
-															<div class="col-sm-6 col-sm-offset-3">
+															<div class="col-sm-6 col-sm-offset-3" style="padding-top: 10px; color:#f05f40;">
 																<input type="submit" name="submit1" id="signin" tabindex="4" class="form-control btn btn-login" value="Log In">
 															</div>
 														</div>
@@ -369,36 +442,37 @@
 												</div>
 												<form id="register-form" name="register-form" action="confirmation" method="post" style="display: none;">
 													<div class="form-group1">
-														<label for="uname"> Username:</label>
+														<label for="uname" style="color:black;"> Username:</label>
 														<input type="text" name="userName" id="j_userName" tabindex="1" class="form-control" placeholder="Username">
 													</div>
 													<div class="form-group1">
-														<label for="ulname"> Lastname:</label>
+														<label for="ulname" style="color:black;"> Lastname:</label>
 														<input type="text" name="lastName" id="j_lastName" tabindex="1" class="form-control" placeholder="Lastname">
 													</div>
 													<div class="form-group1">
-														<label for="ufname"> Firstname:</label>
+														<label for="ufname" style="color:black;"> Firstname:</label>
 														<input type="text" name="firstName" id="j_firstName" tabindex="1" class="form-control" placeholder="Firstname">
 													</div>
 													<div class="form-group1">
-														<label for="uemail"> Email:</label>
+														<label for="uemail" style="color:black;"> Email:</label>
 														<input type="email" name="email" id="j_email" tabindex="1" class="form-control" placeholder="Email Address">
 													</div>
 													<div class="form-group1">
-														<label for="upassword"> Password:</label>
+														<label for="upassword" style="color:black;"> Password:</label>
 														<input type="password" name="passWord" id="j_passWord" tabindex="2" class="form-control" placeholder="Password">
 													</div>
 													<div class="form-group1">
-														<label for="upassword"> Confirm your password:</label>
+														<label for="upassword" style="color:black;"> Confirm your password:</label>
 														<input type="password" name="confirm_password" id="confirm-password" tabindex="2" class="form-control" placeholder="Confirm Password">
 													</div>
 													<div class="form-group1">
 														<div class="row">
-															<div class="col-sm-6 col-sm-offset-3">
-																<input type="submit" name="submit2" id="register" tabindex="4" class="form-control btn btn-register" value="Register Now">
+															<div class="col-sm-6 col-sm-offset-3" style="padding-top: 10px;">
+																<input type="submit" name="submit2" id="register" tabindex="4" class="form-control btn btn-register"  value="Register Now">
 															</div>
 														</div>
 													</div>
+													<br>
 												</form>
 											</div>
 										</div>
@@ -416,46 +490,14 @@
         <!-- /.container -->
 
     
-    <div class="rtop_btn" id="rtop_btn">
+    <div class="rtop_btn" id="rtop_btn" style="display:none;">
 		<a href="#" class="toplink cd-top">
 			<img src="icon/backtotop.png" class="totop" width="60" height="60">
 		</a>
 	</div> 
 
-    <footer class="container-fluid bg-4">
-		<div class="row">
-		<div class="social-follow col-md-4">
-			<span class="follow">Follow Us</span>
-			<div class="social-icons">
-				<a href="https://twitter.com" class="twitter" target="_blank"><img src="icon/twitter.png" style=" height: 66px; width: 60px;"></a>
-				<a href="https://www.facebook.com"  class="facebook" target="_blank"><img src="icon/facebook.png" style=" height: 66px; width: 60px;"></a>
-				<a href="https://www.instagram.com" class="instagram" target="_blank"><img src="icon/instagram.png" style=" height: 66px; width: 60px;"></a>
-			</div>
-		</div>
-		<div class="contact-us col-md-4">
-			<span class="contact">Contact Us</span>
-			<div>
-				<p><span class="glyphicon glyphicon-map-marker"></span> Princeton, US</p>
-      			<p><span class="glyphicon glyphicon-phone"></span> Phone: +01 1234567890</p>
-      			<p><span class="glyphicon glyphicon-envelope"></span> Email: mail@mail.com</p>	
-			</div>
-		</div>
-		<div class="contact-us col-md-3">
-			<span class="contact">Contact Us</span>
-			<div>
-				<p><span class="glyphicon glyphicon-map-marker"></span> Princeton, US</p>
-      			<p><span class="glyphicon glyphicon-phone"></span> Phone: +01 1234567890</p>
-      			<p><span class="glyphicon glyphicon-envelope"></span> Email: mail@mail.com</p>	
-			</div>
-		</div>
-		</div>
-		<div class="row">
-			<div class="text-center">
-  			<p>Copyright © Your Website 2015</p> 
-			</div>	
-		</div>
-		
-	</footer>
+ 
+	<c:import url="pageComponent/footer.jsp"></c:import>
 
 
     <!-- jQuery -->
@@ -464,17 +506,17 @@
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
 
-    <!-- Plugin JavaScript -->
+   <!--   Plugin JavaScript 
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
     <script src="js/classie.js"></script>
     <script src="js/cbpAnimatedHeader.js"></script>
 
-    <!-- Contact Form JavaScript -->
+    Contact Form JavaScript
     <script src="js/jqBootstrapValidation.js"></script>
-    <script src="js/contact_me.js"></script>
+    <script src="js/contact_me.js"></script> -->
 
     <!-- Custom Theme JavaScript -->
-    <script src="js/agency.js"></script>
+    <!-- <script src="js/agency.js"></script> -->
     
     <script type="text/javascript" src="js/jquery.validate.min.js"></script>
     <script src="js/form-validation-script.js"></script>

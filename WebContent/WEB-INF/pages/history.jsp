@@ -28,8 +28,6 @@
 
     <!-- Bootstrap CSS -->    
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <!-- bootstrap theme -->
-    <link href="css/bootstrap-theme.css" rel="stylesheet">
     <!--external css-->
     <!-- font icon -->
     <link href="css/elegant-icons-style.css" rel="stylesheet" />
@@ -234,7 +232,7 @@ app.controller("LineCtrl", function ($scope,shared,$interval) {
       <!--main content start-->
       <section id="main-content">
           <section class="wrapper">
-		  <div class="row">
+		 <!--  <div class="row">
 				<div class="col-lg-12">
 					<h3 class="page-header"><i class="fa fa-table"></i>History</h3>
 					<ol class="breadcrumb">
@@ -243,7 +241,7 @@ app.controller("LineCtrl", function ($scope,shared,$interval) {
 						<li><i class="fa fa-th-list"></i>Pending/Tansaction</li>
 					</ol>
 				</div>
-			</div>
+			</div> -->
               <!-- page start-->
               <div class="row">
                   <div class="col-lg-12" ng-controller="pendingController" >
@@ -257,8 +255,8 @@ app.controller("LineCtrl", function ($scope,shared,$interval) {
                           <table class="table table-striped table-advance table-hover">
                            <tbody>
                               <tr>
-                                 <th><i class="icon_star"></i> User ID</th>
-                                 <th><i class="icon_calendar"></i> Stock ID</th>
+                                 <th><i class="icon_star"></i> UserName</th>
+                                 <th><i class="icon_calendar"></i> StockSymbol</th>
                                  <th><i class="icon_calulator"></i> Quantity</th>
                                  <th><i class="icon_currency_alt"></i> Stock Price</th>
                                  <th><i class="icon_mobile"></i> Transaction Time</th>
@@ -267,8 +265,8 @@ app.controller("LineCtrl", function ($scope,shared,$interval) {
 						         ng-click="checkAll($event)"/></th>
                               </tr>
                               <tr ng-repeat="pending in pendingList">
-								 <td>{{pending.own.user.uid}}</td>
-								 <td>{{pending.own.stock.sid}}</td>
+								 <td>{{pending.own.user.userName}}</td>
+								 <td>{{pending.own.stock.symbol}}</td>
 								 <td>{{pending.amount}}</td>
 								 <td>{{pending.price}}</td>
 								 <td>{{pending.ts}}</td>

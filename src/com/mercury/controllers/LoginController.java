@@ -3,10 +3,13 @@ package com.mercury.controllers;
 import java.security.Principal;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.security.authentication.RememberMeAuthenticationToken;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -151,4 +154,48 @@ public class LoginController {
 		}
 		return "redirect:/error";
 	}
+	/**
+	 * Check if user is login by remember me cookie, refer
+	 * org.springframework.security.authentication.AuthenticationTrustResolverImpl
+	 */
+	@SuppressWarnings("unused")
+	private boolean isRememberMeAuthenticated() {
+
+		Authentication authentication = 
+                    SecurityContextHolder.getContext().getAuthentication();
+		if (authentication == null) {
+			return false;
+		}
+
+		return RememberMeAuthenticationToken.class.isAssignableFrom(authentication.getClass());
+	}
+	
+	/**
+	 * save targetURL in session
+	 */
+	@SuppressWarnings("unused")
+	private void setRememberMeTargetUrlToSession(HttpServletRequest request){
+		HttpSession session = request.getSession(false);
+		if(session!=null){
+			session.setAttribute("targetUrl", "/admin/update");
+		}
+	}
+
+	/**
+	 * get targetURL from session
+	 */
+	@SuppressWarnings("unused")
+	private String getRememberMeTargetUrlFromSession(HttpServletRequest request){
+		String targetUrl = "";
+		HttpSession session = request.getSession(false);
+		if(session!=null){
+			targetUrl = session.getAttribute("targetUrl")==null?""
+                             :session.getAttribute("targetUrl").toString();
+		}
+		return targetUrl;
+	}
+	
+	
+	
+	
 }

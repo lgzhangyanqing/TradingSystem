@@ -4,10 +4,13 @@ import java.util.List;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Order;
+
 import com.mercury.beans.User;
 import com.mercury.dao.MainDao;
 
+
 public class MainDaoImpl implements MainDao {
+
 	private SessionFactory sessionFactory;
 	
 	public SessionFactory getSessionFactory() {

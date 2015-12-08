@@ -21,8 +21,7 @@
 	<context:component-scan base-package="com.mercury.controllers" />
 
 	<!-- Services -->
-	<context:component-scan base-package="com.mercury.service" />
-
+	 <context:component-scan base-package="com.mercury.service" /> 
 	<!-- Transaction -->
 	<tx:annotation-driven/>
 
@@ -50,7 +49,7 @@
 	</bean>
 	<bean id="ownDao" class="com.mercury.dao.impl.OwnInfoDaoImpl">
 		<property name="SessionFactory" ref="sessionFactory" />
-	</bean>	
+	</bean>
 	
 	<bean id="transactionManager"
 		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
@@ -81,4 +80,5 @@
 	<bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
 		<property name="jndiName" value="java:comp/env/jdbc/myoracle" />
 	</bean>
+	
 </beans>
