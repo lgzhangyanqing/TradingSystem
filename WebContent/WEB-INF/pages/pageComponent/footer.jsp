@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<footer class="container-fluid bg-4 text-center" style="text-align: center;">
+<footer class="container-fluid bg-4 text-center" style="text-align: center; top:0px;">
 		<div class="row">
 		<div class="social-follow col-md-4 " style="text-align: center;">
 			<span class="follow">Follow Us</span>

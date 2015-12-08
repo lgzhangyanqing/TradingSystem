@@ -603,7 +603,7 @@ ul.top-menu > li > a:hover, ul.top-menu > li > a:focus {
     max-width: 300px !important;
     min-width: 160px !important;
     top: 42px;
-    width: 235px !important;
+    width: 250px !important;
     padding: 0;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.176) !important;
     border: none !important;
@@ -786,14 +786,14 @@ div[data-role="editor-toolbar"] {
     text-align: left;
     width: 100%;
     background: #ffffff;
-    padding: 5px 40px;
+    padding: 5px 55px;
 }
 
 .dropdown-menu.extended.logout > li:last-child > a, .dropdown-menu.extended.logout > li:last-child > a:hover {
     color: #fff;
     border-bottom: none !important;
     text-transform: uppercase;
-    background-color:#523243 !important;
+    background-color:#688a7e !important;
 }
 
 .dropdown-menu.extended.logout > li:last-child > a:hover > i{

@@ -17,6 +17,8 @@
 	<title>TradingSystem Main Page</title>
 	<script	src="js/jquery.min.js"></script>
 	<script src="js/angular.min.js"></script>
+  	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular-messages.js"></script>
+  	<script src="js/app2.js"></script>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -62,6 +64,7 @@
 
             $('html, body').animate({scrollTop: 0}, 300);
         });
+        
 		if ("<c:out value='${param.login_error}'/>" != "") {
 		  	$('#wrongCredentials').show();
 		}
@@ -172,6 +175,7 @@
 </head>
 
 <body id="page-top" class="index">
+	<!-- Header -->
 	<div class="container-fluid">
 		<div class="top headerLinks">
 			<a href="#">
@@ -224,7 +228,7 @@
         <!-- /.container-fluid -->
     </nav>
 
-    <!-- Header -->
+    <!-- Header Page -->
     <div class="intro-header">
         <div class="container">
             <div class="row">
@@ -241,52 +245,6 @@
         </div>
         <!-- /.container -->
     </div>
-    
-  <!--  <a name="service"></a>
-    <div class="content-section-a">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                <br>
-                <br>
-                    <h2 class="section-heading">At Your Service</h2>
-                    <hr class="primary">
-                </div>
-            </div>
-        </div>
-        <div class="container section-footer">
-            <div class="row">
-                <div class="col-lg-4 col-md-6 text-center">
-                    <div class="service-box">
-                        <i class="fa fa-4x fa-exchange wow bounceIn text-primary" ></i>
-                        <h3>Trade Your Way</h3>
-                        <p class="text-muted">Buy or Sell stocks can never be easy like this.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 text-center">
-                    <div class="service-box">
-                        <i class="fa fa-4x fa-pie-chart wow bounceIn text-primary" data-wow-delay=".1s"></i>
-                        <h3>Check Your Record</h3>
-                        <p class="text-muted">Get your individual portfolio charting on Yahoo Finance Trading System.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 text-center">
-                    <div class="service-box">
-                        <i class="fa fa-4x fa-newspaper-o wow bounceIn text-primary" data-wow-delay=".2s"></i>
-                        <h3>Up to Date</h3>
-                        <p class="text-muted">View the real-time market data in Yahoo.com.</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 text-center">
-                    <div class="service-box">
-                        <i class="fa fa-4x fa-heart wow bounceIn text-primary" data-wow-delay=".3s"></i>
-                        <h3>Made with Love</h3>
-                        <p class="text-muted">You have to make your websites with love these days!</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> -->
     
     <!-- service with timeline -->
     <a name="service"></a>
@@ -362,14 +320,14 @@
     
     <!-- Login Section -->
     <a name="login_up"></a>
-    <div class="banner">
+    <div class="banner" ng-app="validation" ng-controller="RegistrationController as registration">
     	<div class="content-section-c">
-        <div class="container">
-            <div class="row">
-                    <section style="margin-top: 30px;">
+        	<div class="container">
+        	<div class="row">
+        	 <section style="margin-top: 30px;">
 				        <div class="container">
 				    	<div class="row">
-				    	<sec:authorize access="hasAnyRole('ROLE_ADMIN', 'ROLE_USER')?false:true">
+       			<sec:authorize access="hasAnyRole('ROLE_ADMIN', 'ROLE_USER')?false:true">
 							<div class="col-md-6 col-md-offset-3">
 								<div class="panel panel-login">
 									<div class="panel-heading" style="height:60px;text-align: center; font-size:18px;color: #666;font-weight: bold;">
@@ -440,7 +398,7 @@
 												<div class="alert" style="display: none;" id="emailExist">
 													<p>Email Exist!!</p>
 												</div>
-												<form id="register-form" name="register-form" action="confirmation" method="post" style="display: none;">
+												<!-- <form id="register-form" name="register-form" action="confirmation" method="post" style="display: none;">
 													<div class="form-group1">
 														<label for="uname" style="color:black;"> Username:</label>
 														<input type="text" name="userName" id="j_userName" tabindex="1" class="form-control" placeholder="Username">
@@ -473,7 +431,89 @@
 														</div>
 													</div>
 													<br>
-												</form>
+												</form> -->
+												 <form id="register-form" name="registerform" action="confirmation" method="post"  style="display:none;" novalidate ng-submit="registration.submit(registerform.$valid)">
+													<div class="form-group" ng-class="{ 'has-error': registerform.userName.$touched && registerform.userName.$invalid }">
+														<label for="uname" style="color:black;"> Username:</label>
+														<input type="text" name="userName" id="j_userName" tabindex="1" class="form-control" placeholder="Enter your username"
+															ng-model="userName"
+													        ng-minlength="3"
+													        ng-maxlength="10"
+													        required>
+														<div class="help-block" ng-messages="registerform.userName.$error" ng-messages-multiple>
+													        <p ng-message="minlength" style="color:#f05f40;">Your username is too short.</p>
+													        <p ng-message="maxlength" style="color:#f05f40;">Your username is too long.</p>
+													        <p ng-message="required" style="color:#f05f40;">Your username is required.</p>
+												     	 </div>
+												    </div> 
+													<div class="form-group" ng-class="{ 'has-error': registerform.lastName.$touched && registerform.lastName.$invalid }">
+														<label for="ulname" style="color:black;"> Lastname:</label>
+														<input type="text" name="lastName" id="j_lastName" tabindex="1" class="form-control" placeholder="Enter your lastname"
+															ng-model="lastName"
+															ng-pattern="/^[a-zA-Z]+$/"
+															required>
+														<div class="help-block" ng-messages="registerform.lastName.$error" ng-messages-multiple>
+												        	<p ng-message="required" style="color:#f05f40;">Your lastname is required.</p>
+												        	<p ng-message="pattern" style="color:#f05f40;">This field only accept alphabet.</p>
+											     	 	</div>
+													</div>
+													<div class="form-group" ng-class="{ 'has-error': registerform.firstName.$touched && registerform.firstName.$invalid }">
+														<label for="ufname" style="color:black;"> Firstname:</label>
+														<input type="text" name="firstName" id="j_firstName" tabindex="1" class="form-control" placeholder="Enter your firstname"
+															ng-model="firstName"
+															ng-pattern="/^[a-zA-Z]+$/"
+																required>
+														<div class="help-block" ng-messages="registerform.firstName.$error" ng-messages-multiple>
+												        	<p ng-message="required" style="color:#f05f40;">Your firstname is required.</p>
+												        	<p ng-message="pattern" style="color:#f05f40;">This field only accept alphabet.</p>
+											     	 	</div>
+													</div>
+													<div class="form-group" ng-class="{ 'has-error': registerform.email.$touched && registerform.email.$invalid }">
+														<label for="uemail" style="color:black;"> Email:</label>
+														<input type="email" name="email" id="j_email" tabindex="1" class="form-control" placeholder="Enter your email address"
+																ng-model="email"
+														        required>
+														<div class="help-block" ng-messages="registerform.email.$error" ng-messages-multiple>
+																<p ng-message="required" style="color:#f05f40;">This field is required</p>
+																<p ng-message="email" style="color:#f05f40;">This needs to be a valid email</p>
+													      </div>
+														 
+													</div>
+													<div class="form-group" ng-class="{ 'has-error': registerform.passWord.$touched && registerform.passWord.$invalid }">
+														<label for="upassword" style="color:black;"> Password:</label>
+														<input type="password" name="passWord" id="j_passWord" tabindex="2" class="form-control" placeholder="Enter your password"
+																ng-model="passWord"
+																ng-pattern="/^[a-zA-Z0-9]+$/"
+																ng-minlength="6"
+															    ng-maxlength="20"
+																required>
+															<div class="help-block" ng-messages="registerform.passWord.$error" ng-messages-multiple>
+																<p ng-message="required" style="color:#f05f40;">This field is required</p>
+																<p ng-message="minlength" style="color:#f05f40;">This field is too short. Minimum: 6.</p>
+																<p ng-message="maxlength" style="color:#f05f40;">This field is too long</p>
+																<p ng-message="pattern" style="color:#f05f40;">This field only accept alphabet and numbers</p>
+														</div>
+													</div>
+													<div class="form-group">
+														<label for="upassword" style="color:black;"> Confirm your password:</label>
+														<input type="password" name="confirmPassword" id="confirm-password" tabindex="2" class="form-control" placeholder="Confirm your password"
+															ng-model="confirmPassword"
+															compare-to="passWord"
+															>
+														<div class="help-block" ng-messages="registerform.confirmPassword.$error" ng-messages-multiple>
+																<p ng-message="compareTo" style="color:#f05f40;">Must match the previous entry</p>
+														</div>
+															
+													</div>
+													<div class="form-group">
+														<div class="row">
+															<div class="col-sm-6 col-sm-offset-3" style="padding-top: 10px;">
+																<input type="submit" name="submit2" id="register" tabindex="4" class="form-control btn btn-register"  value="Register Now">
+															</div>
+														</div>
+													</div>
+													<br> 
+												</form> 
 											</div>
 										</div>
 									</div>
@@ -482,14 +522,77 @@
 							</sec:authorize>
 						</div>
 					</div>
-				    </section>
-                </div>
-            </div>
-</div>
-        </div>
+					</section>
+               </div>
+               </div>
+               </div>
+               </div>
+ 
         <!-- /.container -->
 
     
+    <!-- team members -->  
+	<a name="about us"></a>
+	<div class="container">
+    	<div class="row">
+        	<div class="col-lg-12 text-center">
+            	<h2 class="section-heading">Our Amazing Team</h2>
+            </div>
+        </div>
+        <div class="row">
+        		<div class="col-sm-4">
+                    <div class="team-member">
+                        <img src="img/team/2.jpg" class="img-responsive img-circle" alt="">
+                        <h4>Ted Xiong</h4>
+                        <p class="text-muted">Lead Developer</p>
+                        <ul class="list-inline social-buttons">
+                            <li><a href="https://twitter.com"><i class="fa fa-twitter"></i></a>
+                            </li>
+                            <li><a href="https://facebook.com"><i class="fa fa-facebook"></i></a>
+                            </li>
+                            <li><a href="https://github.com"><i class="fa fa-github-alt"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+        		<div class="team-member">
+        			<img src="img/team/1.jpeg" class="img-responsive img-circle" alt="">
+                        <h4>Mengyao</h4>
+                        <p class="text-muted">Lead Developer</p>
+                        <ul class="list-inline social-buttons">
+                            <li><a href="https://twitter.com"><i class="fa fa-twitter"></i></a>
+                            </li>
+                            <li><a href="https://facebook.com"><i class="fa fa-facebook"></i></a>
+                            </li>
+                            <li><a href="https://github.com"><i class="fa fa-github-alt"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="team-member">
+                        <img src="img/team/3.jpg" class="img-responsive img-circle" alt="">
+                        <h4>Hannah Han</h4>
+                        <p class="text-muted">Lead Developer</p>
+                        <ul class="list-inline social-buttons">
+                            <li><a href="https://twitter.com"><i class="fa fa-twitter"></i></a>
+                            </li>
+                            <li><a href="https://facebook.com"><i class="fa fa-facebook"></i></a>
+                            </li>
+                            <li><a href="https://github.com"><i class="fa fa-github-alt"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+           <!--  <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                    <p class="large text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p>
+                </div>
+            </div> -->
+        </div>
+        
     <div class="rtop_btn" id="rtop_btn" style="display:none;">
 		<a href="#" class="toplink cd-top">
 			<img src="icon/backtotop.png" class="totop" width="60" height="60">
@@ -518,8 +621,8 @@
     <!-- Custom Theme JavaScript -->
     <!-- <script src="js/agency.js"></script> -->
     
-    <script type="text/javascript" src="js/jquery.validate.min.js"></script>
-    <script src="js/form-validation-script.js"></script>
+  <!--  <script type="text/javascript" src="js/jquery.validate.min.js"></script>
+    <script src="js/form-validation-script.js"></script>  -->
 
 </body>
 

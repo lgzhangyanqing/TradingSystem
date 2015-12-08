@@ -33,34 +33,45 @@
     <link href="css/font-awesome.min.css" rel="stylesheet" />
     <!-- Custom styles -->
     <link href="css/style-responsive.css" rel="stylesheet" />
+   
+    <!-- Custom CSS -->
+    <link href="css/stylesheet.css" rel="stylesheet">
+    <link href="css/landing-page.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/animate.min.css" type="text/css">
+	<link rel="stylesheet" href="css/creative.css" type="text/css">
 
 <script>
 var app = angular.module('mainModule', []);
+app.filter('capitalize', function() {
+    return function(input) {
+      return (!!input) ? input.charAt(0).toUpperCase() + input.substr(1).toLowerCase() : '';
+    }
+});
 </script>
 </head>
 <body style="height:100%" ng-app="mainModule">
 	<c:import url="pageComponent/header.jsp"/>
-	<session class="wrapper">
-<!-- 	<!--overview start
+	<!-- <session class="wrapper">
+	<!--overview start
 	<div class="row">
 		<div class="col-lg-12">
 			<h3 class="page-header"><i class="fa fa-home"></i> Home</h3>
 		</div>
-	</div> -->
+	</div>
 	
 	
-	                      <!--carousel start-->
+	                      carousel start
 	                      
 <div style="margin-left:50px; margin-right:50px; margin-bottom:50px;">
  <div id="myCarousel" class="carousel slide" data-ride="carousel">
-  <!-- Indicators -->
+  Indicators
   <ol class="carousel-indicators">
     <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
     <li data-target="#myCarousel" data-slide-to="1"></li>
     <li data-target="#myCarousel" data-slide-to="2"></li>
   </ol>
 
-  <!-- Wrapper for slides -->
+  Wrapper for slides
   <div class="carousel-inner" role="listbox">
     <div class="item active" style="height:600px !important; width:1450px !important">
       <img src="img/stock-blue.png" alt="Sell" >
@@ -89,7 +100,7 @@ var app = angular.module('mainModule', []);
   </div>
 </div>
 
-  <!-- Left and right controls -->
+  Left and right controls
   <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
     <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
     <span class="sr-only">Previous</span>
@@ -99,10 +110,28 @@ var app = angular.module('mainModule', []);
     <span class="sr-only">Next</span>
   </a>
 </div>
-                      <!--carousel end-->
+                      carousel end
 	
 
-	</session>
+	</session> -->
+	<section id="page-top" class="index">	
+	<div class="intro-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="intro-message" ng-controller="headerCtrl">
+                        <h1>Hello, {{user.userName|capitalize}}</h1>
+                        <h3>Welcome to Yahoo Finance Trading System</h3>
+                        
+                        <a href="marketdata" class="btn btn-primary btn-xl page-scoll">Go Explore it!</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- /.container -->
+    </div>
+</section>	
 	<c:import url="pageComponent/footer.jsp"/>
 </body>
 </html>

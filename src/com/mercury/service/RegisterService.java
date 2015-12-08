@@ -113,7 +113,7 @@ public class RegisterService {
             msg.setRecipient(Message.RecipientType.TO, new InternetAddress(email));
             //msg.addRecipient(Message.RecipientType.CC, "good.qu@gmail.com");
             //set Subject: header field
-            msg.setSubject("Greetings from Yahoo Finance Trading System"); msg.setSentDate(new Date());
+            msg.setSubject("Please verify your email address on Yahoo Finance Trading System"); msg.setSentDate(new Date());
             //msg.setText("Hello!"); 
             
             // Create the message part
@@ -121,8 +121,8 @@ public class RegisterService {
             //now set the actual message
             //messageBodyPart.setText("Dear " + username +",\n\nWelcome to Yahoo Finance!");
             String link = "http://localhost:8080/TradingSystem/activateAccount.html?username=" + username + "&" + "checkcode" + "=" + md5(username);  
-            messageBodyPart.setContent("Dear " + username + "<br><br>Welcome to Yahoo Finance!<br>" + 
-            		"<a href='" + link +"'>Please click this link to activate your account</a>","text/html;charset=utf-8");  
+            messageBodyPart.setContent("Dear " + username + "<br><br>Welcome to Yahoo Finance!<br><br>" + "Please "+ "<a href='" + link +"'>click here</a>"
+            		+" to verify your email address."+"<br><br>"+"Thanks,"+"<br>"+"Team YFTS","text/html;charset=utf-8");  
             // Create a multipart message
             Multipart multipart = new MimeMultipart();
             //set text message part
