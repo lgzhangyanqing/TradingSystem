@@ -29,6 +29,8 @@
     <!-- bootstrap theme -->
     <link href="css/bootstrap-theme.css" rel="stylesheet">
     <!--external css-->
+    <link href="css/LeStyle/main.css" rel="stylesheet">
+    <link href="css/LeStyle/table.css" rel="stylesheet">
     <!-- font icon -->
     <link href="css/elegant-icons-style.css" rel="stylesheet" />
     <link href="css/font-awesome.min.css" rel="stylesheet" />
@@ -128,21 +130,67 @@
 			</div> -->
               <!-- page start-->
               <div class="row" ng-controller="mainController">
+              
+              	  <div class="col-md-3" >
+                      <section class="panel panel-info">
+                      	  
+                          <div class="panel-heading" align="center">
+                              <p style="font-size:20px">Manage Stock</p>
+                          </div>
+                          
+                          
+                         <div class="panel-body">
+                         <h2 style="font-family: 'Dosis', sans-serif;">Add Stock</h2>
+                         <p color="green"> You can add stock here by using valid stock symbol</p>
+							<div class="errors" id="stock_error"" ng-show="!ifValid">{{errorMsg}}</div>
+							<form action="addStock" id="j_addForm" name="addForm" method="post">
+								<label style="width: 100px">Stock Symbol</label> 
+								<input type="text" name="symbol" id="j_symbol" ng-model="symbol" ng-blur="validStock()"
+								 	ng-model-options="{updateOn:'default blur'}" placeholder="e.g. YHOO" required />
+								<div class="errors" id="symbol_error" ng-show="addForm.symbol.$dirty && addForm.symbol.$invalid">
+									<p>Please enter the stock symbol!</p>
+								</div>
+								<br>
+								<label style="width: 100px">Description</label> 
+								<input type="text" name="stockDesc" id="j_stockDesc" ng-model="desc"
+									ng-model-options="{updateOn:'default blur'}" placeholder="e.g. Yahoo!" required/>
+								<div class="errors" id="desc_error" ng-show="addForm.stockDesc.$dirty && addForm.stockDesc.$invalid">
+									Please enter the stock description!
+								</div>
+								
+								<br>
+								<input class="btn btn-default popovers" type="reset" value="Reset" id="j_reset"/>
+								<input class="btn btn-success popovers" type="submit" value="Submit" id="j_submit" 
+									ng-disabled="!ifValid || addForm.stockDesc.$invalid"/>
+							</form>
+                        </div>
+                      </section>
+                  </div>
+              
+              
                   <div class="col-lg-9" >
                       <section class="panel panel-info">
-                          <header class="panel-heading">
+                      	  <div class="panel-heading" align="center">
+	      		          <p style="font-size:20px">Stock</p>
+	      		          </div>
+	      		          <!--  
+                          <header class="panel-heading" align="center">
                               Stock
                           </header>
+                          -->
                          <div class="panel-body">
                        <form action="stock" id="listForm" method="post">
-                          <table class="table table-striped table-advance table-hover table-condensed ">
-                           <tbody>
+                          <table class="table table-striped table-advance table-bordered table-hover table-condensed ">
+                           <thead>
+                              <!--  <tr class="success">-->
                               <tr>
 								<th>Stock ID</th>
 								<th>Symbol</th>
 								<th>Description</th>
 								<th>Action</th>
                               </tr>
+                           </thead>
+                           <tbody> 
                               <tr ng-repeat="stock in stockList">
                                  <td>{{stock.sid}}</td>
 								 <td>{{stock.symbol}}</td>
@@ -154,43 +202,14 @@
                               </tr>
 
                            </tbody>
+                           
                         </table>
                        </form>
 					</div>
-                  </section>
+                   </section>
                   </div>
                   
-                  <div class="col-md-3" >
-                      <section class="panel panel-info">
-                          <div class="panel-heading">
-                              Manage Stock
-                          </div>
-                         <div class="panel-body">
-                         <h2 style="font-family: 'Dosis', sans-serif;">Add Stock</h2>
-                         <p> You can add stock here by using valid stock symbol</p>
-							<div class="errors" id="stock_error"" ng-show="!ifValid">{{errorMsg}}</div>
-							<form action="addStock" id="j_addForm" name="addForm" method="post">
-								<label style="width: 100px">Stock Symbol</label> 
-								<input type="text" name="symbol" id="j_symbol" ng-model="symbol" ng-blur="validStock()"
-								 	ng-model-options="{updateOn:'default blur'}" placeholder="e.g. YHOO" required />
-								<span class="errors" id="symbol_error" ng-show="addForm.symbol.$dirty && addForm.symbol.$invalid">
-									Please enter the stock symbol!
-								</span><br/>
-								<label style="width: 100px">Description</label> 
-								<input type="text" name="stockDesc" id="j_stockDesc" ng-model="desc"
-									ng-model-options="{updateOn:'default blur'}" placeholder="e.g. Yahoo!" required/>
-								<span class="errors" id="desc_error" ng-show="addForm.stockDesc.$dirty && addForm.stockDesc.$invalid">
-									Please enter the stock description!
-								</span>
-								<br>
-								<br>
-								<input class="btn btn-default popovers" type="reset" value="Reset" id="j_reset"/>
-								<input class="btn btn-success popovers" type="submit" value="Submit" id="j_submit" 
-									ng-disabled="!ifValid || addForm.stockDesc.$invalid"/>
-							</form>
-                        </div>
-                      </section>
-                  </div>
+                  
               </div>
               <!-- page end-->
               

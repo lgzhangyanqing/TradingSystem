@@ -1229,8 +1229,8 @@ div[data-role="editor-toolbar"] {
 }
 .panel.panel-info .panel-heading,
 .panel.panel-info .panel-footer {
-  background: #acdef6;
-  color: #106894;
+  background: #353535;
+  color: #AABE32;
   border-color: #67c2ef;
 }
 .panel.panel-warning {
