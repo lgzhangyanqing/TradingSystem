@@ -95,13 +95,13 @@
                            <tbody>
                               <tr>
                                  <!-- <th><i class="icon_star"></i> Stock Id</th> -->
-                                 <th><i class="icon_calendar"></i> Symbol</th>
-                                 <th><i class="icon_datareport_alt"></i> StockName</th>
-                                 <th><i class="icon_currency_alt"></i>Price</th>
-                                 <th><i class="icon_currency"></i>Change</th>
+                                 <th>StockSymbol</th>
+                                 <th> StockName</th>
+                                 <th>Price</th>
+                                 <th>Change</th>
                                  <th>Change%</th>
-                                 <th><i class="icon_calendar"></i> Quantity</th>
-                                 <th><i class="icon_cogs"></i> Action</th>
+                                 <th>Quantity</th>
+                                 <th>Action</th>
                               </tr>
                               <tr ng-repeat=" stock in stockInfo">
 								<!-- <td>{{stock.stock.sid}}</td> -->
@@ -277,10 +277,10 @@
                           			<div class="col-lg-6">
                               			<section class="panel">
                                   			<header class="panel-heading">
-                                      			Total value pie chart
+                                      			Stock Value Doughnut Chart
                                   			</header>
                                   			<div class="panel-body text-center" ng-controller="PieCtrl">
-												<canvas id="pie" class="chart chart-pie" chart-data="data" chart-labels="labels" chart-legend="true">
+												<canvas id="doughnut" class="chart chart-doughnut" chart-data="data" chart-labels="labels" chart-legend="true">
 												</canvas> 
                                   			</div>
                               			</section>
@@ -288,12 +288,12 @@
                           			<div class="col-lg-6">
                               			<section class="panel">
                                   			<header class="panel-heading">
-                                      			Total quantity bar chart
+                                      			Stock Quantity Bar Chart
                                   			</header>
                                   			<div class="panel-body text-center" ng-controller="BarCtrl">
 												<canvas id="bar" class="chart chart-bar"
-  chart-data="data" chart-labels="labels" chart-legend="true">
-</canvas>
+												 		chart-data="data" chart-labels="labels" chart-series="series">
+												</canvas>
                                   			</div>
                               			</section>
                           			</div>                            
@@ -319,10 +319,8 @@
     <!-- chartjs -->
     <script src="assets/chart-master/Chart.js"></script>
     <!-- custom chart script for this page only-->
-	<script src="js/amcharts.js"></script>
-	<script src="js/pie.js"></script>
-	<script src="js/light.js"></script>
-	<script src="js/pie2.js"></script>
+	<script src="js/angular-chart.js"></script>
+
     <!--custome script for all page-->
     <script src="js/scripts.js"></script>
 

@@ -319,7 +319,7 @@ app.controller("PieCtrl", function ($scope,shared,$interval) {
 	}, 2000);
 });
 app.controller("BarCtrl", function ($scope,shared,$interval) {
-	$scope.series = ['Volume',' '];
+	$scope.series = ['Buy',''];
 	$interval(function(){
 		$scope.labels=[];
 		$scope.data=[[]];

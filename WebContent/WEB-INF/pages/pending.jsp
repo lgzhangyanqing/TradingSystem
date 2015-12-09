@@ -99,13 +99,13 @@ app.controller("mainController", function($scope, $http) {
 
               <div class="row">
                   <div class="col-lg-12" ng-controller="mainController" >
-                      <section class="panel">
+                      <section class="panel  panel-info">
                           <header class="panel-heading">
                               Pending Status
                           </header>
                            <div class="panel-body">
                           <div ng-if="!hasPending()">
-							 <h1>No Pendings!</h1>
+							 <h2>No Orders!</h2>
 						  </div>
 						  
 					<div ng-if="hasPending()">
@@ -119,7 +119,6 @@ app.controller("mainController", function($scope, $http) {
 								<th>Price</th>
 								<th>Transaction Time</th>
 								<th>Commit</th>
-								<th>Drop</th>
 								<th><input type="checkbox" name="selectAll" ng-model="selectAll" ng-click="checkAll($event)"/></th>
                               </tr>
                               <tr ng-repeat="tran in transList">
@@ -129,7 +128,7 @@ app.controller("mainController", function($scope, $http) {
 								<td>{{tran.price}}</td>
 								<td>{{tran.ts}}</td>
 								<td><button class="commit" name="commit" value={{transList.indexOf(tran)}}>Commit</button></td>
-								<td><button class="drop" name="drop" value={{transList.indexOf(tran)}}>Drop</button></td>
+								<!-- <td><button class="drop" name="drop" value={{transList.indexOf(tran)}}>Drop</button></td> -->
 								<td>
 									<input id="tagglebox" ng-checked="selectAll" type="checkbox" 
 									checklist-value="transList.indexOf(tran)" checklist-model="selected.trans" /> 
@@ -140,7 +139,7 @@ app.controller("mainController", function($scope, $http) {
                         <br/>
 						<div>
 							<button class="commit" name="commitAll" value={{selected.trans}}>Commit Selected</button>
-							<button class="drop" name="dropAll" value={{selected.trans}}>Drop Selected</button>
+							<!-- <button class="drop" name="dropAll" value={{selected.trans}}>Drop Selected</button> -->
 						</div>
                        </form>
                       </div>
@@ -152,7 +151,7 @@ app.controller("mainController", function($scope, $http) {
           </section>
       </section>
       <!--main content end-->
-  </section>
+<!--   </section> -->
   <!-- container section end -->
     <!-- javascripts -->
     <script src="js/jquery.js"></script>
@@ -161,12 +160,9 @@ app.controller("mainController", function($scope, $http) {
     <script src="js/jquery.scrollTo.min.js"></script>
     <script src="js/jquery.nicescroll.js" type="text/javascript"></script>
     <!-- chartjs -->
-    <script src="assets/chart-master/Chart.js"></script>
+   <!--  <script src="assets/chart-master/Chart.js"></script> -->
     <!-- custom chart script for this page only-->
-	<script src="js/amcharts.js"></script>
-	<script src="js/pie.js"></script>
-	<script src="js/light.js"></script>
-	<script src="js/pie2.js"></script>
+	<script src="js/angular-chart.js"></script>
     <!--custome script for all page-->
     <script src="js/scripts.js"></script>
 

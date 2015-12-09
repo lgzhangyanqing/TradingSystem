@@ -9,7 +9,7 @@
 
     model.user = {
       username: "",
-      password: "",
+      passWord: "",
       confirmPassword: ""
     };
 

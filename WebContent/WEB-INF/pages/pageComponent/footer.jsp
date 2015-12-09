@@ -34,9 +34,10 @@
 			</div>
 		</div>
 		</div>
+		<br>
 		<div class="row">
 			<div class="text-center">
-  			<p>Copyright © Your Website 2015</p> 
+  			<h5><strong>Copyright © Your Website 2015</strong></h5> 
 			</div>	
 		</div>
 		

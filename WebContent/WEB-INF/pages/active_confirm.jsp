@@ -25,7 +25,7 @@
 
 </style>
 </head>
-<body>
+<body style="background-color:grey;">
 	<script type="text/javascript">
 		function delay() {
 	   		var delay=document.getElementById("time").innerHTML;
@@ -38,23 +38,26 @@
 			setTimeout("delay()", 1000);
 		}
 	</script>
-	<section id="main-content">
+	<section id="main-content" style="margin-top:100px;">
           <section class="wrapper">
 		  <div class="row">
 				<div class="col-lg-8" style="float:none;margin:auto;text-align:center">
-				 <section class="panel">
+				 <section class="panel panel-info">
+				 <div class="panel-heading">
+				 	Activation Done
+				 </div>
 				 <div class="panel-body">
-<h1><span id="time">10</span></h1>
-	<h1 style="color:#0099CC">Activation succcess! ${userName}</h1>
-	
-	<h2 id="go_home">This page will goto Yahoo Finance page after 10 seconds, if not click this link</h2>
+				<h1><span id="time">10</span></h1>
+			<h1 style="color:#0099CC;">Thank you for joining us, ${userName}</h1>
+			
+			<h2 id="go_home">This page will goto Yahoo Finance page after 10 seconds, if not <a href="login_auto">click this link</a></h2>
 
-	<form name="login-form" action="login_auto" method="POST" id="login-form" style="display:none">
-		<input type="text" name="j_username" id="j_username" value="${userName}"/>
-		<input type="submit" id="signin" type="submit" name="submit1">
-	</form>
-	</div>
-	</section>
+				<form name="login-form" action="login_auto" method="POST" id="login-form" style="display:none">
+					<input type="text" name="j_username" id="j_username" value="${userName}"/>
+					<input type="submit" id="signin" type="submit" name="submit1">
+				</form>
+			</div>
+		</section>
 	</div>
 	</div>
 	</section>

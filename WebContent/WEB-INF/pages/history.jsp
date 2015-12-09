@@ -162,7 +162,7 @@
 						}
 					}
 				} 
-				$scope.series = ['Sell Stock', 'Buy Stock'];
+				$scope.series = ['Sell', 'Buy'];
 			}
 			console.log($scope.series);
 		}, 1000);
@@ -255,14 +255,14 @@ app.controller("LineCtrl", function ($scope,shared,$interval) {
                           <table class="table table-striped table-advance table-hover">
                            <tbody>
                               <tr>
-                                 <th><i class="icon_star"></i> UserName</th>
-                                 <th><i class="icon_calendar"></i> StockSymbol</th>
-                                 <th><i class="icon_calulator"></i> Quantity</th>
-                                 <th><i class="icon_currency_alt"></i> Stock Price</th>
-                                 <th><i class="icon_mobile"></i> Transaction Time</th>
-                                 <th><i class="icon_mobile"></i> Cancel</th>
-                                 <th><i class="icon_cogs"></i> <input type="checkbox" name="selectAll" ng-model="selectAll" 
-						         ng-click="checkAll($event)"/></th>
+                                 <th>UserName</th>
+                                 <th>StockSymbol</th>
+                                 <th>Quantity</th>
+                                 <th>Stock Price</th>
+                                 <th>Transaction Time</th>
+                                 <!--<th><i class="icon_mobile"></i> Cancel</th>-->
+                                <!--  <th><i class="icon_cogs"></i> <input type="checkbox" name="selectAll" ng-model="selectAll" 
+						         ng-click="checkAll($event)"/></th> -->
                               </tr>
                               <tr ng-repeat="pending in pendingList">
 								 <td>{{pending.own.user.userName}}</td>
@@ -270,24 +270,28 @@ app.controller("LineCtrl", function ($scope,shared,$interval) {
 								 <td>{{pending.amount}}</td>
 								 <td>{{pending.price}}</td>
 								 <td>{{pending.ts}}</td>
+								 <!--  
                                  <td>
                                   <div class="btn-group">
                                       <button class="cancel" name="cancel" 
 									value={{pendingList.indexOf(pending)}}>Cancel</button>
                                   </div>
                                   </td>
-                                  <td>
+                                  -->
+                                  <!-- <td>
 									<input id="tagglebox" ng-checked="selectAll" type="checkbox" 
 									checklist-value="pendingList.indexOf(pending)" checklist-model="selected.pending" /> 
-								  </td>
+								  </td> -->
                               </tr>
                            </tbody>
                         </table>
                         
                         <br/>
+                        <!--  
 						<div>
 							<button class="cancel" name="cancelAll" value={{selected.pending}}>Cancel Selected</button>
 						</div>
+						-->
                        </form>
                        </div>
                       </section>
@@ -379,9 +383,9 @@ app.controller("LineCtrl", function ($scope,shared,$interval) {
                                       			Transaction by stock bar chart
                                   			</header>
                                   			<div class="panel-body text-center" ng-controller="BarCtrl">
-												<canvas id="bar" class="chart chart-bar"
-  chart-data="data" chart-labels="labels" chart-legend="true">
-</canvas>
+												<canvas id="bar" class="chart chart-bar" chart-series="series"
+												  		chart-data="data" chart-labels="labels" chart-legend="true">
+												</canvas>
                                   			</div>
                               			</section>
                           			</div>    
@@ -392,9 +396,9 @@ app.controller("LineCtrl", function ($scope,shared,$interval) {
                                   			</header>
                                   			<div class="panel-body text-center" ng-controller="LineCtrl">
 												<canvas id="line" class="chart chart-line" chart-data="data"
-  chart-labels="labels" chart-legend="true" chart-series="series"
-  chart-click="onClick" >
-</canvas> 
+												  		chart-labels="labels" chart-legend="true" chart-series="series"
+												 		chart-click="onClick" >
+												</canvas> 
                                   			</div>
                               			</section>
                           			</div>                          

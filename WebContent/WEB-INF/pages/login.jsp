@@ -396,7 +396,7 @@
 													<p>Username Exist!!</p>
 												</div>
 												<div class="alert" style="display: none;" id="emailExist">
-													<p>Email Exist!!</p>
+													<p style="color:#f05f40;">Email Exist!!</p>
 												</div>
 												<!-- <form id="register-form" name="register-form" action="confirmation" method="post" style="display: none;">
 													<div class="form-group1">
@@ -440,7 +440,7 @@
 													        ng-minlength="3"
 													        ng-maxlength="10"
 													        required>
-														<div class="help-block" ng-messages="registerform.userName.$error" ng-messages-multiple>
+														<div class="help-block" ng-messages="registerform.userName.$error" ng-messages-multiple ng-if="registerform.userName.$dirty">
 													        <p ng-message="minlength" style="color:#f05f40;">Your username is too short.</p>
 													        <p ng-message="maxlength" style="color:#f05f40;">Your username is too long.</p>
 													        <p ng-message="required" style="color:#f05f40;">Your username is required.</p>
@@ -452,7 +452,7 @@
 															ng-model="lastName"
 															ng-pattern="/^[a-zA-Z]+$/"
 															required>
-														<div class="help-block" ng-messages="registerform.lastName.$error" ng-messages-multiple>
+														<div class="help-block" ng-messages="registerform.lastName.$error" ng-messages-multiple ng-if="registerform.lastName.$dirty">
 												        	<p ng-message="required" style="color:#f05f40;">Your lastname is required.</p>
 												        	<p ng-message="pattern" style="color:#f05f40;">This field only accept alphabet.</p>
 											     	 	</div>
@@ -463,7 +463,7 @@
 															ng-model="firstName"
 															ng-pattern="/^[a-zA-Z]+$/"
 																required>
-														<div class="help-block" ng-messages="registerform.firstName.$error" ng-messages-multiple>
+														<div class="help-block" ng-messages="registerform.firstName.$error" ng-messages-multiple ng-if="registerform.firstName.$dirty">
 												        	<p ng-message="required" style="color:#f05f40;">Your firstname is required.</p>
 												        	<p ng-message="pattern" style="color:#f05f40;">This field only accept alphabet.</p>
 											     	 	</div>
@@ -473,10 +473,13 @@
 														<input type="email" name="email" id="j_email" tabindex="1" class="form-control" placeholder="Enter your email address"
 																ng-model="email"
 														        required>
-														<div class="help-block" ng-messages="registerform.email.$error" ng-messages-multiple>
+														<div class="help-block" ng-messages="registerform.email.$error" ng-messages-multiple ng-if="registerform.email.$dirty">
 																<p ng-message="required" style="color:#f05f40;">This field is required</p>
 																<p ng-message="email" style="color:#f05f40;">This needs to be a valid email</p>
 													      </div>
+													      <div style="display: none;" id="emailExist">
+															<p style="color:#f05f40;">Email Exist!!</p>
+														</div>
 														 
 													</div>
 													<div class="form-group" ng-class="{ 'has-error': registerform.passWord.$touched && registerform.passWord.$invalid }">
@@ -487,7 +490,7 @@
 																ng-minlength="6"
 															    ng-maxlength="20"
 																required>
-															<div class="help-block" ng-messages="registerform.passWord.$error" ng-messages-multiple>
+															<div class="help-block" ng-messages="registerform.passWord.$error" ng-messages-multiple ng-if="registerform.passWord.$dirty">
 																<p ng-message="required" style="color:#f05f40;">This field is required</p>
 																<p ng-message="minlength" style="color:#f05f40;">This field is too short. Minimum: 6.</p>
 																<p ng-message="maxlength" style="color:#f05f40;">This field is too long</p>
@@ -499,9 +502,11 @@
 														<input type="password" name="confirmPassword" id="confirm-password" tabindex="2" class="form-control" placeholder="Confirm your password"
 															ng-model="confirmPassword"
 															compare-to="passWord"
+															required
 															>
-														<div class="help-block" ng-messages="registerform.confirmPassword.$error" ng-messages-multiple>
+														<div class="help-block" ng-messages="registerform.confirmPassword.$error" ng-messages-multiple ng-if="registerform.confirmPassword.$dirty">
 																<p ng-message="compareTo" style="color:#f05f40;">Must match the previous entry</p>
+																<p ng-message="required" style="color:#f05f40;">This field is required</p>
 														</div>
 															
 													</div>
@@ -558,7 +563,7 @@
                 <div class="col-sm-4">
         		<div class="team-member">
         			<img src="img/team/1.jpeg" class="img-responsive img-circle" alt="">
-                        <h4>Mengyao</h4>
+                        <h4>Maggie Zou</h4>
                         <p class="text-muted">Lead Developer</p>
                         <ul class="list-inline social-buttons">
                             <li><a href="https://twitter.com"><i class="fa fa-twitter"></i></a>
