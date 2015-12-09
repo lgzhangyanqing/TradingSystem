@@ -47,6 +47,7 @@
  -->	
 	<script src="js/angular-chart.js"></script>
 	<link rel="stylesheet" href="css/angular-chart.css">
+	 <link href='https://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'>
 
 <style>
 
@@ -189,62 +190,66 @@
 <div>
     <script type="text/ng-template" id="buyContent.html">
         <div class="modal-header">
-            <h3 class="modal-title">Buy stocks: {{buyItem.stockName}}</h3>
+			 <button type="button" class="close" ng-click="cancel()">&times;</button>
+            <h3 class="modal-title">Buy Stock</h3>
         </div>
-        <div class="modal-body">
-            <label>Stock Symbol: </label>
-			<b style="color:red">{{buyItem.stock.symbol}}</b><br/>
-			<label>Stock Name: </label>
-			<b style="color:red">{{buyItem.stockName}}</b><br/>
-			<label>Unit Price: </label>
-			<b style="color:red">{{buyItem.price}}</b><br/>
-			<label>Quantity: </label>
+        <div class="modal-body" style="font-size:15px;">
+            <label>Stock Symbol:  </label>
+			<b style=" font-family: 'Indie Flower', cursive; font-size:25px;"> {{buyItem.stock.symbol}}</b>
+			<br/>
+			<label>Stock Name:  </label>
+			<b style=" font-family: 'Indie Flower', cursive; font-size:25px;"> {{buyItem.stockName}}</b>
+			<br/>
+			<label>Unit Price:  </label>
+			<b style="font-family: 'Indie Flower', cursive; font-size:25px;"> {{buyItem.price}}</b>
+			<br/>
+			<label>Quantity:  </label>
 			<input type="number" min="1" max={{upper}} value={{quan}} ng-model="quan"/>
-			<input type="range" min="1" max={{upper}} value={{quan}} ng-model="quan"/>
 			<br/>	
         </div>				
         <div class="modal-footer">
 		<div>		
-			<label style="margin-right:50px">Ready to buy <span style="color:red">{{quan}}</span>
-			shares of <span style="color:red">{{buyItem.stock.symbol}}</span>? 
-			Balance after transaction: <span style="color:red">$
-			{{Math.round(user.balance - buyItem.price * quan)}}</span> </label>
-		</div><br/>
-            <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
-            <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+			<h5 style="margin-right:50px"><strong>Ready to buy <span style="color:red">{{quan}}</span>
+			shares of <span style="color:red">{{buyItem.stock.symbol}}</span> ? <strong></h5>
+			<h5><strong>Balance after transaction: <span style="color:red">
+			{{Math.round(user.balance - buyItem.price * quan) |currency}}</span><strong> </h5>
+		</div>
+            <button class="btn btn-success" type="button" ng-click="ok()">OK</button>
+            <button class="btn btn-default" type="button" ng-click="cancel()">Cancel</button>
         </div>
     </script>
     <script type="text/ng-template" id="sellContent.html">
         <div class="modal-header">
-            <h3 class="modal-title">Sell stocks: {{sellItem.stockName}} 
-				(Currently own {{getAmount(sellItem)}})</h3>
+ 		<button type="button" class="close" ng-click="cancel()">&times;</button>
+            <h3 class="modal-title">Sell Stocks </h3> 
         </div>
-        <div class="modal-body">
+        <div class="modal-body" style="font-size:15px;">
             <label>Stock Symbol: </label>
-			<b style="color:red">{{sellItem.stock.symbol}}</b><br/>
+			<b style=" font-family: 'Indie Flower', cursive; font-size:25px;">{{sellItem.stock.symbol}}</b><br/>
 			<label>Stock Name: </label>
-			<b style="color:red">{{sellItem.stockName}}</b><br/>
+			<b style=" font-family: 'Indie Flower', cursive; font-size:25px;">{{sellItem.stockName}}</b><br/>
 			<label>Unit Price: </label>
-			<b style="color:red">{{sellItem.price}}</b><br/>
+			<b style=" font-family: 'Indie Flower', cursive; font-size:25px;">{{sellItem.price}}</b><br/>
+			<label>Currently Own: </label>
+			<b style=" font-family: 'Indie Flower', cursive; font-size:25px;">{{getAmount(sellItem)}}</b><br/>
 			<label>Quantity: </label>
 			<input type="number" min="1" max={{getAmount(sellItem)}} value={{quan}} ng-model="quan"/>
-			<input type="range" min="1" max={{getAmount(sellItem)}} value={{quan}} ng-model="quan"/>
 			<br/>	
         </div>				
         <div class="modal-footer">
 		<div>		
-			<label style="margin-right:50px">Ready to sell <span style="color:red">{{quan}}</span>
-			shares of <span style="color:red">{{sellItem.stock.symbol}}</span>? 
-			Balance after transaction: <span style="color:red">$
-			{{Math.round(user.balance + sellItem.price * quan)}}</span></label>
+			<h5 style="margin-right:50px"><strong>Ready to sell <span style="color:red">{{quan}}</span>
+			shares of <span style="color:red">{{sellItem.stock.symbol}}</span>? </strong></h5>
+			<h5><strong>Balance after transaction: <span style="color:red">$
+			{{Math.round(user.balance + sellItem.price * quan) | currency}}</span></strong></h5>
 		</div><br/>
-            <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
-            <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+            <button class="btn btn-danger" type="button" ng-click="ok()">Sell</button>
+            <button class="btn btn-default" type="button" ng-click="cancel()">Cancel</button>
         </div>
     </script>
     <script type="text/ng-template" id="addContent.html">
         <div class="modal-header">
-            <h3 class="modal-title">Add Balance (Currently have {{balance | currency}})</h3>
+            <h3 class="modal-title">Add Balance</h3>
         </div>
         <div class="modal-body">
 			<label style="text-center">Amount: </label>
@@ -253,9 +258,9 @@
         </div>		
         <div class="modal-footer">
 		<div>		
-			<label style="margin-right:50px">Ready to add <span style="color:red">$ {{quan}}</span>
-				 to your account? <br/>
-				Balance after adding: <span style="color:red">$ {{balance + quan}}</span></label>
+			<h5><strong>Ready to add <span style="color:red">$ {{quan}}</span>
+				 to your account? </strong></h5>
+			<h5><strong>Balance after adding: <span style="color:red">$ {{balance + quan}}</span></strong></h5>
 		</div><br/>
             <button class="btn btn-primary" type="button" ng-click="ok()">Add</button>
             <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
