@@ -79,7 +79,7 @@
 			$("#usernameExist").hide();
 			$("#emailExist").hide();
 		});	
-		/* $("#j_userName").on("blur",function(){
+		 /* $("#j_userName").on("blur",function(){
 			if($("#j_userName").val()){
 				$.ajax({
 					url: "registervalidation",
@@ -97,7 +97,7 @@
 				    }
 				});
 			}
-		}); */	
+		});  */
 		/* $("#j_email").on("blur",function(){
 			if($("#j_email").val()&&$("#j_userName").val()){
 				$.ajax({
@@ -139,7 +139,7 @@
 		
 	});
 
-	/* function loginValidation() {
+	function loginValidation() {
 		$("#usernameAndPasswordReq").hide();
 		$("#usernameReq").hide();
 		$("#passwordReq").hide();   
@@ -156,7 +156,7 @@
 	  	} else {
 	  		return true;
 	  	}
-	} */
+	} 
 </script>
 <style>
 .alert {
