@@ -119,22 +119,22 @@ public class LoginController {
 	
 	@RequestMapping(value="/registervalidation", method=RequestMethod.POST)
 	@ResponseBody
-	public String isUserExist(HttpServletRequest request){
+	public int isUserExist(HttpServletRequest request){
 		String username = request.getParameter("userName");
 		System.out.println(username);
 		if(us.isUserExist(username)) {
 			System.out.println("name existeddd...........................");
-			return "true";
+			return 1;
 		}
 		if(request.getParameter("email")!=null){ 
 			String email = request.getParameter("email");
 			System.out.println(email);
 			if(us.isEmailExist(email)){
 				System.out.println("email existedd...........................");
-				return "true";
+				return 1;
 			}
 		}
-		return "false";
+		return 0;
 	}
 	
 	@RequestMapping(value="login_auto", method = RequestMethod.POST)
