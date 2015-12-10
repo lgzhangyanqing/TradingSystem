@@ -79,7 +79,7 @@
 			$("#usernameExist").hide();
 			$("#emailExist").hide();
 		});	
-		$("#j_userName").on("blur",function(){
+		/* $("#j_userName").on("blur",function(){
 			if($("#j_userName").val()){
 				$.ajax({
 					url: "registervalidation",
@@ -97,8 +97,8 @@
 				    }
 				});
 			}
-		});	
-		$("#j_email").on("blur",function(){
+		}); */	
+		/* $("#j_email").on("blur",function(){
 			if($("#j_email").val()&&$("#j_userName").val()){
 				$.ajax({
 					url: "registervalidation",
@@ -116,7 +116,7 @@
 				    }
 				});
 			}
-		});		
+		});	 */	
 		
 		$("#login-form-link").click(function(e) {
 			$("#login-form").delay(100).fadeIn(100);
@@ -139,7 +139,7 @@
 		
 	});
 
-	function loginValidation() {
+	/* function loginValidation() {
 		$("#usernameAndPasswordReq").hide();
 		$("#usernameReq").hide();
 		$("#passwordReq").hide();   
@@ -156,7 +156,7 @@
 	  	} else {
 	  		return true;
 	  	}
-	}
+	} */
 </script>
 <style>
 .alert {
@@ -392,12 +392,12 @@
 												</form>
 												
 												<!-- SignUp Form -->
-												<div class="alert" style="display: none;" id="usernameExist">
+												<!-- <div class="alert" style="display: none;" id="usernameExist">
 													<p>Username Exist!!</p>
 												</div>
 												<div class="alert" style="display: none;" id="emailExist">
 													<p style="color:#f05f40;">Email Exist!!</p>
-												</div>
+												</div> -->
 												<!-- <form id="register-form" name="register-form" action="confirmation" method="post" style="display: none;">
 													<div class="form-group1">
 														<label for="uname" style="color:black;"> Username:</label>
@@ -432,6 +432,7 @@
 													</div>
 													<br>
 												</form> -->
+												
 												 <form id="register-form" name="registerform" action="confirmation" method="post"  style="display:none;" novalidate ng-submit="registration.submit(registerform.$valid)">
 													<div class="form-group" ng-class="{ 'has-error': registerform.userName.$touched && registerform.userName.$invalid }">
 														<label for="uname" style="color:black;"> Username:</label>
@@ -439,12 +440,15 @@
 															ng-model="userName"
 													        ng-minlength="3"
 													        ng-maxlength="10"
+													        username-valid
 													        required>
 														<div class="help-block" ng-messages="registerform.userName.$error" ng-messages-multiple ng-if="registerform.userName.$dirty">
 													        <p ng-message="minlength" style="color:#f05f40;">Your username is too short.</p>
 													        <p ng-message="maxlength" style="color:#f05f40;">Your username is too long.</p>
 													        <p ng-message="required" style="color:#f05f40;">Your username is required.</p>
+													        <p ng-message="usernameValid" style="color:#f05f40;">Username Exist!</p>
 												     	 </div>
+												     	 <!-- <div style="display: none;color:#f05f40;" id="usernameExist">Username Exist!</div> -->
 												    </div> 
 													<div class="form-group" ng-class="{ 'has-error': registerform.lastName.$touched && registerform.lastName.$invalid }">
 														<label for="ulname" style="color:black;"> Lastname:</label>
@@ -467,20 +471,20 @@
 												        	<p ng-message="required" style="color:#f05f40;">Your firstname is required.</p>
 												        	<p ng-message="pattern" style="color:#f05f40;">This field only accept alphabet.</p>
 											     	 	</div>
+											     	 	
 													</div>
 													<div class="form-group" ng-class="{ 'has-error': registerform.email.$touched && registerform.email.$invalid }">
 														<label for="uemail" style="color:black;"> Email:</label>
 														<input type="email" name="email" id="j_email" tabindex="1" class="form-control" placeholder="Enter your email address"
 																ng-model="email"
+																email-valid
 														        required>
 														<div class="help-block" ng-messages="registerform.email.$error" ng-messages-multiple ng-if="registerform.email.$dirty">
 																<p ng-message="required" style="color:#f05f40;">This field is required</p>
 																<p ng-message="email" style="color:#f05f40;">This needs to be a valid email</p>
+																<p ng-message="emailValid" style="color:#f05f40;">Email Exists!</p>
 													      </div>
-													      <div style="display: none;" id="emailExist">
-															<p style="color:#f05f40;">Email Exist!!</p>
-														</div>
-														 
+													     <!-- <div style="display: none;color:#f05f40;" id="emailExist">Email Exist!</div>  -->
 													</div>
 													<div class="form-group" ng-class="{ 'has-error': registerform.passWord.$touched && registerform.passWord.$invalid }">
 														<label for="upassword" style="color:black;"> Password:</label>
@@ -513,7 +517,7 @@
 													<div class="form-group">
 														<div class="row">
 															<div class="col-sm-6 col-sm-offset-3" style="padding-top: 10px;">
-																<input type="submit" name="submit2" id="register" tabindex="4" class="form-control btn btn-register"  value="Register Now">
+																<input ng-disabled="registerform.$invalid" type="submit" name="submit2" id="register" tabindex="4" class="form-control btn btn-register"  value="Register Now">
 															</div>
 														</div>
 													</div>
