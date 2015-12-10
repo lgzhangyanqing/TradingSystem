@@ -88,15 +88,15 @@
 			   <div class="row">
 			   	 
                   <div class="col-lg-9" ng-controller="ModalDemoCtrl">
-                      <section class="panel">
-                          <header class="panel-heading">
-                              Stock
+                      <section class="panel panel-info">
+                          <header class="panel-heading" align="center">
+                              <p style="font-size:20px">Stock</p>
                           </header>
                           <div class="panel-body">
                         <form action="portfolio" id="listUserStocks" method="post">
-                          <table class="table table-striped table-advance table-hover" >
+                          <table class="table table-striped table-bordered table-advance table-hover" >
                            <tbody>
-                              <tr>
+                              <tr class="success" >
                                  <!-- <th><i class="icon_star"></i> Stock Id</th> -->
                                  <th>StockSymbol</th>
                                  <th> StockName</th>
@@ -159,9 +159,9 @@
                       </section>
                   </div>
                   <div class="col-lg-3" >
-                      <section class="panel">
-                          <header class="panel-heading">
-                              Balance
+                      <section class="panel panel-info">
+                          <header class="panel-heading" align="center">
+                              <p style="font-size:20px">Balance</p>
                           </header>
                           <div class="panel-body">
 								<div ng-controller="ModalDemoCtrl" style="text-align:center">
@@ -277,8 +277,8 @@
             <div class="row">
               <!-- chart morris start -->
               	<div class="col-lg-12">
-                	<section class="panel">
-                    	<header class="panel-heading" style="font-size:25px;">
+                	<section class="panel panel-info">
+                    	<header class="panel-heading" style="font-size:20px;" align="center">
                         	Ownership Summary
                       	</header>
                       	<div class="panel-body">
@@ -287,7 +287,7 @@
                           		<!-- Line -->
                           			<div class="col-lg-6">
                               			<section class="panel">
-                                  			<header class="panel-heading">
+                                  			<header class="panel-heading" align="center">
                                       			Stock Value Doughnut Chart
                                   			</header>
                                   			<div class="panel-body text-center" ng-controller="PieCtrl">
@@ -298,7 +298,7 @@
                           			</div>   
                           			<div class="col-lg-6">
                               			<section class="panel">
-                                  			<header class="panel-heading">
+                                  			<header class="panel-heading" align="center">
                                       			Stock Quantity Bar Chart
                                   			</header>
                                   			<div class="panel-body text-center" ng-controller="BarCtrl">
