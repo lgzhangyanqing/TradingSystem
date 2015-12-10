@@ -304,8 +304,8 @@ app.controller("LineCtrl", function ($scope,shared,$interval) {
 
               <div class="row">
                   <div class="col-lg-12" ng-controller="historyController" >
-                      <section class="panel">
-                          <header class="panel-heading">
+                      <section class="panel panel-info">
+                          <header class="panel-heading" style="font-size:20px" align="center">
                               Transaction History 
                           </header>
                           <div class="panel-body">
@@ -323,9 +323,9 @@ app.controller("LineCtrl", function ($scope,shared,$interval) {
 							<input type="date" name="upper" ng-model="endDate"/>
 						</form>
                 
-                          <table class="table table-striped table-advance table-hover" id="transHistory" >
+                          <table class="table table-striped table-advance table-bordered table-hover" id="transHistory" >
                            <tbody>
-                              <tr>
+                              <tr class="success">
 								<th>
 									<a href="" ng-click="order('tid')">TID</a>
        								<span class="sortorder" ng-show="predicate === 'tid'" ng-class="{reverse:reverse}"></span>
@@ -369,8 +369,8 @@ app.controller("LineCtrl", function ($scope,shared,$interval) {
               <div class="row">
                <!-- chart morris start -->
               	<div class="col-lg-12">
-                	<section class="panel">
-                    	<header class="panel-heading">
+                	<section class="panel panel-info">
+                    	<header class="panel-heading" style="font-size:20px" align="center">
                         	<h3>TRANSACTION SUMMARY CHARTs</Char>
                       	</header>
                       	<div class="panel-body">
@@ -379,7 +379,7 @@ app.controller("LineCtrl", function ($scope,shared,$interval) {
                           		<!-- Line -->
                           			<div class="col-lg-6">
                               			<section class="panel">
-                                  			<header class="panel-heading">
+                                  			<header class="panel-heading" align="center">
                                       			Transaction by stock bar chart
                                   			</header>
                                   			<div class="panel-body text-center" ng-controller="BarCtrl">
@@ -391,7 +391,7 @@ app.controller("LineCtrl", function ($scope,shared,$interval) {
                           			</div>    
                           			<div class="col-lg-6">
                               			<section class="panel">
-                                  			<header class="panel-heading">
+                                  			<header class="panel-heading" align="center">
                                       			Transaction by date line chart
                                   			</header>
                                   			<div class="panel-body text-center" ng-controller="LineCtrl">
