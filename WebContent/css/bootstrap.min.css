@@ -2681,7 +2681,7 @@ table td[class*=col-], table th[class*=col-] {
 .table-hover>tbody>tr.success:hover>td, .table-hover>tbody>tr.success:hover>th,
 	.table-hover>tbody>tr:hover>.success, .table-hover>tbody>tr>td.success:hover,
 	.table-hover>tbody>tr>th.success:hover {
-	background-color: #d0e9c6
+	background-color: #353535
 }
 
 .table>tbody>tr.info>td, .table>tbody>tr.info>th, .table>tbody>tr>td.info,

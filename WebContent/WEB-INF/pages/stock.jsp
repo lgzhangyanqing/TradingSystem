@@ -29,8 +29,7 @@
     <!-- bootstrap theme -->
     <link href="css/bootstrap-theme.css" rel="stylesheet">
     <!--external css-->
-    <link href="css/LeStyle/main.css" rel="stylesheet">
-    <link href="css/LeStyle/table.css" rel="stylesheet">
+    
     <!-- font icon -->
     <link href="css/elegant-icons-style.css" rel="stylesheet" />
     <link href="css/font-awesome.min.css" rel="stylesheet" />
@@ -134,9 +133,9 @@
               	  <div class="col-md-3" >
                       <section class="panel panel-info">
                       	  
-                          <div class="panel-heading" align="center">
+                          <header class="panel-heading" align="center">
                               <p style="font-size:20px">Manage Stock</p>
-                          </div>
+                          </header>
                           
                           
                          <div class="panel-body">
@@ -170,9 +169,9 @@
               
                   <div class="col-lg-9" >
                       <section class="panel panel-info">
-                      	  <div class="panel-heading" align="center">
+                      	  <header class="panel-heading" align="center">
 	      		          <p style="font-size:20px">Stock</p>
-	      		          </div>
+	      		          </header>
 	      		          <!--  
                           <header class="panel-heading" align="center">
                               Stock
@@ -181,21 +180,21 @@
                          <div class="panel-body">
                        <form action="stock" id="listForm" method="post">
                           <table class="table table-striped table-advance table-bordered table-hover table-condensed ">
-                           <thead>
-                              <!--  <tr class="success">-->
-                              <tr>
-								<th>Stock ID</th>
-								<th>Symbol</th>
-								<th>Description</th>
-								<th>Action</th>
+                           	 <tbody>
+                              <tr class="success">
+                              <!--  <tr>-->
+								<th class="text-center">Stock ID</th>
+								<th class="text-center">Symbol</th>
+								<th class="text-center">Description</th>
+								<th class="text-center">Action</th>
                               </tr>
-                           </thead>
-                           <tbody> 
+                           
+                           
                               <tr ng-repeat="stock in stockList">
-                                 <td>{{stock.sid}}</td>
-								 <td>{{stock.symbol}}</td>
-								 <td>{{stock.stockDesc}}</td>
-								 <td>
+                                 <td class="text-center">{{stock.sid}}</td>
+								 <td class="text-center">{{stock.symbol}}</td>
+								 <td class="text-center">{{stock.stockDesc}}</td>
+								 <td class="text-center">
 									<button class="btn btn-danger popovers" name="delete" 
 									value="{{stock.sid}}" ng-disabled="hasOwn(stock)">Delete</button>
 								 </td>
@@ -218,7 +217,7 @@
           </section>
       </section>
       <!--main content end-->
-  </section>
+  <!--  </section>-->
   <!-- container section end -->
     <!-- javascripts -->
     <script src="js/jquery.js"></script>

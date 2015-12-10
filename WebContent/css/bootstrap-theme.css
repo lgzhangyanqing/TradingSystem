@@ -1384,8 +1384,9 @@ table th[class*="col-"] {
 .table > thead > tr.success > th,
 .table > tbody > tr.success > th,
 .table > tfoot > tr.success > th {
-  background-color: #dff8e3;
+  background-color: #353535;
   border-color: #caf4ca;
+  color:#AABE32;
 }
 .table-hover > tbody > tr > td.success:hover,
 .table-hover > tbody > tr > th.success:hover,
