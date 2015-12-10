@@ -90,9 +90,9 @@
 
               <div class="row">
                   <div class="col-lg-12" ng-controller="ModalDemoCtrl">
-                      <section class="panel">
+                      <section class="panel panel-info" align="center">
                           <header class="panel-heading">
-                              Market Data
+                              <p style="font-size:20px">Market Data</p>
                           </header>
                            <div class="panel-body">
                           <div ng-controller="mainController">
@@ -107,9 +107,9 @@
 										</button>
 									</div> -->
 								</form>
-                          <table class="table table-striped table-advance table-hover" id="stockList" >
+                          <table class="table table-striped table-advance table-bordered table-hover" id="stockList" >
                            <tbody>
-                              <tr>
+                              <tr class="success">
                                  <th>
                                  	<a href="" ng-click="order('stock.symbol')">StockSymbol</a>
        								<span class="sortorder" ng-show="predicate === 'stock.symbol'" ng-class="{reverse:reverse}"></span>

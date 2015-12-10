@@ -101,7 +101,7 @@ app.controller("mainController", function($scope, $http) {
                   <div class="col-lg-12" ng-controller="mainController" >
                       <section class="panel  panel-info">
                           <header class="panel-heading" align="center">
-                              Pending Status
+                              <p style="font-size:20px">Pending Status</p>
                           </header>
                            <div class="panel-body">
                           <div ng-if="!hasPending()">
