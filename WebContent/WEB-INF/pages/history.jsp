@@ -246,15 +246,15 @@ app.controller("LineCtrl", function ($scope,shared,$interval) {
               <div class="row">
                   <div class="col-lg-12" ng-controller="pendingController" >
                     <div ng-if="hasPending()">
-                      <section class="panel">
-                          <header class="panel-heading">
+                      <section class="panel panel-info">
+                          <header class="panel-heading" style="font-size:20px" align="center">
                               Pending Transactions 
                           </header>
                           <div class="panel-body">
                         <form id="pendingList" action="history" method="get">
-                          <table class="table table-striped table-advance table-hover">
+                          <table class="table table-striped table-advance table-bordered table-hover">
                            <tbody>
-                              <tr>
+                              <tr class="success">
                                  <th>UserName</th>
                                  <th>StockSymbol</th>
                                  <th>Quantity</th>

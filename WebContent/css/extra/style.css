@@ -33,7 +33,7 @@ a, a:hover, a:focus {
     outline: 0;
 }
 input:focus, textarea:focus { outline: none; }
-table tr th { color: #688a7e;}
+table tr th { color: #AABE32;}
 *:focus {outline: none;}
 ::selection {
     background: #688a7e;
