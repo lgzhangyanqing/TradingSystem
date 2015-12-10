@@ -100,7 +100,7 @@ app.controller("mainController", function($scope, $http) {
               <div class="row">
                   <div class="col-lg-12" ng-controller="mainController" >
                       <section class="panel  panel-info">
-                          <header class="panel-heading">
+                          <header class="panel-heading" align="center">
                               Pending Status
                           </header>
                            <div class="panel-body">
@@ -110,9 +110,9 @@ app.controller("mainController", function($scope, $http) {
 						  
 					<div ng-if="hasPending()">
                 		<form id="pendingList" action="pending" method="get">
-                          <table class="table table-striped table-advance table-hover" id="transHistory" >
+                          <table class="table table-striped table-advance table-bordered table-hover" id="transHistory" >
                            <tbody>
-                              <tr>
+                              <tr class="success">
 								<th>User ID</th>
 								<th>Stock ID</th>
 								<th>Amount</th>
