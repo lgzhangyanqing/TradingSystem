@@ -19,7 +19,7 @@ import org.hibernate.annotations.GenericGenerator;
 
 @SuppressWarnings("serial")
 @Entity
-@Table(name="YFTS_USER")
+@Table(name="USERS")
 public class User implements Serializable{
 	private int uid;
 	private String userName;
@@ -100,7 +100,7 @@ public class User implements Serializable{
 		this.authority = authority;
 	}
 	
-	@Column(name="ENABLED")
+	@Column(name="ENABLE")
 	public int getEnabled() {
 		return enabled;
 	}

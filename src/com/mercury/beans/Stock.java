@@ -18,7 +18,7 @@ import org.hibernate.annotations.GenericGenerator;
 
 @SuppressWarnings("serial")
 @Entity
-@Table(name="YFTS_STOCK")
+@Table(name="STOCKS")
 public class Stock implements Serializable{
 	private int sid;
 	private String symbol;
@@ -45,7 +45,7 @@ public class Stock implements Serializable{
 		this.symbol = symbol;
 	}
 	
-	@Column(name="STOCKNAME")
+	@Column(name="description")
 	public String getStockDesc() {
 		return stockDesc;
 	}

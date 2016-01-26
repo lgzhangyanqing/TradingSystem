@@ -13,7 +13,7 @@ import javax.persistence.Transient;
  * Embed Ownership bean as a field of join table in OwnershipInfo
  */
 @Entity
-@Table(name="YFTS_OWN")
+@Table(name="Users_Stocks")
 @AssociationOverrides(value = { 
 		@AssociationOverride (name="own.user", joinColumns=@JoinColumn(name="USER_ID")),
 		@AssociationOverride (name="own.stock", joinColumns=@JoinColumn(name="STOCK_ID")) })
