@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.*;
+import javax.ws.rs.core.Request;
 
 import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,8 @@ import com.mercury.service.UserService;
 @Controller
 @SessionAttributes
 public class TransController {
+	
+	public final String CSV_PATH = "C:\\Users\\royce\\git\\TradingSystem\\WebContent\\CSV";
 	@Autowired
 	private TransService ts;
 	@Autowired
@@ -58,7 +61,7 @@ public class TransController {
 	@ResponseBody
 	public List<Transaction> getPending(HttpServletRequest request) throws Exception{
 		ServletContext context = request.getServletContext();
-		List<Transaction> pendingList = ts.getAllPendings(context.getRealPath("CSV"));
+		List<Transaction> pendingList = ts.getAllPendings();
 		return pendingList;
 	}
 	
@@ -71,7 +74,7 @@ public class TransController {
 		String userName = SecurityContextHolder.getContext().getAuthentication().getName();
 		User user = us.findUserByUserName(userName);
 		ServletContext context = request.getServletContext();
-		List<Transaction> pendingList = ts.findPendingByUser(user, context.getRealPath("CSV"));
+		List<Transaction> pendingList = ts.findPendingByUser(user);
 		return pendingList;
 	}
 	
@@ -82,7 +85,7 @@ public class TransController {
 		if (tran != null){
 			System.out.println(tran);
 			ServletContext context = request.getServletContext();
-			ts.createPending(tran, context.getRealPath("CSV"));
+			ts.createPending(tran);
 			return "success";
 		}else{
 			return "failure";
@@ -93,7 +96,7 @@ public class TransController {
 	@RequestMapping(value="/pending", params="drop", method=RequestMethod.GET)
 	public String dropPending(@RequestParam("drop") int tid, HttpServletRequest request) throws Exception {
 		ServletContext context = request.getServletContext();
-		ts.dropPending(tid, context.getRealPath("CSV"), true);
+		ts.dropPending(tid, true);
 		return "redirect:pending";
 	}
 	
@@ -101,8 +104,8 @@ public class TransController {
 	@RequestMapping(value="/pending", params="commit", method=RequestMethod.GET)
 	public String commitPending(@RequestParam("commit") int tid, HttpServletRequest request) throws Exception {
 		ServletContext context = request.getServletContext();
-		ts.commitPending(tid, context.getRealPath("CSV"));
-		ts.dropPending(tid, context.getRealPath("CSV"), false);
+		ts.commitPending(tid);
+		ts.dropPending(tid, false);
 		return "redirect:pending";
 	}
 	
@@ -114,7 +117,7 @@ public class TransController {
 		Integer[] tids = mapper.readValue(selected, Integer[].class);
 		List<Integer> indexes = Arrays.asList(tids);
 		ServletContext context = request.getServletContext();
-		ts.dropPendings(indexes, context.getRealPath("CSV"), true);
+		ts.dropPendings(indexes, true);
 		return "redirect:pending";
 	}
 	
@@ -126,7 +129,7 @@ public class TransController {
 		Integer[] tids = mapper.readValue(selected, Integer[].class);
 		List<Integer> indexes = Arrays.asList(tids);
 		ServletContext context = request.getServletContext();
-		ts.commitPendings(indexes, context.getRealPath("CSV"));
+		ts.commitPendings(indexes);
 		return "redirect:pending";
 	}
 	
@@ -150,7 +153,7 @@ public class TransController {
 	@RequestMapping(value="/history", params="cancel", method=RequestMethod.GET)
 	public String cancelPending(@RequestParam("cancel") int tid, HttpServletRequest request) throws Exception {
 		ServletContext context = request.getServletContext();
-		ts.dropPending(tid, context.getRealPath("CSV"), true);
+		ts.dropPending(tid, true);
 		return "redirect:history";
 	}
 	
@@ -162,7 +165,7 @@ public class TransController {
 		Integer[] tids = mapper.readValue(selected, Integer[].class);
 		List<Integer> indexes = Arrays.asList(tids);
 		ServletContext context = request.getServletContext();
-		ts.dropPendings(indexes, context.getRealPath("CSV"), true);
+		ts.dropPendings(indexes, true);
 		return "redirect:history";
 	}
 

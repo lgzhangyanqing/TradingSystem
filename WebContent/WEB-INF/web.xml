@@ -38,6 +38,7 @@
 		<param-value>
 			/WEB-INF/spring-servlet.xml,
 			/WEB-INF/spring-security.xml
+			/WEB-INF/spring-quartz.xml
 		</param-value>
 	</context-param>
 	

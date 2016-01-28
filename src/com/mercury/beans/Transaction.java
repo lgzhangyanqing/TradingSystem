@@ -20,7 +20,7 @@ import org.hibernate.annotations.GenericGenerator;
 import com.mercury.json.TimestampSerializer;
 
 @Entity
-@Table(name="TRANSACTION")
+@Table(name="YFTS_TRANS")
 @AssociationOverrides(value = { 
 		@AssociationOverride (name="own.user", joinColumns=@JoinColumn(name="USER_ID")),
 		@AssociationOverride (name="own.stock", joinColumns=@JoinColumn(name="STOCK_ID")) })
@@ -36,7 +36,7 @@ public class Transaction {
 	@Id
 	@GeneratedValue(generator="trans_id_gen")
 	@GenericGenerator(name="trans_id_gen", strategy="increment")
-	@Column(name="TRANSACTION_ID")
+	@Column(name="TRANS_ID")
 	public int getTid() {
 		return tid;
 	}
@@ -84,7 +84,7 @@ public class Transaction {
 		this.price = price;
 	}
 	
-	@Column(name="TIME")
+	@Column(name="TRANS_TIME")
 	@JsonSerialize(using=TimestampSerializer.class)
 	public Timestamp getTs() {
 		return ts;

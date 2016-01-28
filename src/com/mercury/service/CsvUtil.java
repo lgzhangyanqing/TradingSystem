@@ -1,5 +1,6 @@
 package com.mercury.service;
 
+import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.math.BigDecimal;
@@ -21,6 +22,7 @@ import com.mercury.dao.UserDao;
 
 @Service
 public class CsvUtil {
+	private final String CSV_PATH = "C:\\Users\\royce\\git\\TradingSystem\\WebContent\\CSV\\pending.csv";
 	public String csvPath;
 	
 	@Autowired
@@ -40,10 +42,11 @@ public class CsvUtil {
 	}
 	
 	@Transactional
-	public List<Transaction> parseCSV(String csvFile){
+	public List<Transaction> parseCSV(){
 		List<Transaction> list = new ArrayList<Transaction>();
 		try{
-			FileReader fr = new FileReader(csvFile);
+			//FileReader fr = new FileReader(csvFile);
+			FileReader fr = new FileReader(CSV_PATH);
 			CSVParser parser = new CSVParser(fr, CSVFormat.DEFAULT);
 			List<CSVRecord> l = parser.getRecords();
 			for (CSVRecord r:l){
@@ -64,9 +67,10 @@ public class CsvUtil {
 		return list;
 	}
 	
-	public void appendCSV(Transaction trans, String csvFile){
+	public void appendCSV(Transaction trans){
 		try{
-			FileWriter fw = new FileWriter(csvFile, true);			
+			
+			FileWriter fw = new FileWriter(CSV_PATH, true);			
 			CSVPrinter cp = new CSVPrinter(fw, CSVFormat.DEFAULT);
 			cp.printRecord((Object[]) trans.toString().split(","));
 			fw.flush();
@@ -77,9 +81,9 @@ public class CsvUtil {
 		}
 	}
 	
-	public void rewriteCSV(List<Transaction> trans, String csvFile){
+	public void rewriteCSV(List<Transaction> trans){
 		try{
-			FileWriter fw = new FileWriter(csvFile);
+			FileWriter fw = new FileWriter(CSV_PATH);
 			CSVPrinter cp = new CSVPrinter(fw, CSVFormat.DEFAULT);
 			for (Transaction t: trans){
 				cp.printRecord((Object[]) t.toString().split(","));
