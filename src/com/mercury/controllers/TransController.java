@@ -27,7 +27,7 @@ import com.mercury.service.UserService;
 @SessionAttributes
 public class TransController {
 	
-	public final String CSV_PATH = "C:\\Users\\royce\\git\\TradingSystem\\WebContent\\CSV";
+	public final String CSV_PATH = "C:\\Users\\Rui\\git\\TradingSystem\\WebContent\\CSV\\pending.csv";
 	@Autowired
 	private TransService ts;
 	@Autowired

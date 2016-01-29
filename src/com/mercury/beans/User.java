@@ -1,6 +1,7 @@
 package com.mercury.beans;
 
 import java.io.Serializable;
+import java.security.*;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -136,5 +137,27 @@ public class User implements Serializable{
 	}
 	public void removeTrans(Transaction tran){
 		trans.remove(tran);
+	}
+	
+	
+	/*
+	 * This part of code is transfer the password encryption using MD5 security method
+	 * Take the password string from the user, and use the MD5 method to encryption password
+	 * In Database, it will store the password which after the MD5 encryption.
+	 * If you want to find the password, You can not find back you password, 
+	 * you have to set the password again. 
+	 */
+	public String MD5Hashing(String password) throws Exception {
+		MessageDigest md = MessageDigest.getInstance("MD5");
+		md.update(password.getBytes());
+		byte byteData[] = md.digest();
+		StringBuffer hexString = new StringBuffer();
+		for (int i = 0; i < byteData.length; i++) {
+			String hex = Integer.toHexString(0xff & byteData[i]);
+			if (hex.length() == 1)
+				hexString.append('0');
+			hexString.append(hex);
+		}
+		return hexString.toString();
 	}
 }

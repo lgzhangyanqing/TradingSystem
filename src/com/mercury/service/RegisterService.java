@@ -39,10 +39,13 @@ public class RegisterService {
 		this.ud = ud;
 	}
 	
-	public UserInfo register(User user) {
+	public UserInfo register(User user) throws Exception {
 		user.setAuthority("ROLE_USER");
 		user.setBalance(0);
 		user.setEnabled(0);
+		
+		//add one line code to make the register password encryption;
+		user.setPassWord(user.MD5Hashing(user.getPassWord()));
 		ud.save(user);
 		UserInfo userInfo = new UserInfo();
 		userInfo.setMessage("Hello " + user.getUserName() + ", welcome to YFTS!");
@@ -50,6 +53,9 @@ public class RegisterService {
 		return userInfo;
 	}
 	
+	/*
+	 * activate user status from the email click here
+	 */
 	public void ActivateUser(String username){
 		User user = ud.findByUserName(username);
 		user.setEnabled(1);

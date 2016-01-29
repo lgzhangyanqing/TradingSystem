@@ -3,7 +3,7 @@
  xsi:schemaLocation="http://www.springframework.org/schema/beans
  http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
- <bean id="myTask" class="com.mercury.quartz.MyTask" />
+ <bean id="myTask" class="com.mercury.job.MyJob" />
 
  <!-- specifing class and method that is going to be called on a specified 
   time basis -->
@@ -17,7 +17,7 @@
  <bean id="simpleTrigger"
   class="org.springframework.scheduling.quartz.SimpleTriggerFactoryBean">
   <property name="jobDetail" ref="myJob" />
-  <property name="repeatInterval" value="60000" />
+  <property name="repeatInterval" value="300000" />
   <property name="startDelay" value="1000" />
  </bean>
 

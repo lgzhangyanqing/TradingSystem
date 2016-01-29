@@ -1,4 +1,4 @@
-package com.mercury.quartz;
+package com.mercury.job;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -8,14 +8,13 @@ import java.util.Calendar;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.scheduling.annotation.Scheduled;
 
 import com.mercury.service.TransService;
 
 /*
 @ComponentScan*/
-public class MyTask {
+public class MyJob {
 
 	@Autowired
 	private TransService ts;
@@ -26,7 +25,7 @@ public class MyTask {
 		System.out.println("Current Time : " + Calendar.getInstance().getTime());
 		List<Integer> tranList = new ArrayList<>();
 		
-		try(FileReader fr = new FileReader("C:\\Users\\royce\\git\\TradingSystem\\WebContent\\CSV\\pending.csv");
+		try(FileReader fr = new FileReader("C:\\Users\\Rui\\git\\TradingSystem\\WebContent\\CSV\\pending.csv");
 			BufferedReader br = new BufferedReader(fr);){
 			String s = null;
 			//count means every tranID

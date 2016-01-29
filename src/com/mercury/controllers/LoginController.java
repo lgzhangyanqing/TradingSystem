@@ -84,7 +84,7 @@ public class LoginController {
 	//for sign up
 	@RequestMapping(value="/confirmation", method=RequestMethod.POST)
 	public ModelAndView process(@ModelAttribute("user") 
-			User user, BindingResult result) {
+			User user, BindingResult result) throws Exception {
 		UserInfo userInfo = rs.register(user);
 		rs.sendMail(user.getUserName(), user.getEmail());
 		ModelAndView mav = new ModelAndView();
@@ -136,6 +136,15 @@ public class LoginController {
 		}
 		return 0;
 	}
+	
+	
+	/*
+	 * store the password which encryption
+	 */
+	
+	
+	
+	
 	
 	@RequestMapping(value="login_auto", method = RequestMethod.POST)
 	public String loginAuto(HttpServletRequest request) {
