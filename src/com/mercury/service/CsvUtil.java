@@ -22,7 +22,7 @@ import com.mercury.dao.UserDao;
 
 @Service
 public class CsvUtil {
-	private final String CSV_PATH = "C:\\Users\\Rui\\git\\TradingSystem\\WebContent\\CSV\\pending.csv";
+	private final String CSV_PATH = "D:\\home\\git\\TradingSystem\\WebContent\\CSV\\pending.csv";
 	public String csvPath;
 	
 	@Autowired
