@@ -46,7 +46,9 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
 
 
@@ -237,20 +239,42 @@
             <span class="icon-bar"></span>
           </button>
           
-          <a class="navbar-brand" href="index.html">Yahoo Finance</a>
+          <a class="navbar-brand" href="index.html">YFTS</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav navbar-right">
+          <ul class="nav navbar-nav navbar-left">
             <li><a href="#tf-home" class="page-scroll">Home</a></li>
-            <li><a href="#tf-about" class="page-scroll">About</a></li>
-            <li><a href="#tf-team" class="page-scroll">Team</a></li>
+           
             <li><a href="#tf-services" class="page-scroll">Services</a></li>
             <li><a href="#tf-works" class="page-scroll">Portfolio</a></li>
-            <li><a href="#tf-testimonials" class="page-scroll">Testimonials</a></li>
+            <li><a href="#tf-team" class="page-scroll">Team</a></li>
             <li><a href="#tf-contact" class="page-scroll">Contact</a></li>
+            <sec:authorize access="hasRole('ROLE_USER')">
+                  <li>
+                      <a class="nav-font" href="portfolio">
+                          <i class="icon_desktop"></i>
+                          <span>My Portfolio</span>
+                      </a>
+                  </li>
+                  <li>
+                      <a class="nav-font" href="history">
+                          <i class="icon_document_alt"></i>
+                          <span>History</span>
+                      </a>
+                  </li> 
+                 </sec:authorize>
           </ul>
+          <sec:authorize access="hasAnyRole('ROLE_ADMIN', 'ROLE_USER')?false:true">
+				<ul class="nav navbar-nav navbar-right col-md-2" >
+			        <li style="float:right;">
+	                  	<a href="#login_up">
+	                  	 	<span class="glyphicon glyphicon-log-in" ></span> Sign in
+	                  	</a> 	                  	
+		        </li>
+		    </ul>
+		    </sec:authorize>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>
@@ -262,13 +286,13 @@
             <div class="content">
                 <h1>Welcome on <strong><span class="color">Yahoo Finance Trading System</span></strong></h1>
                 <p class="lead"><strong>We are your good Finance Assistances</strong></p>
-                <a href="#tf-about" class="fa fa-angle-down page-scroll"></a>
+                <a href="#tf-services" class="fa fa-angle-down page-scroll"></a>
             </div>
         </div>
     </div>
 
     <!-- About Us Page
-    ==========================================-->
+    ==========================================
     <div id="tf-about">
         <div class="container">
             <div class="row">
@@ -303,112 +327,8 @@
             </div>
         </div>
     </div>
-
-    <!-- Team Page
-    ==========================================-->
-    <div id="tf-team" class="text-center">
-        <div class="overlay">
-            <div class="container">
-                <div class="section-title center">
-                    <h2>Meet <strong>our team</strong></h2>
-                    <div class="line">
-                        <hr>
-                    </div>
-                </div>
-
-                <div id="team" class="owl-carousel owl-theme row">
-                    <div class="item">
-                        <div class="thumbnail">
-                            <img src="img/team/01.jpg" alt="..." class="img-circle team-img">
-                            <div class="caption">
-                                <h3>Jenn Gwapa</h3>
-                                <p>CEO / Founder</p>
-                                <p>Do not seek to change what has come before. Seek to create that which has not.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="item">
-                        <div class="thumbnail">
-                            <img src="img/team/02.jpg" alt="..." class="img-circle team-img">
-                            <div class="caption">
-                                <h3>Jenn Gwapa</h3>
-                                <p>CEO / Founder</p>
-                                <p>Do not seek to change what has come before. Seek to create that which has not.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="item">
-                        <div class="thumbnail">
-                            <img src="img/team/03.jpg" alt="..." class="img-circle team-img">
-                            <div class="caption">
-                                <h3>Jenn Gwapa</h3>
-                                <p>CEO / Founder</p>
-                                <p>Do not seek to change what has come before. Seek to create that which has not.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="item">
-                        <div class="thumbnail">
-                            <img src="img/team/04.jpg" alt="..." class="img-circle team-img">
-                            <div class="caption">
-                                <h3>Jenn Gwapa</h3>
-                                <p>CEO / Founder</p>
-                                <p>Do not seek to change what has come before. Seek to create that which has not.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="item">
-                        <div class="thumbnail">
-                            <img src="img/team/04.jpg" alt="..." class="img-circle team-img">
-                            <div class="caption">
-                                <h3>Jenn Gwapa</h3>
-                                <p>CEO / Founder</p>
-                                <p>Do not seek to change what has come before. Seek to create that which has not.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="item">
-                        <div class="thumbnail">
-                            <img src="img/team/01.jpg" alt="..." class="img-circle team-img">
-                            <div class="caption">
-                                <h3>Jenn Gwapa</h3>
-                                <p>CEO / Founder</p>
-                                <p>Do not seek to change what has come before. Seek to create that which has not.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="item">
-                        <div class="thumbnail">
-                            <img src="img/team/02.jpg" alt="..." class="img-circle team-img">
-                            <div class="caption">
-                                <h3>Jenn Gwapa</h3>
-                                <p>CEO / Founder</p>
-                                <p>Do not seek to change what has come before. Seek to create that which has not.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="item">
-                        <div class="thumbnail">
-                            <img src="img/team/03.jpg" alt="..." class="img-circle team-img">
-                            <div class="caption">
-                                <h3>Jenn Gwapa</h3>
-                                <p>CEO / Founder</p>
-                                <p>Do not seek to change what has come before. Seek to create that which has not.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-    </div>
+	-->
+  
 
     <!-- Services Section
     ==========================================-->
@@ -443,7 +363,7 @@
                 </div>
 
                 <div class="col-md-3 col-sm-6 service">
-                    <i class="fa fa-bullhorn"></i>
+                    <i class="fa fa-tint"></i>
                     <h4><strong>Marketing</strong></h4>
                     <p>The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p>
                 </div>
@@ -458,35 +378,12 @@
             <div class="container">
 
                 <div class="section-title center">
-                    <h2>Some of <strong>our Clients</strong></h2>
+                    <h2>Some of <strong>our Stocks Chart</strong></h2>
                     <div class="line">
                         <hr>
                     </div>
                 </div>
-                <div id="clients" class="owl-carousel owl-theme">
-                    <div class="item">
-                        <img src="img/client/01.png">
-                    </div>
-                    <div class="item">
-                        <img src="img/client/02.png">
-                    </div>
-                    <div class="item">
-                        <img src="img/client/03.png">
-                    </div>
-                    <div class="item">
-                        <img src="img/client/04.png">
-                    </div>
-                    <div class="item">
-                        <img src="img/client/05.png">
-                    </div>
-                    <div class="item">
-                        <img src="img/client/06.png">
-                    </div>
-                    <div class="item">
-                        <img src="img/client/07.png">
-                    </div>
-                </div>
-
+                
             </div>
         </div>
     </div>
@@ -494,17 +391,25 @@
     <!-- Portfolio Section
     ==========================================-->
     <div id="tf-works">
-        <div class="container"> <!-- Container -->
-            <div class="section-title text-center center">
-                <h2>Take a look at <strong>our services</strong></h2>
-                <div class="line">
-                    <hr>
-                </div>
-                <div class="clearfix"></div>
-                <small><em>Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</em></small>
-            </div>
-            <div class="space"></div>
-
+        <!--   <!-- 12 month Batch start -->
+	    <div id="tv-miniwidget-dfa0f" class="markets_chart">
+			<div id="tradingview_690a3-wrapper" style="position: relative;box-sizing: content-box;width: 100%;height: 530px;margin: 0 !important;padding: 0 !important;font-family:Arial,sans-serif;">
+				<div style="width: 100%;height: 530px;background: #fff;padding: 0 !important;">
+					<iframe id="tradingview_690a3" 
+					src="https://dwq4do82y8xi7.cloudfront.net/miniwidgetembed/?Equities=BABA,DIA,SPY,TWITTER,FACEBOOK,GOOGLE,MICROSOFT,ORACLE&amp;Commodities=GOLD,SILVER,OIL,GAS,BASE%20METALS,URANIUM,LITHIUM,WHEAT&amp;Bonds=1-3%20YEAR,3-7%20YEAR,7-10%20YEAR,20%20YEAR,SHORT%20TERM%20US,EURO%20DEBT,GERMANY%20BOND,ASIA%20LOCAL%20DEBT&amp;Forex=FX%3AEURUSD,FX%3AGBPUSD,FX%3AUSDJPY,FX%3AUSDCHF,FX%3AAUDUSD,FX%3AUSDCAD,FX%3ANZDUSD,FX%3AEURJPY&amp;tabs=Equities%2CCommodities%2CBonds%2CForex&amp;QQQ=NASDAQ%3AQQQ&amp;DIA=AMEX%3ADIA&amp;SPY=AMEX%3ASPY&amp;TWITTER=NYSE%3ATWTR&amp;FACEBOOK=NASDAQ%3AFB&amp;GOOGLE=NASDAQ%3AGOOG&amp;MICROSOFT=NASDAQ%3AMSFT&amp;ORACLE=NYSE%3AORCL&amp;GOLD=AMEX%3AGLD&amp;SILVER=AMEX%3ASLV&amp;OIL=AMEX%3AUSO&amp;GAS=AMEX%3AUNG&amp;BASE%20METALS=AMEX%3ADBB&amp;URANIUM=AMEX%3AURA&amp;LITHIUM=AMEX%3ALIT&amp;WHEAT=AMEX%3AWEAT&amp;1-3%20YEAR=AMEX%3ASHY&amp;3-7%20YEAR=AMEX%3AIEI&amp;7-10%20YEAR=AMEX%3AIEF&amp;20%20YEAR=AMEX%3ATLT&amp;SHORT%20TERM%20US=AMEX%3ASCHO&amp;EURO%20DEBT=AMEX%3AEU&amp;GERMANY%20BOND=FX%3ABUND&amp;ASIA%20LOCAL%20DEBT=AMEX%3AALD&amp;timeAxisBackgroundColor=%23F3F2F3&amp;activeTickerBackgroundColor=%23EDF0F3&amp;trendLineColor=%23FF7965&amp;underLineColor=%23F0F0F0&amp;fontColor=%2383888D&amp;gridLineColor=%23E9E9EA&amp;large_chart_url=http%3A%2F%2Fwww.investopedia.com%2Fmarkets%2Fsymbol-redirect.aspx&amp;width=100%25&amp;height=530px&amp;utmsource=www.investopedia.com&amp;utmmedium=www.investopedia.com/" 
+					width="100%" height="530px" frameborder="0" allowtransparency="true" scrolling="no" style="margin: 0 !important; padding: 0 !important;">
+					</iframe>
+				</div>
+				<div style="position:absolute;display: block;box-sizing: content-box;height: 24px;width: 100%;bottom: 0;left: 0;margin: 0;padding: 0;font-family: Arial,sans-serif;">
+					<div style="display: block;margin: 0 1px 1px 1px;line-height: 7px;box-sizing: content-box;height: 11px;padding: 6px 10px;text-align: right;background: #fff;"><a href="https://www.tradingview.com/?utmsource=www.investopedia.com&amp;utmmedium=www.investopedia.com/" target="_blank" style="color: #0099d4;text-decoration: none;font-size: 11px;">
+					</div>
+				</div>
+			</div>
+		</div>           
+	  	<script type="text/javascript" src="https://d33t3vvu2t2yu5.cloudfront.net/tv.js"></script>
+	 	</div>
+	 </div>
+	<!-- 12 month Batch end -->
             <div class="categories">
                 
                 <ul class="cat">
@@ -654,10 +559,10 @@
 
             </div>
         </div>
-    </div>
+    
 
     <!-- Testimonials Section
-    ==========================================-->
+    ==========================================
     <div id="tf-testimonials" class="text-center">
         <div class="overlay">
             <div class="container">
@@ -687,6 +592,111 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>-->
+      <!-- Team Page
+    ==========================================-->
+    <div id="tf-team" class="text-center">
+        <div class="overlay">
+            <div class="container">
+                <div class="section-title center">
+                    <h2>Meet <strong>our team</strong></h2>
+                    <div class="line">
+                        <hr>
+                    </div>
+                </div>
+
+                <div id="team" class="owl-carousel owl-theme row">
+                    <div class="item">
+                        <div class="thumbnail">
+                            <img src="img/team/01.jpg" alt="..." class="img-circle team-img">
+                            <div class="caption">
+                                <h3>Jenn Gwapa</h3>
+                                <p>CEO / Founder</p>
+                                <p>Do not seek to change what has come before. Seek to create that which has not.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="thumbnail">
+                            <img src="img/team/02.jpg" alt="..." class="img-circle team-img">
+                            <div class="caption">
+                                <h3>Jenn Gwapa</h3>
+                                <p>CEO / Founder</p>
+                                <p>Do not seek to change what has come before. Seek to create that which has not.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="thumbnail">
+                            <img src="img/team/03.jpg" alt="..." class="img-circle team-img">
+                            <div class="caption">
+                                <h3>Jenn Gwapa</h3>
+                                <p>CEO / Founder</p>
+                                <p>Do not seek to change what has come before. Seek to create that which has not.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="thumbnail">
+                            <img src="img/team/04.jpg" alt="..." class="img-circle team-img">
+                            <div class="caption">
+                                <h3>Jenn Gwapa</h3>
+                                <p>CEO / Founder</p>
+                                <p>Do not seek to change what has come before. Seek to create that which has not.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="thumbnail">
+                            <img src="img/team/04.jpg" alt="..." class="img-circle team-img">
+                            <div class="caption">
+                                <h3>Jenn Gwapa</h3>
+                                <p>CEO / Founder</p>
+                                <p>Do not seek to change what has come before. Seek to create that which has not.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="thumbnail">
+                            <img src="img/team/01.jpg" alt="..." class="img-circle team-img">
+                            <div class="caption">
+                                <h3>Jenn Gwapa</h3>
+                                <p>CEO / Founder</p>
+                                <p>Do not seek to change what has come before. Seek to create that which has not.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="thumbnail">
+                            <img src="img/team/02.jpg" alt="..." class="img-circle team-img">
+                            <div class="caption">
+                                <h3>Jenn Gwapa</h3>
+                                <p>CEO / Founder</p>
+                                <p>Do not seek to change what has come before. Seek to create that which has not.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="thumbnail">
+                            <img src="img/team/03.jpg" alt="..." class="img-circle team-img">
+                            <div class="caption">
+                                <h3>Jenn Gwapa</h3>
+                                <p>CEO / Founder</p>
+                                <p>Do not seek to change what has come before. Seek to create that which has not.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
             </div>
         </div>
     </div>
@@ -788,11 +798,12 @@
 	</div>
 
     <!-- Navigation -->
+    <!--  
     <nav class="navbar navbar-default" data-spy="affix" data-offset-top="197">	
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <!-- Collect the nav links, forms, and other content for toggling -->
-			<ul class="nav navbar-nav">
+			<!--  <ul class="nav navbar-nav">
 			    <li><a href="#" class="nav-font">Home</a></li>
 			    <li>
 			    	<a href="marketdata" class="nav-font">MarketData</a>
@@ -800,7 +811,7 @@
 			   <!--  <li>
 			    	<a href="#transaction" class="nav-font">Transaction</a>
 			    </li> -->
-			    <sec:authorize access="hasRole('ROLE_USER')">
+			   <!--   <sec:authorize access="hasRole('ROLE_USER')">
                   <li>
                       <a class="nav-font" href="portfolio">
                           <i class="icon_desktop"></i>
@@ -816,6 +827,7 @@
                  </sec:authorize>
 			</ul>
             </div>
+            -->
             <!-- /.navbar-collapse -->
         <!-- /.container-fluid -->
     </nav>
@@ -837,24 +849,7 @@
         </div>
         <!-- /.container -->
     </div>
-    <!-- 12 month Batch start -->
-    <div id="tv-miniwidget-dfa0f" class="markets_chart">
-		<div id="tradingview_690a3-wrapper" style="position: relative;box-sizing: content-box;width: 100%;height: 530px;margin: 0 !important;padding: 0 !important;font-family:Arial,sans-serif;">
-			<div style="width: 100%;height: 530px;background: #fff;padding: 0 !important;">
-				<iframe id="tradingview_690a3" 
-				src="https://dwq4do82y8xi7.cloudfront.net/miniwidgetembed/?Equities=BABA,DIA,SPY,TWITTER,FACEBOOK,GOOGLE,MICROSOFT,ORACLE&amp;Commodities=GOLD,SILVER,OIL,GAS,BASE%20METALS,URANIUM,LITHIUM,WHEAT&amp;Bonds=1-3%20YEAR,3-7%20YEAR,7-10%20YEAR,20%20YEAR,SHORT%20TERM%20US,EURO%20DEBT,GERMANY%20BOND,ASIA%20LOCAL%20DEBT&amp;Forex=FX%3AEURUSD,FX%3AGBPUSD,FX%3AUSDJPY,FX%3AUSDCHF,FX%3AAUDUSD,FX%3AUSDCAD,FX%3ANZDUSD,FX%3AEURJPY&amp;tabs=Equities%2CCommodities%2CBonds%2CForex&amp;QQQ=NASDAQ%3AQQQ&amp;DIA=AMEX%3ADIA&amp;SPY=AMEX%3ASPY&amp;TWITTER=NYSE%3ATWTR&amp;FACEBOOK=NASDAQ%3AFB&amp;GOOGLE=NASDAQ%3AGOOG&amp;MICROSOFT=NASDAQ%3AMSFT&amp;ORACLE=NYSE%3AORCL&amp;GOLD=AMEX%3AGLD&amp;SILVER=AMEX%3ASLV&amp;OIL=AMEX%3AUSO&amp;GAS=AMEX%3AUNG&amp;BASE%20METALS=AMEX%3ADBB&amp;URANIUM=AMEX%3AURA&amp;LITHIUM=AMEX%3ALIT&amp;WHEAT=AMEX%3AWEAT&amp;1-3%20YEAR=AMEX%3ASHY&amp;3-7%20YEAR=AMEX%3AIEI&amp;7-10%20YEAR=AMEX%3AIEF&amp;20%20YEAR=AMEX%3ATLT&amp;SHORT%20TERM%20US=AMEX%3ASCHO&amp;EURO%20DEBT=AMEX%3AEU&amp;GERMANY%20BOND=FX%3ABUND&amp;ASIA%20LOCAL%20DEBT=AMEX%3AALD&amp;timeAxisBackgroundColor=%23F3F2F3&amp;activeTickerBackgroundColor=%23EDF0F3&amp;trendLineColor=%23FF7965&amp;underLineColor=%23F0F0F0&amp;fontColor=%2383888D&amp;gridLineColor=%23E9E9EA&amp;large_chart_url=http%3A%2F%2Fwww.investopedia.com%2Fmarkets%2Fsymbol-redirect.aspx&amp;width=100%25&amp;height=530px&amp;utmsource=www.investopedia.com&amp;utmmedium=www.investopedia.com/" 
-				width="100%" height="530px" frameborder="0" allowtransparency="true" scrolling="no" style="margin: 0 !important; padding: 0 !important;">
-				</iframe>
-			</div>
-			<div style="position:absolute;display: block;box-sizing: content-box;height: 24px;width: 100%;bottom: 0;left: 0;margin: 0;padding: 0;font-family: Arial,sans-serif;">
-				<div style="display: block;margin: 0 1px 1px 1px;line-height: 7px;box-sizing: content-box;height: 11px;padding: 6px 10px;text-align: right;background: #fff;"><a href="https://www.tradingview.com/?utmsource=www.investopedia.com&amp;utmmedium=www.investopedia.com/" target="_blank" style="color: #0099d4;text-decoration: none;font-size: 11px;">
-					
-				</div>
-			</div>
-		</div>
-	</div>           
-	  <script type="text/javascript" src="https://d33t3vvu2t2yu5.cloudfront.net/tv.js"></script>
-	<!-- 12 month Batch end -->
+   
     
     <!-- service with timeline -->
     <!-- 12 bath delete 
