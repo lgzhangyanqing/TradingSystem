@@ -180,66 +180,8 @@
               </div>
               <!-- page end-->
 
-<div  ng-controller="ModalDemoCtrl">
-    <script type="text/ng-template" id="buyContent.html">
-        <div class="modal-header">
-			 <button type="button" class="close" ng-click="cancel()">&times;</button>
-            <h3 class="modal-title">Buy Stock</h3>
-        </div>
-        <div class="modal-body" style="font-size:15px;">
-            <label>Stock Symbol:  </label>
-			<b style=" font-family: 'Indie Flower', cursive; font-size:25px;"> {{buyItem.stock.symbol}}</b>
-			<br/>
-			<label>Stock Name:  </label>
-			<b style=" font-family: 'Indie Flower', cursive; font-size:25px;"> {{buyItem.stockName}}</b>
-			<br/>
-			<label>Unit Price:  </label>
-			<b style="font-family: 'Indie Flower', cursive; font-size:25px;"> {{buyItem.price}}</b>
-			<br/>
-			<label>Quantity:  </label>
-			<input type="number" min="1" max={{upper}} value={{quan}} ng-model="quan"/>
-			<br/>	
-        </div>				
-        <div class="modal-footer">
-		<div>		
-			<h5 style="margin-right:50px"><strong>Ready to buy <span style="color:red">{{quan}}</span>
-			shares of <span style="color:red">{{buyItem.stock.symbol}}</span> ? <strong></h5>
-			<h5><strong>Balance after transaction: <span style="color:red">
-			{{Math.round(user.balance - buyItem.price * quan) |currency}}</span><strong> </h5>
-		</div>
-            <button class="btn btn-success" type="button" ng-click="ok()">OK</button>
-            <button class="btn btn-default" type="button" ng-click="cancel()">Cancel</button>
-        </div>
-    </script>
-    <script type="text/ng-template" id="sellContent.html">
-        <div class="modal-header">
-            <h3 class="modal-title">Sell stocks: {{sellItem.stockName}} 
-				(Currently own {{getAmount(sellItem)}})</h3>
-        </div>
-        <div class="modal-body">
-            <label>Stock Symbol: </label>
-			<b style="color:red">{{sellItem.stock.symbol}}</b><br/>
-			<label>Stock Name: </label>
-			<b style="color:red">{{sellItem.stockName}}</b><br/>
-			<label>Unit Price: </label>
-			<b style="color:red">{{sellItem.price}}</b><br/>
-			<label>Quantity: </label>
-			<input type="number" min="1" max={{getAmount(sellItem)}} value={{quan}} ng-model="quan"/>
-			<input type="range" min="1" max={{getAmount(sellItem)}} value={{quan}} ng-model="quan"/>
-			<br/>	
-        </div>				
-        <div class="modal-footer">
-		<div>		
-			<label style="margin-right:50px">Ready to sell <span style="color:red">{{quan}}</span>
-			shares of <span style="color:red">{{sellItem.stock.symbol}}</span>? 
-			Balance after transaction: <span style="color:red">$
-			{{Math.round(user.balance + sellItem.price * quan)}}</span></label>
-		</div><br/>
-            <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
-            <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
-        </div>
-    </script>
-</div>             
+
+	   
               
           </section>
       </section>
@@ -247,6 +189,7 @@
   </section>
   <!-- container section end -->
     <!-- javascripts -->
+  
     <script src="js/jquery.js"></script>
     <script src="js/jquery-1.8.3.min.js"></script>
     <!-- nice scroll -->
