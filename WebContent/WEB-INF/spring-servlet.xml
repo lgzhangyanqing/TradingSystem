@@ -14,18 +14,17 @@
 		http://www.springframework.org/schema/tx
     	http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
     
-    <mvc:resources mapping="/*" location="/" />
-    <mvc:annotation-driven /> 
-	
-	<!-- Controllers -->
-	<context:component-scan base-package="com.mercury.controllers" />
-	
-	<!-- Services -->
-	 <context:component-scan base-package="com.mercury.service" /> 
-	<!-- Transaction -->
+    <!-- Transaction -->
 	<tx:annotation-driven/>
+    <mvc:resources mapping="/*" location="/" />
+    
+    <!-- Spring MVC Annotation -->
+    <mvc:annotation-driven /> 
+	<context:component-scan base-package="com.mercury" /> 
+	 
 
-	<!-- Spring MVC -->
+
+	<!-- Spring MVC viewResolver-->
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.UrlBasedViewResolver">
 		<property name="viewClass"

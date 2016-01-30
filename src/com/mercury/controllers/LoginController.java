@@ -26,19 +26,31 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.mercury.beans.User;
 import com.mercury.beans.UserInfo;
-import com.mercury.service.RegisterService;
+import com.mercury.mail.MailForgotPassword;
+//import com.mercury.service.RegisterService;
+import com.mercury.mail.MailRegister;
 import com.mercury.service.UserService;
 
 @SessionAttributes
 @Controller
 public class LoginController {
+	
 	@Autowired
 	@Qualifier("jdbcUserService")  // <-- this references the bean id
 	public UserDetailsManager userDetailsManager;
+	
 	@Autowired
 	private UserService us;
+	
+//	@Autowired
+//	private RegisterService rs;
+	
 	@Autowired
-	private RegisterService rs;
+	private MailRegister mr;
+	
+	//@Autowired 
+	//private MailForgotPassword mfp; //add for the forgot the password 
+	
 	@Autowired 
 	private UserDetailsService userDetailsSvc;
 	
@@ -48,12 +60,18 @@ public class LoginController {
 	public void setUs(UserService us) {
 		this.us = us;
 	}
-	public RegisterService getRs() {
-		return rs;
+	public MailRegister getMr() {
+		return mr;
 	}
-	public void setRs(RegisterService rs) {
-		this.rs = rs;
+	public void setMr(MailRegister mr) {
+		this.mr = mr;
 	}
+//	public RegisterService getRs() {
+//		return rs;
+//	}
+//	public void setRs(RegisterService rs) {
+//		this.rs = rs;
+//	}
 	
 	//for login
 	@RequestMapping(value="login", method = RequestMethod.GET)
@@ -81,32 +99,53 @@ public class LoginController {
 		return user;
 	}
 
-	//for sign up
+	/*
+	 * controller for the register process 
+	 */
 	@RequestMapping(value="/confirmation", method=RequestMethod.POST)
 	public ModelAndView process(@ModelAttribute("user") 
 			User user, BindingResult result) throws Exception {
-		UserInfo userInfo = rs.register(user);
-		rs.sendMail(user.getUserName(), user.getEmail());
+		UserInfo userInfo = mr.register(user);
+		mr.sendMail(user.getUserName(), user.getEmail());
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("confirmation");
 		mav.addObject("userInfo", userInfo);
 		return mav;
 	}
 	
+	/*
+	 * controller for the forgot password and recover account
+	 
+	@RequestMapping(value="/recoverAccount", method=RequestMethod.POST)
+	public ModelAndView recoverAccount(@ModelAttribute("user") User user, BindingResult result) throws Exception {
+		UserInfo userInfo = mfp.updateUserPassword(user.getUserName());
+		mfp.sendForgotPasswordMail(user.getUserName(), user.getEmail());;
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("recoverAccount");
+		mav.addObject("userInfo", userInfo);
+		return mav;
+	}
+	*/
+	
+	
+	
+	/*
+	 * 
+	 */
 	@RequestMapping(value="/activateAccount", method = RequestMethod.GET)
 	public ModelAndView activeMail(HttpServletRequest request) {
 		String username = request.getParameter("username");
 		User user = us.findUserByUserName(username);
 		String checkcode = request.getParameter("checkcode");
 		ModelAndView mav = new ModelAndView();
-		System.out.println(rs.md5(username).equals(checkcode));
-		if(rs.md5(username).equals(checkcode)){
+		System.out.println(mr.md5(username).equals(checkcode));
+		if(mr.md5(username).equals(checkcode)){
 			int enabled = user.getEnabled();
 			if(enabled==1){
 				mav.setViewName("linkoutoftime");
 				return mav;
 			}
-			rs.ActivateUser(username);
+			mr.ActivateUser(username);
 			mav.setViewName("active_confirm");
 			mav.addObject("userName", username);
 			return mav;
@@ -116,6 +155,8 @@ public class LoginController {
 		return mav;
 		
 	}
+	
+	
 	
 	@RequestMapping(value="/registervalidation", method=RequestMethod.POST)
 	@ResponseBody
@@ -138,13 +179,6 @@ public class LoginController {
 	}
 	
 	
-	/*
-	 * store the password which encryption
-	 */
-	
-	
-	
-	
 	
 	@RequestMapping(value="login_auto", method = RequestMethod.POST)
 	public String loginAuto(HttpServletRequest request) {
@@ -163,6 +197,8 @@ public class LoginController {
 		}
 		return "redirect:/error";
 	}
+	
+	
 	/**
 	 * Check if user is login by remember me cookie, refer
 	 * org.springframework.security.authentication.AuthenticationTrustResolverImpl
@@ -203,6 +239,7 @@ public class LoginController {
 		}
 		return targetUrl;
 	}
+
 	
 	
 	
