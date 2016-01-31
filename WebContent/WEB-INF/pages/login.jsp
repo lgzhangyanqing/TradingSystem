@@ -274,7 +274,7 @@
 					<span class="icon-bar"></span>
 				</button>
 
-				<a class="navbar-brand" href="index.html">YFTS</a>
+				<a class="navbar-brand" href="#tf-home">YFTS</a>
 			</div>
 
 			<!-- Collect the nav links, forms, and other content for toggling -->
@@ -1304,17 +1304,17 @@
 		</a>
 	</div> 
 	
-
+<!--  
 	<nav id="footer">
 		<div class="container">
 			<!--  <div class="pull-left fnav">
 				<p>
-					ALL RIGHTS RESERVED. COPYRIGHT © 2014. Designed by <a
+					ALL RIGHTS RESERVED. COPYRIGHT ï¿½ 2014. Designed by <a
 						href="https://dribbble.com/shots/1817781--FREEBIE-Spirit8-Digital-agency-one-page-template">Robert
 						Berki</a> and Coded by <a href="https://dribbble.com/jennpereira">Jenn
 						Pereira</a>
 				</p>
-			</div>-->
+			</div>
 			<div class="pull-right fnav">
 				<ul class="footer-social">
 					<li><a href="#"><i class="fa fa-facebook"></i></a></li>
@@ -1326,7 +1326,7 @@
 		</div>
 	</nav>
 
-
+-->
 	<c:import url="pageComponent/footer.jsp"></c:import>
 
 
