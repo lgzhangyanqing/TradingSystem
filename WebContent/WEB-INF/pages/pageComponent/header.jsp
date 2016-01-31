@@ -84,6 +84,34 @@
 		        </li>
 		    </ul>
 		    </sec:authorize>
+		     <sec:authorize access="hasAnyRole('ROLE_ADMIN', 'ROLE_USER')">
+                  <ul class="nav navbar-nav pull-right">
+                  <!-- user login dropdown start-->
+                  <li class="dropdown" ng-controller="headerCtrl">
+                      <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                          <span class="profile-ava">
+                              <img alt="" src="icon/user.png" width="30" height="30">
+                          </span>
+                          <span class="username">Hello, {{user.userName}}</span>
+                          <b class="caret"></b>
+                      </a>
+                      <ul class="dropdown-menu extended logout">
+                          <li class="prof-info-container">
+                          	<div class="profile-ava prof-big"><img alt="" src="icon/user.png" width="50" height="50"></div>
+                          	<div class="prof-info">
+                          		<ul>
+                          			<li>{{user.firstName}} {{user.lastName}}</li>
+                          			<li>{{user.email}}
+                          		</ul>                          	
+                          	</div>
+                          </li>
+                          <li>
+                          	<a href="<c:url value='/j_spring_security_logout'/>"><i class="icon_key_alt"></i>Logout</a>
+                          </li>
+                      </ul>
+                  </li>
+                 	</ul>
+                  </sec:authorize>
 		    
 			</div>
 			<!-- /.navbar-collapse -->
