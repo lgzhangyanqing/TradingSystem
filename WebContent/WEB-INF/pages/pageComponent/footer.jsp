@@ -17,7 +17,7 @@
 				<a href="https://www.instagram.com" class="instagram" target="_blank"><img src="icon/instagram.png" style=" height: 66px; width: 60px;"></a>
 			</div>
 		</div>
-		<div class="contact-us col-md-4">
+		<div id="tf-contact" class="contact-us col-md-4">
 			<span class="contact">Contact Us</span>
 			<div>
 				<p><span class="glyphicon glyphicon-map-marker"></span> Princeton, US</p>

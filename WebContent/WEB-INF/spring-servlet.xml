@@ -34,5 +34,51 @@
 		<property name="suffix" value=".jsp" />
 	</bean>
 
+	<!-- Dao Injection -->
+	<bean id="mainDao" class="com.mercury.dao.impl.MainDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="stockDao" class="com.mercury.dao.impl.StockDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="userDao" class="com.mercury.dao.impl.UserDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="transDao" class="com.mercury.dao.impl.TransDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="ownDao" class="com.mercury.dao.impl.OwnInfoDaoImpl">
+		<property name="SessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<!-- Hibernate Annotation -->
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="annotatedClasses">
+			<list>
+				<value>com.mercury.beans.User</value>
+				<value>com.mercury.beans.Stock</value>
+				<value>com.mercury.beans.OwnershipInfo</value>
+				<value>com.mercury.beans.Transaction</value>
+			</list>
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.OracleDialect</prop>
+				<prop key="hibernate.show_sql">true</prop>
+			</props>
+		</property>
+	</bean>
 
+	<!-- JNDI -->
+	<bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
+		<property name="jndiName" value="java:comp/env/jdbc/myoracle" />
+	</bean>
+	
 </beans>
