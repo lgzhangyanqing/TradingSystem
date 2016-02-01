@@ -77,7 +77,18 @@
     	width: 10px;
     	height: 20px;
 	}
+	
+	.highlight{
+    background: lightgreen;
+    transition: background 200ms;
+    }
+    .highlight2{
+    background: #ff8080;
+    transition: background 200ms;
+    }
+
 </style>
+
 </head>
 <body ng-app="ui.bootstrap.demo">
 <c:import url="pageComponent/header.jsp"/>
@@ -98,39 +109,50 @@
                            <tbody>
                               <tr class="success" >
                                  <!-- <th><i class="icon_star"></i> Stock Id</th> -->
+                                 <th>Action</th>
                                  <th>StockSymbol</th>
                                  <th> StockName</th>
+                                 <th>Quantity</th>
                                  <th>Price</th>
                                  <th>Change</th>
                                  <th>Change%</th>
-                                 <th>Quantity</th>
-                                 <th>Action</th>
+                                 
+                                 
                               </tr>
-                              <tr ng-repeat=" stock in stockInfo">
+                              <tr ng-repeat=" stock in stockInfo track by $index">
 								<!-- <td>{{stock.stock.sid}}</td> -->
-								<td>{{stock.stock.symbol}}</td>
-								<td>{{stock.stockName}}</td>
-								<td>{{stock.price}}</td>
-					     		<td>
-									<b ng-if="stock.change>0" style="color:green">+{{stock.change}}</b>
-									<b ng-if="stock.change<0" style="color:red">{{stock.change}}</b>
-									<b ng-if="stock.change==0" style="color:black">{{stock.change}}</b>
-								</td>
-								<td>
-									<b ng-if="stock.pchange.indexOf('-')>-1" style="color:red">{{stock.pchange}}</b>
-									<b ng-if="stock.pchange.indexOf('+')>-1" style="color:green">{{stock.pchange}}</b>
-									<b ng-if="stock.pchange.indexOf('0')==0" style="color:black">{{stock.pchange}}</b>
-								</td>
-								
-								<td>{{stock.quantity}}</td>
 								<sec:authorize access="hasAnyRole('ROLE_ADMIN', 'ROLE_USER')">
                                  <td>
                                   <div class="btn-group">
-                                      <a class="btn btn-primary" href="#" ng-click="pass(stock); openBuy()">Buy</a>
-                                      <a class="btn btn-success" href="#" ng-click="pass(stock); openSell()" >Sell</a>
+                                    <!--   <a class="btn btn-primary" href="#" ng-click="pass(stock); openBuy()">Buy</a> -->
+                                      <a class="btn btn-success" href="#" ng-click="pass(stock); openSell()" >Sell</a> 
                                   </div>
                                   </td>
                                  </sec:authorize>
+								<td>{{stock.stock.symbol}}</td>
+								<td>{{stock.stockName}}</td>
+								<td>{{stock.quantity}}</td>
+								<td >
+								
+								<b ng-if="stock.change>0" highlighter="stock.price" >&#36{{stock.price}}</b>
+									<b ng-if="stock.change<0" highlighter2="stock.price" >&#36{{stock.price}}</b>
+									<b ng-if="stock.change==0" style="color:black">&#36{{stock.price}}</b>
+								</td>
+								
+								
+					     		<td >
+									<b ng-if="stock.change>0" highlighter="stock.change" style="color:green">+{{stock.change}} <span class="glyphicon glyphicon-arrow-up"></span></b>
+									<b ng-if="stock.change<0" highlighter2="stock.change" style="color:red">{{stock.change}} <span class="glyphicon glyphicon-arrow-down"></span></b>
+									<b ng-if="stock.change==0" highlighter="stock.change" style="color:black">{{stock.change}}</b>
+								</td>
+								<td >
+									<b ng-if="stock.pchange.indexOf('-')>-1" highlighter2="stock.pchange" style="color:red">{{stock.pchange}} <span class="glyphicon glyphicon-arrow-down"></span></b>
+									<b ng-if="stock.pchange.indexOf('+')>-1" highlighter="stock.pchange" style="color:green">{{stock.pchange}} <span class="glyphicon glyphicon-arrow-up"></span></b>
+									<b ng-if="stock.pchange.indexOf('0')==0" highlighter="stock.pchange" style="color:black">{{stock.pchange}}</b>
+								</td>
+								
+								
+								
                               </tr>
 
                            </tbody>

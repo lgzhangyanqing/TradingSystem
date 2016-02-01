@@ -3,6 +3,49 @@ var app = angular.module('ui.bootstrap.demo');
 app.config(['$httpProvider', function ($httpProvider) {    
 	$httpProvider.defaults.headers.post['Content-Type'] = 'application/json; charset=UTF-8';
 }]);
+
+app.directive('highlighter', ['$timeout', function($timeout) {
+	  return {
+	    restrict: 'A',
+	    scope: {
+	      model: '=highlighter'
+	    },
+	    link: function(scope, element) {
+	      scope.$watch('model', function (nv, ov) {
+	        if (nv !== ov) {
+	          // apply class
+	          element.addClass('highlight');
+
+	          // auto remove after some delay
+	          $timeout(function () {
+	            element.removeClass('highlight');
+	          }, 500);
+	        }
+	      });
+	    }
+	  };
+	}]);
+app.directive('highlighter2', ['$timeout', function($timeout) {
+	  return {
+	    restrict: 'A',
+	    scope: {
+	      model: '=highlighter2'
+	    },
+	    link: function(scope, element) {
+	      scope.$watch('model', function (nv, ov) {
+	        if (nv !== ov) {
+	          // apply class
+	          element.addClass('highlight2');
+
+	          // auto remove after some delay
+	          $timeout(function () {
+	            element.removeClass('highlight2');
+	          }, 500);
+	        }
+	      });
+	    }
+	  };
+	}]);
 app.service("shared", function() {
 	var _stock = null;
 	var _user = null;

@@ -139,20 +139,20 @@
 								<td>{{stock.stockName}}</td>
 								<td>{{stock.price}}</td>
 								<td>
-									<b ng-if="stock.change>0" style="color:green">+{{stock.change}}</b>
-									<b ng-if="stock.change<0" style="color:red">{{stock.change}}</b>
+									<b ng-if="stock.change>0" style="color:green">+{{stock.change}} <span class="glyphicon glyphicon-arrow-up"></span></b>
+									<b ng-if="stock.change<0" style="color:red">{{stock.change}} <span class="glyphicon glyphicon-arrow-down"></span></b>
 									<b ng-if="stock.change==0" style="color:black">{{stock.change}}</b>
 								</td>
 								<td>
-									<b ng-if="stock.pchange.indexOf('-')>-1" style="color:red">{{stock.pchange}}</b>
-									<b ng-if="stock.pchange.indexOf('+')>-1" style="color:green">{{stock.pchange}}</b>
+									<b ng-if="stock.pchange.indexOf('-')>-1" style="color:red">{{stock.pchange}} <span class="glyphicon glyphicon-arrow-down"></span></b>
+									<b ng-if="stock.pchange.indexOf('+')>-1" style="color:green">{{stock.pchange}} <span class="glyphicon glyphicon-arrow-up"></span></b>
 									<b ng-if="stock.pchange.indexOf('0')==0" style="color:black">{{stock.pchange}}</b>
 								</td>
 								<sec:authorize access="hasRole('ROLE_USER')">
                                  <td>
                                   <div class="btn-group">
                                       <a class="btn btn-primary" href="#" ng-click="pass(stock); openBuy()">Buy</a>
-                                      <a ng-if="hasStock(stock)" class="btn btn-success" href="#" ng-click="pass(stock); openSell()" >Sell</a>
+                                      <!-- <a ng-if="hasStock(stock)" class="btn btn-success" href="#" ng-click="pass(stock); openSell()" >Sell</a> -->
                                   </div>
                                   </td>
                                  </sec:authorize>
