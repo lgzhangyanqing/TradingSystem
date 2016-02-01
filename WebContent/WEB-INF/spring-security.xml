@@ -30,6 +30,7 @@
 	
 	<sec:authentication-manager alias="authenticationManager">
         <sec:authentication-provider>
+        	<sec:password-encoder hash="md5"/>
         	<sec:jdbc-user-service id="jdbcUserService" data-source-ref="dataSource"
 		   		users-by-username-query="
 		      		select username, password, enabled 

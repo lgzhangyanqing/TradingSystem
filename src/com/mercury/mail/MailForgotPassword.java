@@ -31,6 +31,25 @@ public class MailForgotPassword {
 		this.ud = ud;
 	}	
 	
+    
+    /*
+     * 1. update the user password in database
+     */
+    public UserInfo updateUserPassword(String email) throws Exception {
+    	User user = ud.findByEmail(email);
+    	user.setPassWord(user.MD5Hashing(user.getUserName()));
+    	ud.save(user);
+    	UserInfo userInfo = new UserInfo();
+    	userInfo.setMessage("Hello " + user.getUserName() + ", Welcome come back YFTS!");
+    	userInfo.setUsers(ud.queryAll());
+    	return userInfo;
+    }
+    
+    
+    
+	/*
+	 * 2. send email 
+	 */
 	public void sendForgotPasswordMail(String username, String useremail) {
 		
 		final String SSL_FACTORY = "javax.net.ssl.SSLSocketFactory";
@@ -111,16 +130,5 @@ public class MailForgotPassword {
     }  
     
     
-    /*
-     * update the user database password using MD5
-     */
-    public UserInfo updateUserPassword(String username) throws Exception {
-    	User user = ud.findByUserName(username);
-    	user.setPassWord(user.MD5Hashing(user.getUserName()));
-    	ud.save(user);
-    	UserInfo userInfo = new UserInfo();
-    	userInfo.setMessage("Hello " + user.getUserName() + ", Welcome come back YFTS!");
-    	userInfo.setUsers(ud.queryAll());
-    	return userInfo;
-    }
+
 }

@@ -1,5 +1,7 @@
 package com.mercury.controllers;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.security.Principal;
 
 import javax.servlet.http.HttpServletRequest;
@@ -42,9 +44,6 @@ public class LoginController {
 	@Autowired
 	private UserService us;
 	
-//	@Autowired
-//	private RegisterService rs;
-	
 	@Autowired
 	private MailRegister mr;
 	
@@ -66,12 +65,7 @@ public class LoginController {
 	public void setMr(MailRegister mr) {
 		this.mr = mr;
 	}
-//	public RegisterService getRs() {
-//		return rs;
-//	}
-//	public void setRs(RegisterService rs) {
-//		this.rs = rs;
-//	}
+
 	
 	//for login
 	@RequestMapping(value="login", method = RequestMethod.GET)
@@ -113,20 +107,25 @@ public class LoginController {
 		return mav;
 	}
 	
+	
+	
 	/*
 	 * controller for the forgot password and recover account
 	 
-	@RequestMapping(value="/recoverAccount", method=RequestMethod.POST)
+	@RequestMapping(value="/recoveraccount", method=RequestMethod.POST)
 	public ModelAndView recoverAccount(@ModelAttribute("user") User user, BindingResult result) throws Exception {
-		UserInfo userInfo = mfp.updateUserPassword(user.getUserName());
+		UserInfo userInfo = mfp.updateUserPassword(user.getEmail());
 		mfp.sendForgotPasswordMail(user.getUserName(), user.getEmail());;
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("recoverAccount");
+		mav.setViewName("confirmation");
 		mav.addObject("userInfo", userInfo);
 		return mav;
 	}
 	*/
 	
+		
+	
+	////////////////////////////////////////
 	
 	
 	/*
@@ -156,8 +155,7 @@ public class LoginController {
 		
 	}
 	
-	
-	
+
 	@RequestMapping(value="/registervalidation", method=RequestMethod.POST)
 	@ResponseBody
 	public int isUserExist(HttpServletRequest request){
@@ -178,11 +176,12 @@ public class LoginController {
 		return 0;
 	}
 	
-	
-	
+
 	@RequestMapping(value="login_auto", method = RequestMethod.POST)
 	public String loginAuto(HttpServletRequest request) {
 		String username = request.getParameter("j_username");
+		
+		//change user input password to MD5 match the database
 		String password = us.findUserByUserName(username).getPassWord();
 		try {
 			UserDetails userDetails = userDetailsSvc.loadUserByUsername(username);
@@ -197,6 +196,20 @@ public class LoginController {
 		}
 		return "redirect:/error";
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	/**
@@ -240,8 +253,4 @@ public class LoginController {
 		return targetUrl;
 	}
 
-	
-	
-	
-	
 }

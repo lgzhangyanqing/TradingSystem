@@ -15,6 +15,16 @@
 
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 	<title>TradingSystem Main Page</title>
+
+
+
+<script src = "js/angular.js"></script>
+<script src="js/angular-route.min.js"></script>
+<script src="js/angular-ui-router.min.js"></script>
+<link rel="stylesheet" href="css/main.css" text="text/css"/>
+
+	
+	
 	<script	src="js/jquery.min.js"></script>
 	<script src="js/angular.min.js"></script>
   	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular-messages.js"></script>
@@ -157,6 +167,38 @@
 	  		return true;
 	  	}
 	} 
+	
+	
+	
+	/*
+	* AngularJs for the forgot password part
+	
+	
+	var app = angular.module("mainApp", ["ngRoute"]);
+	app.config('$routeProvider', '$locationProvider', function($routeProvider, $locationProvider){
+		$routeProvider.when('/confirmation', {
+			templateUrl: "WEB-INF/pages/confirmation.jsp",
+			controller: "mainCtrl"
+		});
+	});
+	
+	app.controller("mainCtrl", function(){
+		$scope.data = {
+			email : null
+		}
+		$scope.go = function(path) {
+			$location.path(path);
+		}
+		$scope.recoveraccount = function(){
+			$http({
+				url : "/recoveraccount",
+				method: "POST",
+			}).then(function(response){
+				$scope.stocks = response.data.email;
+			})
+		}
+	});
+	*/
 </script>
 <style>
 .alert {
@@ -174,7 +216,7 @@
 </style>
 </head>
 
-<body id="page-top" class="index">
+<body id="page-top" class="index" >
 	<!-- Header -->
 	<div class="container-fluid">
 		<div class="top headerLinks">
@@ -383,55 +425,17 @@
 													<div class="form-group">
 														<div class="row">
 															<div class="col-lg-12">
+
 																<div class="text-center">
 																	<a href="http://phpoll.com/recover" tabindex="5" class="forgot-password">Forgot Password?</a>
 																</div>
+																
+																
 															</div>
 														</div>
 													</div>
 												</form>
-												
-												<!-- SignUp Form -->
-												<!-- <div class="alert" style="display: none;" id="usernameExist">
-													<p>Username Exist!!</p>
-												</div>
-												<div class="alert" style="display: none;" id="emailExist">
-													<p style="color:#f05f40;">Email Exist!!</p>
-												</div> -->
-												<!-- <form id="register-form" name="register-form" action="confirmation" method="post" style="display: none;">
-													<div class="form-group1">
-														<label for="uname" style="color:black;"> Username:</label>
-														<input type="text" name="userName" id="j_userName" tabindex="1" class="form-control" placeholder="Username">
-													</div>
-													<div class="form-group1">
-														<label for="ulname" style="color:black;"> Lastname:</label>
-														<input type="text" name="lastName" id="j_lastName" tabindex="1" class="form-control" placeholder="Lastname">
-													</div>
-													<div class="form-group1">
-														<label for="ufname" style="color:black;"> Firstname:</label>
-														<input type="text" name="firstName" id="j_firstName" tabindex="1" class="form-control" placeholder="Firstname">
-													</div>
-													<div class="form-group1">
-														<label for="uemail" style="color:black;"> Email:</label>
-														<input type="email" name="email" id="j_email" tabindex="1" class="form-control" placeholder="Email Address">
-													</div>
-													<div class="form-group1">
-														<label for="upassword" style="color:black;"> Password:</label>
-														<input type="password" name="passWord" id="j_passWord" tabindex="2" class="form-control" placeholder="Password">
-													</div>
-													<div class="form-group1">
-														<label for="upassword" style="color:black;"> Confirm your password:</label>
-														<input type="password" name="confirm_password" id="confirm-password" tabindex="2" class="form-control" placeholder="Confirm Password">
-													</div>
-													<div class="form-group1">
-														<div class="row">
-															<div class="col-sm-6 col-sm-offset-3" style="padding-top: 10px;">
-																<input type="submit" name="submit2" id="register" tabindex="4" class="form-control btn btn-register"  value="Register Now">
-															</div>
-														</div>
-													</div>
-													<br>
-												</form> -->
+											
 												
 												 <form id="register-form" name="registerform" action="confirmation" method="post"  style="display:none;" novalidate ng-submit="registration.submit(registerform.$valid)">
 													<div class="form-group" ng-class="{ 'has-error': registerform.userName.$touched && registerform.userName.$invalid }">
@@ -595,11 +599,6 @@
                     </div>
                 </div>
             </div>
-           <!--  <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <p class="large text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p>
-                </div>
-            </div> -->
         </div>
         
     <div class="rtop_btn" id="rtop_btn" style="display:none;">
@@ -618,20 +617,6 @@
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
 
-   <!--   Plugin JavaScript 
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-    <script src="js/classie.js"></script>
-    <script src="js/cbpAnimatedHeader.js"></script>
-
-    Contact Form JavaScript
-    <script src="js/jqBootstrapValidation.js"></script>
-    <script src="js/contact_me.js"></script> -->
-
-    <!-- Custom Theme JavaScript -->
-    <!-- <script src="js/agency.js"></script> -->
-    
-  <!--  <script type="text/javascript" src="js/jquery.validate.min.js"></script>
-    <script src="js/form-validation-script.js"></script>  -->
 
 </body>
 
