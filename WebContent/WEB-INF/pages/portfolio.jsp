@@ -79,11 +79,11 @@
 	}
 	
 	.highlight{
-    background: lightgreen;
+    color: lightgreen;
     transition: background 200ms;
     }
     .highlight2{
-    background: #ff8080;
+    color: #ff8080;
     transition: background 200ms;
     }
 
