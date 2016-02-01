@@ -20,6 +20,8 @@
      position: relative;
      top: 50px;
   }
+  
+ 
  
  /*  #marketdata {padding-top:50px;height:500px;color: #fff; background-color: #673ab7;}
   #transaction {padding-top:50px;height:500px;color: #fff; background-color: #ff9800;}
@@ -47,13 +49,17 @@
  .navbar {
       font-family: Montserrat, sans-serif;
       margin-bottom: 0;
-      /* background-color: #2d2d30; */
+      background-color: #000000; 
       border: 0;
       font-size: 11px !important;
       letter-spacing: 1px;
       opacity: 0.9;
   }
-
+ .page-scroll{
+ 	 
+      color: #ffffff; 
+      
+  }
 
 .nav-font{
 	font-size: 20px;

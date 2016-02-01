@@ -39,5 +39,24 @@
     </div>
 
 <c:import url="pageComponent/footer.jsp"/>
+<!--  
+<section id="main-content">
+          <section class="wrapper">
+		  <div class="row">
+				<div class="col-lg-8" style="float:none;margin:auto;text-align:center">
+				 <section class="panel">
+				 <div class="panel-body">
+	<h1>Welcome to our Trading System!</h1>
+	<h2>Please check your email.</h2>
+	<h2>
+		<font color="green">${userInfo.message}</font>
+	</h2>
+	</div>
+	</section>
+	</div>
+	</div>
+	</section>
+	</section>
+	-->
 </body>
 </html>

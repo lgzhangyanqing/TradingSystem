@@ -28,7 +28,7 @@ app.service("shared", function() {
 		}
 	};
 });
-app.controller("mainController", ["$scope", "$interval", "$http", "$rootScope", "shared", 
+app.controller("mainController", ["$scope", "$interval" ,"$http", "$rootScope", "shared", 
                                   function($scope, $interval, $http, $rootScope, shared) {
 	$scope.user;
 	$scope.loading=false;
@@ -37,30 +37,34 @@ app.controller("mainController", ["$scope", "$interval", "$http", "$rootScope", 
 	.success(function(data) {
 		$scope.user = data;
 		shared.setUser($scope.user);
+		
 	}).error(function(data) {
 		console.log("AJAX ERROR");
-	});	
+	});		
 	
-
-	
-	$scope.stocksArray = [];
+	$scope.stockInfo = [];
 	$interval(function() {
-		$http.get("market")
-		.success(function(data) {
-			console.log("Success");
-			$scope.stocksArray = data;
-			
-		}).error(function(data) {
-			console.log("AJAX ERROR!");
-		});
+	$http.get("market")
+	.success(function(data){
+		console.log(data);
+		$scope.stockInfo = data;
+		shared.setStockInfo($scope.stockInfo);
+		$scope.percent = "100%";
+		window.setTimeout(function() {
+		     $scope.$apply(function() {
+		        $scope.loading = true;
+		     });
+		 }, 600);
+	}).error(function(data){
+		console.log("AJAX ERROR");
+	});
 	}, 2000);
 	
 	$scope.pass = function(stock) {
 		shared.setStock(stock);
 	};
-		
+	
 	$scope.hasStock = function(stock) {
-		console.log(stock);
 		for (var i=0; i<$scope.stockInfo.length; i++){
 			if (stock.stock.sid == $scope.stockInfo[i].stock.sid){
 				return true;
