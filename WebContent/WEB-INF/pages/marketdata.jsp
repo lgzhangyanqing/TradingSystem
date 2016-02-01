@@ -152,7 +152,7 @@
                                  <td>
                                   <div class="btn-group">
                                       <a class="btn btn-primary" href="#" ng-click="pass(stock); openBuy()">Buy</a>
-                                      <a ng-if="hasStock(stock)" class="btn btn-success" href="#" ng-click="pass(stock); openSell()" >Sell</a>
+                                      <!--  <a ng-if="hasStock(stock)" class="btn btn-success" href="#" ng-click="pass(stock); openSell()" >Sell</a> -->
                                   </div>
                                   </td>
                                  </sec:authorize>

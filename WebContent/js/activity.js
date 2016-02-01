@@ -44,7 +44,7 @@ app.controller("mainController", ["$scope", "$interval" ,"$http", "$rootScope", 
 	
 	$scope.stockInfo = [];
 	$interval(function() {
-	$http.get("getOwnInfo")
+	$http.get("market")
 	.success(function(data){
 		console.log(data);
 		$scope.stockInfo = data;

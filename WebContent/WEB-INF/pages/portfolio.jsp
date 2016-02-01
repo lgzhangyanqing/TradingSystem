@@ -98,18 +98,29 @@
                            <tbody>
                               <tr class="success" >
                                  <!-- <th><i class="icon_star"></i> Stock Id</th> -->
+                                 <th>Action</th>
                                  <th>StockSymbol</th>
-                                 <th> StockName</th>
+                                 <th>StockName</th>
+                                 <th>Quantity</th>
                                  <th>Price</th>
                                  <th>Change</th>
                                  <th>Change%</th>
-                                 <th>Quantity</th>
-                                 <th>Action</th>
+                                 
+                                 
                               </tr>
                               <tr ng-repeat=" stock in stockInfo">
 								<!-- <td>{{stock.stock.sid}}</td> -->
+								<sec:authorize access="hasAnyRole('ROLE_ADMIN', 'ROLE_USER')">
+                                 <td>
+                                  <div class="btn-group">
+                                     <!--  <a class="btn btn-primary" href="#" ng-click="pass(stock); openBuy()">Buy</a> -->
+                                      <a class="btn btn-success" href="#" ng-click="pass(stock); openSell()" >Sell</a>
+                                  </div>
+                                  </td>
+                                 </sec:authorize>
 								<td>{{stock.stock.symbol}}</td>
 								<td>{{stock.stockName}}</td>
+								<td>{{stock.quantity}}</td>
 								<td>{{stock.price}}</td>
 					     		<td>
 									<b ng-if="stock.change>0" style="color:green">+{{stock.change}}</b>
@@ -122,15 +133,8 @@
 									<b ng-if="stock.pchange.indexOf('0')==0" style="color:black">{{stock.pchange}}</b>
 								</td>
 								
-								<td>{{stock.quantity}}</td>
-								<sec:authorize access="hasAnyRole('ROLE_ADMIN', 'ROLE_USER')">
-                                 <td>
-                                  <div class="btn-group">
-                                      <a class="btn btn-primary" href="#" ng-click="pass(stock); openBuy()">Buy</a>
-                                      <a class="btn btn-success" href="#" ng-click="pass(stock); openSell()" >Sell</a>
-                                  </div>
-                                  </td>
-                                 </sec:authorize>
+								
+								
                               </tr>
 
                            </tbody>
