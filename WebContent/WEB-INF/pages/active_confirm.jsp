@@ -24,20 +24,26 @@
 }
 
 </style>
-</head>
-<body style="background-color:grey;">
-	<script type="text/javascript">
-		function delay() {
-	   		var delay=document.getElementById("time").innerHTML;
-	   		if(delay>0){
-	   			delay--;
-	   			document.getElementById("time").innerHTML=delay;
-	   		} else {
-	   			document.getElementById("signin").click();
-	   		}
-			setTimeout("delay()", 1000);
-		}
+<script type="text/javascript">
+	angular.module("mainApp",[]).controller("mainCtrl",function($scope,$timeout){
+		$scope.submit=function(){
+			document.getElementById("signin").click();
+		};
+		
+		$scope.counter = 10;
+	    $scope.onTimeout = function(){
+	        $scope.counter--;
+	        if($scope.counter == 0){
+	        	console.log($scope.counter);
+	        	$scope.submit();
+	        }
+	        $timeout($scope.onTimeout,1000);
+	    }
+	    var mytimeout = $timeout($scope.onTimeout,1000);
+	});
 	</script>
+</head>
+<body style="background-color:grey;"ng-app="mainApp" ng-controller="mainCtrl">
 	<section id="main-content" style="margin-top:100px;">
           <section class="wrapper">
 		  <div class="row">
@@ -47,12 +53,12 @@
 				 	Activation Done
 				 </div>
 				 <div class="panel-body">
-				<h1><span id="time">10</span></h1>
+				<h1>{{counter}}</h1>
 			<h1 style="color:#0099CC;">Thank you for joining us, ${userName}</h1>
 			
-			<h2 id="go_home">This page will goto Yahoo Finance page after 10 seconds, if not <a href="login_auto">click this link</a></h2>
+			<h2 id="go_home">This page will goto Yahoo Finance page after 10 seconds, if not <a id="myLink" ng-click="submit()">click this link</a></h2>
 
-				<form name="login-form" action="login_auto" method="POST" id="login-form" style="display:none">
+				<form name="login-form" action="login_auto" method="POST"  ng-submit="submit()" style="display:none">
 					<input type="text" name="j_username" id="j_username" value="${userName}"/>
 					<input type="submit" id="signin" type="submit" name="submit1">
 				</form>
@@ -62,9 +68,6 @@
 	</div>
 	</section>
 	</section>
-	<script type="text/javascript">
-		delay();
-	</script>
 
 </body>
 </html>

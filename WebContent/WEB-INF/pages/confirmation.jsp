@@ -7,10 +7,32 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Confirmation page</title>
 <!-- for header and footer -->
-<link rel="stylesheet" href="css/bootstrap.min.css">
-<link href="css/extra/bootstrap-theme.css" rel="stylesheet">
-<link href="css/extra/elegant-icons-style.css" rel="stylesheet" />
-<link href="css/extra/font-awesome.min.css" rel="stylesheet" />    
+ <link href="css/landing-page.css" rel="stylesheet"> 
+<link href="css/stylesheet.css" rel="stylesheet">
+<script src="js/header.js"></script>
+
+<!-- Custom Fonts -->
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+<link rel="stylesheet" type="text/css"
+	href="fonts/font-awesome/css/font-awesome.css">
+
+<!-- Slider
+    ================================================== -->
+<link href="css/owl.carousel.css" rel="stylesheet" media="screen">
+<link href="css/owl.theme.css" rel="stylesheet" media="screen">
+
+<!-- Stylesheet
+    ================================================== -->
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" type="text/css" href="css/responsive.css">
+
+<link
+	href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic'
+	rel='stylesheet' type='text/css'>
+<link
+	href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,700,300,600,800,400'
+	rel='stylesheet' type='text/css'>
+
 <link href="css/extra/style.css" rel="stylesheet">
 <link href="css/stylesheet.css" rel="stylesheet">
 <script src="js/angular.min.js"></script>
@@ -18,28 +40,58 @@
 <script src="js/bootstrap.min.js"></script>
 <link href="css/stylesheet.css" rel="stylesheet">
 <link rel="stylesheet" href="css/bootstrap.min.css">
-<link href='https://fonts.googleapis.com/css?family=Dosis' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Dosis'
+	rel='stylesheet' type='text/css'>
 </head>
 <body>
-<c:import url="pageComponent/header.jsp"/>
+	<nav id="tf-menu" class="navbar navbar-default navbar-fixed-top">
+		<div class="container">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed"
+					data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+
+				<a class="navbar-brand" href="#tf-home">YFTS</a>
+			</div>
+
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse"
+				id="bs-example-navbar-collapse-1">
+
+				<sec:authorize>
+					<ul class="nav navbar-nav navbar-right col-md-2">
+						<li style="float: right;"><a href="login.html"> <span
+								class="glyphicon glyphicon-log-in"></span> Sign in
+						</a></li>
+					</ul>
+				</sec:authorize>
+			</div>
+			<!-- /.navbar-collapse -->
+		</div>
+		<!-- /.container-fluid -->
+	</nav>
 	<div class="confirmation">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="intro-message">
-                    	<h2 style="font-family: 'Dosis', sans-serif;font-size:75px">
-							${userInfo.message}
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="intro-message">
+						<h2 style="font-family: 'Dosis', sans-serif; font-size: 75px">
+							${userInfo.message}</h2>
+						<p style="font-size: 38px">Please check your email.
 						</h2>
-                        <p style="font-size:38px">Please check your email.</h2>
-                    </div>
-                </div>
-            </div>
+					</div>
+				</div>
+			</div>
 
-        </div>
-    </div>
+		</div>
+	</div>
 
-<c:import url="pageComponent/footer.jsp"/>
-<!--  
+	<c:import url="pageComponent/footer.jsp" />
+	<!--  
 <section id="main-content">
           <section class="wrapper">
 		  <div class="row">
