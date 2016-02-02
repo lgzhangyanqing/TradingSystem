@@ -111,7 +111,7 @@
                                  <!-- <th><i class="icon_star"></i> Stock Id</th> -->
                                  <th>Action</th>
                                  <th>StockSymbol</th>
-                                 <th> StockName</th>
+                                 <th>StockName</th>
                                  <th>Quantity</th>
                                  <th>Price</th>
                                  <th>Change</th>

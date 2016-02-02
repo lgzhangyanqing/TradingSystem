@@ -4726,7 +4726,7 @@ a.list-group-item:focus {
   border-color: #007aff;
 }
 .panel-primary > .panel-heading + .panel-collapse .panel-body {
-  border-top-color: #007aff;
+  border-top-color: #008080;
 }
 .panel-primary > .panel-footer + .panel-collapse .panel-body {
   border-bottom-color: #007aff;
