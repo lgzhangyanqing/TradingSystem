@@ -95,6 +95,7 @@ public class LoginController {
 	
 	
 	
+	
 	////////////////////////////////////////////////////////////////////////////////////////////////////
 	/*
 	 * when you register to fill up the form, the validation process is going
@@ -170,6 +171,7 @@ public class LoginController {
 	}
 	
 	
+	
 	////////////////////////////////////////////////////////////////////////////////////////////////////
 	/*
 	 * controller for the forgot password and recover account.
@@ -186,7 +188,6 @@ public class LoginController {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("recoveraccountemail");
 		return mav;
-		
 	}
 	
 	
@@ -200,7 +201,6 @@ public class LoginController {
 	 public ModelAndView changePassword(HttpServletRequest request) throws Exception {
 		 String email = request.getParameter("email");
 		 String newPassword = request.getParameter("newpasswordconfirm");
-		 
 		 User user = us.findUserByEmail(email);
 		 UserInfo userInfo = mfp.updateUserPassword(user, newPassword);
 		 ModelAndView mav = new ModelAndView();
@@ -211,8 +211,10 @@ public class LoginController {
 	
 	 
 	
+	 
+	 
+	
 	////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 	/*
 	 * Register user login again !!!!!
 	 */
@@ -235,6 +237,8 @@ public class LoginController {
 		}
 		return "redirect:/error";
 	}
+	
+	
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////////
 	
