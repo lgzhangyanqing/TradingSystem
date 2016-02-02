@@ -47,10 +47,10 @@
 				 	Activation Done
 				 </div>
 				 <div class="panel-body">
-				<h1><span id="time">5</span></h1>
+				<h1><span id="time">10</span></h1>
 			<h1 style="color:#0099CC;">Thank you for joining us, ${userName}</h1>
 			
-			<h2 id="go_home">This page will goto Yahoo Finance page after 5 seconds, if not <a href="login_auto">click this link</a></h2>
+			<h2 id="go_home">This page will goto Yahoo Finance page after 10 seconds, if not <a href="login_auto">click this link</a></h2>
 
 				<form name="login-form" action="login_auto" method="POST" id="login-form" style="display:none">
 					<input type="text" name="j_username" id="j_username" value="${userName}"/>

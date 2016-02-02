@@ -25,7 +25,7 @@ public class MyJob {
 		System.out.println("Current Time : " + Calendar.getInstance().getTime());
 		List<Integer> tranList = new ArrayList<>();
 		
-		try(FileReader fr = new FileReader("C:\\Users\\rui\\git\\TradingSystem\\WebContent\\CSV\\pending.csv");
+		try(FileReader fr = new FileReader("D:\\home\\git\\TradingSystem\\WebContent\\CSV\\pending.csv");
 			BufferedReader br = new BufferedReader(fr);){
 			String s = null;
 			//count means every tranID

@@ -1229,8 +1229,8 @@ div[data-role="editor-toolbar"] {
 }
 .panel.panel-info .panel-heading,
 .panel.panel-info .panel-footer {
-  background: #353535;
-  color: #AABE32;
+  background: #5f5c63;
+  color: #ffffff;
   border-color: #67c2ef;
 }
 .panel.panel-warning {
@@ -5001,3 +5001,5 @@ span.customSelect.changed {
 	text-align:center;
 	font-size:20px;
 }
+
+

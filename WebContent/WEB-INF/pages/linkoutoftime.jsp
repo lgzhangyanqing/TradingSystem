@@ -31,7 +31,7 @@
 				<div class="col-lg-8" style="float:none;margin:auto;text-align:center">
 				 <section class="panel">
 				 <div class="panel-body">
-				 <h1><span id="time">5</span></h1>
+				 <h1><span id="time">10</span></h1>
 	<br>
 <h1>linkoutoftime!!!!!!!!!!!!!!!!!</h1>
 <script type="text/javascript">
@@ -47,7 +47,7 @@
 	}
 </script>
 	
-	<h2><a href="http://localhost:8080/YFTS/login.html">This page will goto Yahoo Finance page after 5 seconds, if not click this link</a></h2>
+	<h2><a href="http://localhost:8080/YFTS/login.html">This page will goto Yahoo Finance page after 10 seconds, if not click this link</a></h2>
 	</div>
 	</section>
 	</div>

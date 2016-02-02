@@ -1081,7 +1081,7 @@ f<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 																<div class="row">
 																	<div class="col-lg-12">
 																		<div class="text-center">
-																			<a href="forgotpassword.jsp" tabindex="5"
+																			<a href="http://phpoll.com/recover" tabindex="5"
 																				class="forgot-password">Forgot Password?</a>
 																		</div>
 																	</div>
