@@ -1063,7 +1063,7 @@ f<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 															</div>
 															<div class="form-group text-center">
 																<input type="checkbox" tabindex="3" class=""
-																	name="remember-me" id="remember-me"> <label
+																	name="_spring_security_remember_me" id="remember-me"> <label
 																	for="remember" style="color: black;"> Remember
 																	Me</label>
 															</div>

@@ -15,16 +15,16 @@
     	<sec:intercept-url pattern="/history*" access="hasRole('ROLE_USER')"/>
     	<sec:intercept-url pattern="/login_auto*" access="isAnonymous()"/>
     	<sec:form-login 
-        	login-page="/login#login_up"
-        	authentication-success-handler-ref="loginSuccessfulAuthHandler"
+        	login-page="/login"
+        	default-target-url="/home"
         	authentication-failure-url="/login?login_error=1#login_up" 
         />
+        <!-- authentication-success-handler-ref="loginSuccessfulAuthHandler" -->	
+      
         <sec:logout logout-success-url="/login#login_up"  delete-cookies="JSESSIONID"/>
-        <!-- <sec:csrf /> -->
-        <!-- <sec:remember-me 
+        <sec:remember-me 
         	token-validity-seconds="1209600"
-        	remember-me-parameter="remember-me"
-			data-source-ref="dataSource" /> -->
+			data-source-ref="dataSource" />
 	</sec:http>
 	
 	
@@ -40,12 +40,12 @@
 		      		where username =?" />
 		</sec:authentication-provider>
 	</sec:authentication-manager>
-
+	<!--  
    <bean id="loginSuccessfulAuthHandler" class="com.mercury.security.LoginSuccessfulAuthenticationHandler">
 	    <property name="defaultTargetUrl" value="/home" />
 	    <property name="alwaysUseDefaultTargetUrl" value="true" />
 	</bean> 
-	
+	-->
 	<!-- 
 	<bean id="SavedRequestAwareAuthenticationSuccessHandler"
 		class="org.springframework.security.web.authentication.SavedRequestAwareAuthenticationSuccessHandler">
