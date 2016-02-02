@@ -78,15 +78,14 @@
     	height: 20px;
 	}
 	
-	.highlight{
-    color: #66ff33;
+		.highlight{
+    background: lightgreen;
     transition: background 200ms;
     }
     .highlight2{
-    color: #ff0066;
+    background: #ff8080;
     transition: background 200ms;
     }
-
 </style>
 
 </head>
@@ -141,14 +140,14 @@
 								
 								
 					     		<td >
-									<b ng-if="stock.change>0" highlighter="stock.change" style="color:green">+{{stock.change| number:2}} <span class="glyphicon glyphicon-arrow-up"></span></b>
-									<b ng-if="stock.change<0" highlighter2="stock.change" style="color:red">{{stock.change| number:2}} <span class="glyphicon glyphicon-arrow-down"></span></b>
-									<b ng-if="stock.change==0" highlighter="stock.change" style="color:black">{{stock.change| number:2}}</b>
+									<b ng-if="stock.change>0" style="color:green">+{{stock.change| number:2}} <span class="glyphicon glyphicon-arrow-up"></span></b>
+									<b ng-if="stock.change<0"  style="color:red">{{stock.change| number:2}} <span class="glyphicon glyphicon-arrow-down"></span></b>
+									<b ng-if="stock.change==0"  style="color:black">{{stock.change| number:2}}</b>
 								</td>
 								<td >
-									<b ng-if="stock.pchange.indexOf('-')>-1" highlighter2="stock.pchange" style="color:red">{{stock.pchange}} <span class="glyphicon glyphicon-arrow-down"></span></b>
-									<b ng-if="stock.pchange.indexOf('+')>-1" highlighter="stock.pchange" style="color:green">{{stock.pchange}} <span class="glyphicon glyphicon-arrow-up"></span></b>
-									<b ng-if="stock.pchange.indexOf('0')==0" highlighter="stock.pchange" style="color:black">{{stock.pchange}}</b>
+									<b ng-if="stock.pchange.indexOf('-')>-1" style="color:red">{{stock.pchange}} <span class="glyphicon glyphicon-arrow-down"></span></b>
+									<b ng-if="stock.pchange.indexOf('+')>-1"  style="color:green">{{stock.pchange}} <span class="glyphicon glyphicon-arrow-up"></span></b>
+									<b ng-if="stock.pchange.indexOf('0')==0" style="color:black">{{stock.pchange}}</b>
 								</td>
 								
 								
