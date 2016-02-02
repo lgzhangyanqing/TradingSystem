@@ -52,7 +52,7 @@ public class UserService {
 	 *  through email to find the User.
 	 */
 	@Transactional 
-	public User fingUserByEmail(String email) {
+	public User findUserByEmail(String email) {
 		return ud.findByEmail(email);
 	}
 	

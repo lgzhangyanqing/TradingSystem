@@ -88,8 +88,8 @@ public class MailForgotPassword {
             User user = ud.findByEmail(email);
             messageBodyPart.setContent("<panel>"+
             		"<h2>Dear " + user.getUserName() + ",</h2>"
-            		+ "<h3>Welcome to Yahoo Finance!</h3><br>" 
-            		+ "<h4>Please " + "<a href='" + link +"'>click here</a>" + " to verify your email address.</h4><br>"
+            		+ "<h3>Change your password!</h3><br>" 
+            		+ "<h4>Please " + "<a href='" + link +"'>click here</a>" + " to change you YFTS password.</h4><br>"
             		+ "<h4>Thanks,</h4>" 
             		+ "<h4>Team YFTS</h4></panel>"
             		,"text/html;charset=utf-8");  
@@ -144,8 +144,8 @@ public class MailForgotPassword {
     /*
      * 2. update the user password in database
      */
-    public UserInfo updateUserPassword(User user) throws Exception {
-    	user.setPassWord(user.MD5Hashing(user.getPassWord()));
+    public UserInfo updateUserPassword(User user, String newPassword) throws Exception {
+    	user.setPassWord(user.MD5Hashing((newPassword)));
     	ud.update(user);
     	UserInfo userInfo = new UserInfo();
     	userInfo.setMessage("Hello again" + user.getUserName() + ", welcome come back to YFTS!");

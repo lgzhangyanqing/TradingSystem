@@ -37,7 +37,7 @@
 	<input type="text" ng-model="newpassword" placeholder="Enter your password"/>
 	<h3>Confirm your password</h3>
 	<input type="text" ng-model="newpasswordconfirm" placeholder="Confirm your password"/>
-	<button ng-click="changePassword()">Submit</button>
+	<a ng-click="changePassword()" href="http://localhost:8080/TradingSystem/login.html">Submit</a>
 </div>
 
 </body>

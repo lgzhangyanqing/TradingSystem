@@ -97,7 +97,8 @@ public class LoginController {
 	
 	////////////////////////////////////////////////////////////////////////////////////////////////////
 	/*
-	 * when you register to fill up the form, the validation process is going 
+	 * when you register to fill up the form, the validation process is going
+	 * 1. username to check the database  
 	 */
 	@RequestMapping(value="/registervalidation", method=RequestMethod.POST)
 	@ResponseBody
@@ -122,6 +123,9 @@ public class LoginController {
 
 	/*
 	 * controller for the register process 
+	 * click the button of register now:
+	 * 1. add the new register user to the database
+	 * 2. send the email to the user 
 	 * 
 	 */
 	@RequestMapping(value="/confirmation", method=RequestMethod.POST)
@@ -137,6 +141,9 @@ public class LoginController {
 	
 	/*
 	 * register user will get a link to active account, mapping to the MailRegister.java link
+	 * user click the link in the email
+	 * 1. change the enable to 1 on Database
+	 * 2. change the web page to the home of 
 	 */
 	@RequestMapping(value="/activateAccount", method = RequestMethod.GET)
 	public ModelAndView activeMail(HttpServletRequest request) {
@@ -192,14 +199,16 @@ public class LoginController {
 	 @RequestMapping(value="/changepassword*", method=RequestMethod.GET)
 	 public ModelAndView changePassword(HttpServletRequest request) throws Exception {
 		 String email = request.getParameter("email");
-		 User user = us.fingUserByEmail(email);
-		 UserInfo userInfo = mfp.updateUserPassword(user);
+		 String newPassword = request.getParameter("newpasswordconfirm");
+		 
+		 User user = us.findUserByEmail(email);
+		 UserInfo userInfo = mfp.updateUserPassword(user, newPassword);
 		 ModelAndView mav = new ModelAndView();
 		 mav.setViewName("home");
 		 mav.addObject("userInfo", userInfo);
 		 return mav;
 	 }
-		
+	
 	 
 	
 	////////////////////////////////////////////////////////////////////////////////////////////////////////
