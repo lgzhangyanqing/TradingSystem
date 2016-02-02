@@ -48,6 +48,15 @@ public class UserService {
 		return ud.findByUserName(username);
 	}
 	
+	/*
+	 *  through email to find the User.
+	 */
+	@Transactional 
+	public User fingUserByEmail(String email) {
+		return ud.findByEmail(email);
+	}
+	
+	
 	@Transactional
 	public UserInfo userLogin(String username) {
 		UserInfo userInfo = new UserInfo();

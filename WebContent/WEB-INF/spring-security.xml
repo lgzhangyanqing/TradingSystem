@@ -30,7 +30,7 @@
 	
 	<sec:authentication-manager alias="authenticationManager">
         <sec:authentication-provider>
-        	<sec:password-encoder hash="md5"/>
+        	<sec:password-encoder hash="md5"/>  <!-- when user login again, encoder the password to match the encryption password in DB -->
         	<sec:jdbc-user-service id="jdbcUserService" data-source-ref="dataSource"
 		   		users-by-username-query="
 		      		select username, password, enabled 

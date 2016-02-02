@@ -86,8 +86,9 @@ public class MailRegister {
         Session session = Session.getDefaultInstance(prop, new Authenticator() {
             protected PasswordAuthentication getPasswordAuthentication() { 
             	return new PasswordAuthentication(fromMail, password);
-            	} 
-            });
+            } 
+        });
+        
         try {		
         	//create a default MimeMessage object
             Message msg = new MimeMessage(session);
@@ -98,7 +99,8 @@ public class MailRegister {
             msg.setRecipient(Message.RecipientType.TO, new InternetAddress(email));
             //msg.addRecipient(Message.RecipientType.CC, "good.qu@gmail.com");
             //set Subject: header field
-            msg.setSubject("Please verify your email address on Yahoo Finance Trading System"); msg.setSentDate(new Date());
+            msg.setSubject("Please verify your email address on Yahoo Finance Trading System"); 
+            msg.setSentDate(new Date());
             //msg.setText("Hello!"); 
             
             // Create the message part

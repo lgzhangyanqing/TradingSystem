@@ -33,8 +33,8 @@ import com.mercury.mail.MailForgotPassword;
 import com.mercury.mail.MailRegister;
 import com.mercury.service.UserService;
 
-@SessionAttributes
 @Controller
+@SessionAttributes
 public class LoginController {
 	
 	@Autowired
@@ -47,8 +47,8 @@ public class LoginController {
 	@Autowired
 	private MailRegister mr;
 	
-	//@Autowired 
-	//private MailForgotPassword mfp; //add for the forgot the password 
+	@Autowired 
+	private MailForgotPassword mfp; //add for the forgot the password 
 	
 	@Autowired 
 	private UserDetailsService userDetailsSvc;
@@ -92,9 +92,37 @@ public class LoginController {
 		User user = us.findUserByUserName(username);
 		return user;
 	}
+	
+	
+	
+	////////////////////////////////////////////////////////////////////////////////////////////////////
+	/*
+	 * when you register to fill up the form, the validation process is going 
+	 */
+	@RequestMapping(value="/registervalidation", method=RequestMethod.POST)
+	@ResponseBody
+	public int isUserExist(HttpServletRequest request){
+		//get the front-end input of the user-name and then to check if database has this user-name!!
+		String username = request.getParameter("userName"); 
+		System.out.println(username);
+		if(us.isUserExist(username)) {
+			System.out.println("name existeddd...........................");
+			return 1;
+		}
+		if(request.getParameter("email")!=null){ 
+			String email = request.getParameter("email");
+			System.out.println(email);
+			if(us.isEmailExist(email)){
+				System.out.println("email existedd...........................");
+				return 1;
+			}
+		}
+		return 0;
+	}
 
 	/*
 	 * controller for the register process 
+	 * 
 	 */
 	@RequestMapping(value="/confirmation", method=RequestMethod.POST)
 	public ModelAndView process(@ModelAttribute("user") 
@@ -107,29 +135,8 @@ public class LoginController {
 		return mav;
 	}
 	
-	
-	
 	/*
-	 * controller for the forgot password and recover account
-	 
-	@RequestMapping(value="/recoveraccount", method=RequestMethod.POST)
-	public ModelAndView recoverAccount(@ModelAttribute("user") User user, BindingResult result) throws Exception {
-		UserInfo userInfo = mfp.updateUserPassword(user.getEmail());
-		mfp.sendForgotPasswordMail(user.getUserName(), user.getEmail());;
-		ModelAndView mav = new ModelAndView();
-		mav.setViewName("confirmation");
-		mav.addObject("userInfo", userInfo);
-		return mav;
-	}
-	*/
-	
-		
-	
-	////////////////////////////////////////
-	
-	
-	/*
-	 * 
+	 * register user will get a link to active account, mapping to the MailRegister.java link
 	 */
 	@RequestMapping(value="/activateAccount", method = RequestMethod.GET)
 	public ModelAndView activeMail(HttpServletRequest request) {
@@ -155,28 +162,51 @@ public class LoginController {
 		
 	}
 	
-
-	@RequestMapping(value="/registervalidation", method=RequestMethod.POST)
-	@ResponseBody
-	public int isUserExist(HttpServletRequest request){
-		String username = request.getParameter("userName");
-		System.out.println(username);
-		if(us.isUserExist(username)) {
-			System.out.println("name existeddd...........................");
-			return 1;
-		}
-		if(request.getParameter("email")!=null){ 
-			String email = request.getParameter("email");
-			System.out.println(email);
-			if(us.isEmailExist(email)){
-				System.out.println("email existedd...........................");
-				return 1;
-			}
-		}
-		return 0;
+	
+	////////////////////////////////////////////////////////////////////////////////////////////////////
+	/*
+	 * controller for the forgot password and recover account.
+	 * trigger: receive the forgotpassword.jsp recover account button
+	 * 1. send email
+	 * 2. SPA: Please check your email to change password 
+	 */
+	
+	@RequestMapping(value="/recoveraccountemail*", method=RequestMethod.GET)
+	public ModelAndView recoverSendEmail2(HttpServletRequest request) {
+		String email = request.getParameter("email");
+		System.out.println(email);
+		mfp.sendForgotPasswordMail(email);
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("recoveraccountemail");
+		return mav;
+		
 	}
 	
+	
+	/*
+	 * After click the link of the email: transfer the web page to the changepassword.html
+	 * In the changepassword.html, click the button of the submit
+	 * 1. change the password of the database for the user who own this email
+	 * 2. change to the user home page.
+	 */
+	 @RequestMapping(value="/changepassword*", method=RequestMethod.GET)
+	 public ModelAndView changePassword(HttpServletRequest request) throws Exception {
+		 String email = request.getParameter("email");
+		 User user = us.fingUserByEmail(email);
+		 UserInfo userInfo = mfp.updateUserPassword(user);
+		 ModelAndView mav = new ModelAndView();
+		 mav.setViewName("home");
+		 mav.addObject("userInfo", userInfo);
+		 return mav;
+	 }
+		
+	 
+	
+	////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+	/*
+	 * Register user login again !!!!!
+	 */
 	@RequestMapping(value="login_auto", method = RequestMethod.POST)
 	public String loginAuto(HttpServletRequest request) {
 		String username = request.getParameter("j_username");
@@ -196,21 +226,8 @@ public class LoginController {
 		}
 		return "redirect:/error";
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
+	////////////////////////////////////////////////////////////////////////////////////////////////////////
 	
 	/**
 	 * Check if user is login by remember me cookie, refer
