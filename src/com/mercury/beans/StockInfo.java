@@ -1,5 +1,5 @@
 package com.mercury.beans;
-
+//test
 public class StockInfo {
 	private int quantity;
 	private double price;
