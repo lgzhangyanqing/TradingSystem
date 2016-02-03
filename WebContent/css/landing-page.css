@@ -123,6 +123,15 @@ h6 {
     background-position: center;
 	background-attachment: fixed;
 }
+.forgotpassword {
+	padding: 100px 0;
+    color: #f8f8f8;
+    background: url(../img/07.jpg) no-repeat center center;
+    background-size: cover;
+    background-position: center;
+	background-attachment: fixed;
+	
+}
 
 .banner h2 {
     margin: 0;

@@ -40,6 +40,7 @@
 		      		where username =?" />
 		</sec:authentication-provider>
 	</sec:authentication-manager>
+	
 	<!--  
    <bean id="loginSuccessfulAuthHandler" class="com.mercury.security.LoginSuccessfulAuthenticationHandler">
 	    <property name="defaultTargetUrl" value="/home" />

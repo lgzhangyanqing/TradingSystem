@@ -268,10 +268,9 @@ f<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle collapsed"
 					data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-					<span class="sr-only">Toggle navigation</span> 
-					<span class="icon-bar"></span> 
-					<span class="icon-bar"></span> 
-					<span class="icon-bar"></span>
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
 				</button>
 
 				<a class="navbar-brand" href="#tf-home">YFTS</a>
@@ -288,17 +287,16 @@ f<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 					<li><a href="#tf-contact" class="page-scroll">Contact</a></li>
 
 				</ul>
-				
-				<sec:authorize access="hasAnyRole('ROLE_ADMIN', 'ROLE_USER')?false:true">
-				<ul class="nav navbar-nav navbar-right col-md-2" >
-			        <li style="float:right;">
-	                  	<a href="#login_up">
-	                  	 	<span class="glyphicon glyphicon-log-in" ></span> Sign in
-	                  	</a> 	                  	
-		        </li>
-		    </ul>
-		    </sec:authorize>
-		    
+
+				<sec:authorize
+					access="hasAnyRole('ROLE_ADMIN', 'ROLE_USER')?false:true">
+					<ul class="nav navbar-nav navbar-right col-md-2">
+						<li style="float: right;"><a href="#login_up"> <span
+								class="glyphicon glyphicon-log-in"></span> Sign in
+						</a></li>
+					</ul>
+				</sec:authorize>
+
 			</div>
 			<!-- /.navbar-collapse -->
 		</div>
@@ -359,16 +357,13 @@ f<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
         </div>
     </div>
 	-->
-	
+
 	<!-- Services Section
     ==========================================-->
 
 	<div id="tf-services" class="section-title center">
 		<div class="container-fluid">
-			<div class="top headerLinks">
-
-				
-			</div>
+			<div class="top headerLinks"></div>
 		</div>
 
 		<div class="text-center">
@@ -689,7 +684,7 @@ f<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 				<div class="top headerLinks">
 					<a href="#"> <img width="130" height="60" src="icon/icon.jpg">
 					</a>
-				
+
 				</div>
 			</div>
 
@@ -840,162 +835,172 @@ f<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     	</div>
     </div>
     -->
-<!-- /.container -->
-<!-- Team Page
+	<!-- /.container -->
+	<!-- Team Page
     ==========================================-->
-     <div id="tf-team" class="text-center">
-        <div class="overlay">
-            <div class="container">
-                <div class="section-title center">
-                    <h2>Meet <strong>our team</strong></h2>
-                    <div class="line">
-                        <hr>
-                    </div>
-                </div>
+	<div id="tf-team" class="text-center">
+		<div class="overlay">
+			<div class="container">
+				<div class="section-title center">
+					<h2>
+						Meet <strong>our team</strong>
+					</h2>
+					<div class="line">
+						<hr>
+					</div>
+				</div>
 
-<div class="col-sm-4">
-				<div class="team-member">
-					<img src="icon/user.png" class="img-responsive img-circle" alt=""
-						style="width: 68px; height: 68px;">
-					<h4>Rui Wang</h4>
-					<p class="text-muted">Lead Developer</p>
-					<ul class="list-inline social-buttons">
-						<li><a href="https://twitter.com"><i
-								class="fa fa-twitter"></i></a></li>
-						<li><a href="https://facebook.com"><i
-								class="fa fa-facebook"></i></a></li>
-						<li><a href="https://github.com"><i
-								class="fa fa-github-alt"></i></a></li>
-					</ul>
+				<div class="col-sm-4">
+					<div class="team-member">
+						<img src="icon/user.png" class="img-responsive img-circle" alt=""
+							style="width: 68px; height: 68px;">
+						<h4>Rui Wang</h4>
+						<p class="text-muted">Lead Developer</p>
+						<ul class="list-inline social-buttons">
+							<li><a href="https://twitter.com"><i
+									class="fa fa-twitter"></i></a></li>
+							<li><a href="https://facebook.com"><i
+									class="fa fa-facebook"></i></a></li>
+							<li><a href="https://github.com"><i
+									class="fa fa-github-alt"></i></a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-sm-4">
+					<div class="team-member">
+						<img src="icon/user.png" class="img-responsive img-circle" alt=""
+							style="width: 68px; height: 68px;">
+						<h4>Yang Shao</h4>
+						<p class="text-muted">Lead Developer</p>
+						<ul class="list-inline social-buttons">
+							<li><a href="https://www.google.com"><i
+									class="fa fa-twitter"></i></a></li>
+							<li><a href="https://facebook.com"><i
+									class="fa fa-facebook"></i></a></li>
+							<li><a href="https://github.com"><i
+									class="fa fa-github-alt"></i></a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-sm-4">
+					<div class="team-member">
+						<img src="icon/user.png" class="img-responsive img-circle" alt=""
+							style="width: 68px; height: 68px;">
+						<h4>Yanqing Zhang</h4>
+						<p class="text-muted">Lead Developer</p>
+						<ul class="list-inline social-buttons">
+							<li><a href="https://twitter.com"><i
+									class="fa fa-twitter"></i></a></li>
+							<li><a href="https://facebook.com"><i
+									class="fa fa-facebook"></i></a></li>
+							<li><a href="https://github.com"><i
+									class="fa fa-github-alt"></i></a></li>
+						</ul>
+					</div>
 				</div>
 			</div>
-			<div class="col-sm-4">
-				<div class="team-member">
-					<img src="icon/user.png" class="img-responsive img-circle" alt=""
-						style="width: 68px; height: 68px;">
-					<h4>Yang Shao</h4>
-					<p class="text-muted">Lead Developer</p>
-					<ul class="list-inline social-buttons">
-						<li><a href="https://www.google.com"><i
-								class="fa fa-twitter"></i></a></li>
-						<li><a href="https://facebook.com"><i
-								class="fa fa-facebook"></i></a></li>
-						<li><a href="https://github.com"><i
-								class="fa fa-github-alt"></i></a></li>
-					</ul>
+
+			<div id="team" class="owl-carousel owl-theme row">
+				<div class="item">
+					<div class="thumbnail">
+						<img src="img/team/01.jpg" alt="..." class="img-circle team-img">
+						<div class="caption">
+							<h3>Jenn Gwapa</h3>
+							<p>CEO / Founder</p>
+							<p>Do not seek to change what has come before. Seek to create
+								that which has not.</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="item">
+					<div class="thumbnail">
+						<img src="img/team/02.jpg" alt="..." class="img-circle team-img">
+						<div class="caption">
+							<h3>Jenn Gwapa</h3>
+							<p>CEO / Founder</p>
+							<p>Do not seek to change what has come before. Seek to create
+								that which has not.</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="item">
+					<div class="thumbnail">
+						<img src="img/team/03.jpg" alt="..." class="img-circle team-img">
+						<div class="caption">
+							<h3>Jenn Gwapa</h3>
+							<p>CEO / Founder</p>
+							<p>Do not seek to change what has come before. Seek to create
+								that which has not.</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="item">
+					<div class="thumbnail">
+						<img src="img/team/04.jpg" alt="..." class="img-circle team-img">
+						<div class="caption">
+							<h3>Jenn Gwapa</h3>
+							<p>CEO / Founder</p>
+							<p>Do not seek to change what has come before. Seek to create
+								that which has not.</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="item">
+					<div class="thumbnail">
+						<img src="img/team/04.jpg" alt="..." class="img-circle team-img">
+						<div class="caption">
+							<h3>Jenn Gwapa</h3>
+							<p>CEO / Founder</p>
+							<p>Do not seek to change what has come before. Seek to create
+								that which has not.</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="item">
+					<div class="thumbnail">
+						<img src="img/team/01.jpg" alt="..." class="img-circle team-img">
+						<div class="caption">
+							<h3>Jenn Gwapa</h3>
+							<p>CEO / Founder</p>
+							<p>Do not seek to change what has come before. Seek to create
+								that which has not.</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="item">
+					<div class="thumbnail">
+						<img src="img/team/02.jpg" alt="..." class="img-circle team-img">
+						<div class="caption">
+							<h3>Jenn Gwapa</h3>
+							<p>CEO / Founder</p>
+							<p>Do not seek to change what has come before. Seek to create
+								that which has not.</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="item">
+					<div class="thumbnail">
+						<img src="img/team/03.jpg" alt="..." class="img-circle team-img">
+						<div class="caption">
+							<h3>Jenn Gwapa</h3>
+							<p>CEO / Founder</p>
+							<p>Do not seek to change what has come before. Seek to create
+								that which has not.</p>
+						</div>
+					</div>
 				</div>
 			</div>
-			<div class="col-sm-4">
-				<div class="team-member">
-					<img src="icon/user.png" class="img-responsive img-circle" alt=""
-						style="width: 68px; height: 68px;">
-					<h4>Yanqing Zhang</h4>
-					<p class="text-muted">Lead Developer</p>
-					<ul class="list-inline social-buttons">
-						<li><a href="https://twitter.com"><i
-								class="fa fa-twitter"></i></a></li>
-						<li><a href="https://facebook.com"><i
-								class="fa fa-facebook"></i></a></li>
-						<li><a href="https://github.com"><i
-								class="fa fa-github-alt"></i></a></li>
-					</ul>
-				</div>
-			</div>
+
 		</div>
-		
-                <div id="team" class="owl-carousel owl-theme row">
-                    <div class="item">
-                        <div class="thumbnail">
-                            <img src="img/team/01.jpg" alt="..." class="img-circle team-img">
-                            <div class="caption">
-                                <h3>Jenn Gwapa</h3>
-                                <p>CEO / Founder</p>
-                                <p>Do not seek to change what has come before. Seek to create that which has not.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="item">
-                        <div class="thumbnail">
-                            <img src="img/team/02.jpg" alt="..." class="img-circle team-img">
-                            <div class="caption">
-                                <h3>Jenn Gwapa</h3>
-                                <p>CEO / Founder</p>
-                                <p>Do not seek to change what has come before. Seek to create that which has not.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="item">
-                        <div class="thumbnail">
-                            <img src="img/team/03.jpg" alt="..." class="img-circle team-img">
-                            <div class="caption">
-                                <h3>Jenn Gwapa</h3>
-                                <p>CEO / Founder</p>
-                                <p>Do not seek to change what has come before. Seek to create that which has not.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="item">
-                        <div class="thumbnail">
-                            <img src="img/team/04.jpg" alt="..." class="img-circle team-img">
-                            <div class="caption">
-                                <h3>Jenn Gwapa</h3>
-                                <p>CEO / Founder</p>
-                                <p>Do not seek to change what has come before. Seek to create that which has not.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="item">
-                        <div class="thumbnail">
-                            <img src="img/team/04.jpg" alt="..." class="img-circle team-img">
-                            <div class="caption">
-                                <h3>Jenn Gwapa</h3>
-                                <p>CEO / Founder</p>
-                                <p>Do not seek to change what has come before. Seek to create that which has not.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="item">
-                        <div class="thumbnail">
-                            <img src="img/team/01.jpg" alt="..." class="img-circle team-img">
-                            <div class="caption">
-                                <h3>Jenn Gwapa</h3>
-                                <p>CEO / Founder</p>
-                                <p>Do not seek to change what has come before. Seek to create that which has not.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="item">
-                        <div class="thumbnail">
-                            <img src="img/team/02.jpg" alt="..." class="img-circle team-img">
-                            <div class="caption">
-                                <h3>Jenn Gwapa</h3>
-                                <p>CEO / Founder</p>
-                                <p>Do not seek to change what has come before. Seek to create that which has not.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="item">
-                        <div class="thumbnail">
-                            <img src="img/team/03.jpg" alt="..." class="img-circle team-img">
-                            <div class="caption">
-                                <h3>Jenn Gwapa</h3>
-                                <p>CEO / Founder</p>
-                                <p>Do not seek to change what has come before. Seek to create that which has not.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-    </div> 
+	</div>
+	</div>
 
 
 
@@ -1044,6 +1049,7 @@ f<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 															style="display: none;">
 															<p>The username or password supplied is incorrect</p>
 														</div>
+														
 														<!-- Login Form -->
 														<form id="login-form" name="login-form"
 															class="form-validate"
@@ -1063,9 +1069,9 @@ f<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 															</div>
 															<div class="form-group text-center">
 																<input type="checkbox" tabindex="3" class=""
-																	name="_spring_security_remember_me" id="remember-me"> <label
-																	for="remember" style="color: black;"> Remember
-																	Me</label>
+																	name="_spring_security_remember_me" id="remember-me">
+																<label for="remember" style="color: black;">
+																	Remember Me</label>
 															</div>
 															<div class="form-group">
 																<div class="row">
@@ -1089,47 +1095,6 @@ f<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 															</div>
 														</form>
 
-														<!-- SignUp Form -->
-														<!-- <div class="alert" style="display: none;" id="usernameExist">
-													<p>Username Exist!!</p>
-												</div>
-												<div class="alert" style="display: none;" id="emailExist">
-													<p style="color:#f05f40;">Email Exist!!</p>
-												</div> -->
-														<!-- <form id="register-form" name="register-form" action="confirmation" method="post" style="display: none;">
-													<div class="form-group1">
-														<label for="uname" style="color:black;"> Username:</label>
-														<input type="text" name="userName" id="j_userName" tabindex="1" class="form-control" placeholder="Username">
-													</div>
-													<div class="form-group1">
-														<label for="ulname" style="color:black;"> Lastname:</label>
-														<input type="text" name="lastName" id="j_lastName" tabindex="1" class="form-control" placeholder="Lastname">
-													</div>
-													<div class="form-group1">
-														<label for="ufname" style="color:black;"> Firstname:</label>
-														<input type="text" name="firstName" id="j_firstName" tabindex="1" class="form-control" placeholder="Firstname">
-													</div>
-													<div class="form-group1">
-														<label for="uemail" style="color:black;"> Email:</label>
-														<input type="email" name="email" id="j_email" tabindex="1" class="form-control" placeholder="Email Address">
-													</div>
-													<div class="form-group1">
-														<label for="upassword" style="color:black;"> Password:</label>
-														<input type="password" name="passWord" id="j_passWord" tabindex="2" class="form-control" placeholder="Password">
-													</div>
-													<div class="form-group1">
-														<label for="upassword" style="color:black;"> Confirm your password:</label>
-														<input type="password" name="confirm_password" id="confirm-password" tabindex="2" class="form-control" placeholder="Confirm Password">
-													</div>
-													<div class="form-group1">
-														<div class="row">
-															<div class="col-sm-6 col-sm-offset-3" style="padding-top: 10px;">
-																<input type="submit" name="submit2" id="register" tabindex="4" class="form-control btn btn-register"  value="Register Now">
-															</div>
-														</div>
-													</div>
-													<br>
-												</form> -->
 
 														<form id="register-form" name="registerform"
 															action="confirmation" method="post"
@@ -1207,6 +1172,7 @@ f<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 																		field is required</p>
 																	<p ng-message="email" style="color: #f05f40;">This
 																		needs to be a valid email</p>
+												
 																	<p ng-message="emailValid" style="color: #f05f40;">Email
 																		Exists!</p>
 																</div>
@@ -1280,8 +1246,8 @@ f<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 		</div>
 	</div>
 
-	
-		<!-- team members -->
+
+	<!-- team members -->
 	<!--  <a id="tf-team" name="about us"></a>
 	<div class="container">
 		<div class="row">
@@ -1302,9 +1268,9 @@ f<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 		<a href="#" class="toplink cd-top"> <img src="icon/backtotop.png"
 			class="totop" width="60" height="60">
 		</a>
-	</div> 
-	
-<!--  
+	</div>
+
+	<!--  
 	<nav id="footer">
 		<div class="container">
 			<!--  <div class="pull-left fnav">
