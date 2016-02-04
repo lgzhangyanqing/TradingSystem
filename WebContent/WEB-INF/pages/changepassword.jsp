@@ -81,14 +81,14 @@
 <body ng-app="changePasswordApp">
 <div ng-controller="changePasswordCtrl">
 	<h1>Input Email again</h1>
-	<input type="text"  ng-model="email=${email}" placeholder="Email Address"/>
+	<input type="text"  ng-model="email" placeholder="Email Address"/>
 	<h2>${username}, Please Input the new password!</h2>
 	<hr>
 	<h3>New Password</h3>
 	<input type="text" ng-model="newpassword"  placeholder="Enter your password"/>
 	<h3>Confirm your password</h3>
 	<input type="text" ng-model="newpasswordconfirm" placeholder="Confirm your password"/>
-	<a ng-click="changePassword()" href="http://localhost:8080/TradingSystem/login.html">Submit</a>
+	<a ng-click="changePassword()" >Submit</a>
 </div>
 
 </body>

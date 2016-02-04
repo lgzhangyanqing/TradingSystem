@@ -209,13 +209,14 @@ public class LoginController {
 		 mav.setViewName("changepassword");
 		 //mav.addObject("userInfo", userInfo);
 		 mav.addObject("username", user.getUserName());
-		 mav.addObject("email", email);
+		 mav.addObject("email", user.getEmail());
 		 return mav;
 	 }
 	
 	 
 	@RequestMapping(value="/change", method=RequestMethod.GET)
 	public ModelAndView change(HttpServletRequest request) throws Exception {
+		
 		String email = request.getParameter("email");
 		System.out.println("hello+++"+email);
 		String newPassword = request.getParameter("newpasswordconfirm");
