@@ -85,7 +85,7 @@ public class MailForgotPassword {
             //messageBodyPart.setText("Dear " + username +",\n\nWelcome to Yahoo Finance!");
             User user = ud.findByEmail(email);
             String username = user.getUserName();
-            String link = "http://localhost:8080/TradingSystem/changepassword.jsp?username=" + username + "&" + "checkcode" + "=" + md5(username);
+            String link = "http://localhost:8080/TradingSystem/changepassword.html?username=" + username + "&" +"email="+ email;
             
           
             messageBodyPart.setContent("<panel>"+

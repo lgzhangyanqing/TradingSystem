@@ -200,17 +200,35 @@ public class LoginController {
 	 @RequestMapping(value="/changepassword*", method=RequestMethod.GET)
 	 public ModelAndView changePassword(HttpServletRequest request) throws Exception {
 		 String email = request.getParameter("email");
-		 String newPassword = request.getParameter("newpasswordconfirm");
+		 System.out.println(email);
+		 
+		// String newPassword = request.getParameter("newpasswordconfirm");
 		 User user = us.findUserByEmail(email);
-		 UserInfo userInfo = mfp.updateUserPassword(user, newPassword);
+		 //UserInfo userInfo = mfp.updateUserPassword(user, newPassword);
 		 ModelAndView mav = new ModelAndView();
-		 mav.setViewName("home");
-		 mav.addObject("userInfo", userInfo);
+		 mav.setViewName("changepassword");
+		 //mav.addObject("userInfo", userInfo);
+		 mav.addObject("username", user.getUserName());
+		 mav.addObject("email", email);
 		 return mav;
 	 }
 	
 	 
-	
+	@RequestMapping(value="/change", method=RequestMethod.GET)
+	public ModelAndView change(HttpServletRequest request) throws Exception {
+		String email = request.getParameter("email");
+		System.out.println("hello+++"+email);
+		String newPassword = request.getParameter("newpasswordconfirm");
+		System.out.println("Password++++"+newPassword);
+		User user = us.findUserByEmail(email);
+		UserInfo userInfo = mfp.updateUserPassword(user, newPassword);
+		ModelAndView mav = new ModelAndView();
+		//mav.setViewName("changepassword");
+		mav.addObject("userInfo", userInfo);
+		
+		mav.addObject("username", user.getUserName());
+		return mav;
+	}
 	 
 	 
 	

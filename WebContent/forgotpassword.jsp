@@ -62,9 +62,9 @@
 			});
 	});
 	app.controller("mainCtrl", function($scope, $http){
-		$scope.message = "Please check your input email to change the password!";
 		$scope.email = "";
 		$scope.sendEmail = function(){
+			$scope.message = "Please check your input email to change the password!";
 			$http({
 				url:"recoveraccountemail",
 				method: "GET",
@@ -118,7 +118,6 @@
 																	<p ng-message="email" style="color: #f05f40;">This needs to be a valid email</p>	
 																</div>
 														<a href="#page1" ng-click="sendEmail()">Recover Account</a>
-														<p>{{message}}</p>
 														<div ng-view></div>
 													</div>
 												</form>
