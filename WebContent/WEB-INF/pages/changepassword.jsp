@@ -57,13 +57,20 @@
 <script>
 	var app = angular.module("changePasswordApp", []);
 	app.controller("changePasswordCtrl", function($scope, $http){
-		$scope.newpasswordconfirm = "";
-		$scope.email = "";
+		//$scope.email = "";
+		var params = $.param({
+			email : "123@dfgfg"
+			//newpasswordconfirm : $scope.newpasswordconfirm
+		});
 		$scope.changePassword = function(){
 			$http({
 				url: "change",
 				method: "GET",
-				params: {newpasswordconfirm: $scope.newpasswordconfirm, email:$scope.email}
+				//params: {newpasswordconfirm: $scope.newpasswordconfirm, email:$scope.email}
+				data : params,
+				headers: {
+					'Content-Type' : 'application/x-www-form-urlencoded'
+				}
 			}).then(function(response){
 				console.log("change password success!!");
 			});
@@ -79,16 +86,15 @@
 
 
 <body ng-app="changePasswordApp">
-<div ng-controller="changePasswordCtrl">
-	<h1>Input Email again</h1>
-	<input type="text"  ng-model="email" placeholder="Email Address"/>
+<div ng-controller="changePasswordCtrl" >
 	<h2>${username}, Please Input the new password!</h2>
 	<hr>
 	<h3>New Password</h3>
 	<input type="text" ng-model="newpassword"  placeholder="Enter your password"/>
 	<h3>Confirm your password</h3>
+	
 	<input type="text" ng-model="newpasswordconfirm" placeholder="Confirm your password"/>
-	<a ng-click="changePassword()" >Submit</a>
+	<a ng-click="changePassword()" href="http://localhost:8080/TradingSystem/login.html">Submit</a>
 </div>
 
 </body>

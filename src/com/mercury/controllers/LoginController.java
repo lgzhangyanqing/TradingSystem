@@ -3,6 +3,7 @@ package com.mercury.controllers;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.Principal;
+import java.util.Enumeration;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -216,7 +217,10 @@ public class LoginController {
 	 
 	@RequestMapping(value="/change", method=RequestMethod.GET)
 	public ModelAndView change(HttpServletRequest request) throws Exception {
-		
+		Enumeration<String> arr = request
+		 while (arr.hasMoreElements()){
+	         System.out.println(arr.nextElement()); 
+	      }
 		String email = request.getParameter("email");
 		System.out.println("hello+++"+email);
 		String newPassword = request.getParameter("newpasswordconfirm");
