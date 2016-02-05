@@ -213,7 +213,7 @@ public class LoginController {
 		 return mav;
 	 }
 	
-	 
+	 /*
 	@RequestMapping(value="/change", method=RequestMethod.GET)
 	public ModelAndView change(HttpServletRequest request) throws Exception {
 		
@@ -228,6 +228,19 @@ public class LoginController {
 		mav.addObject("userInfo", userInfo);
 		
 		mav.addObject("username", user.getUserName());
+		return mav;
+	}
+	*/
+	@RequestMapping(value="/change2*", method=RequestMethod.POST)
+	public ModelAndView change2(String userName, String password) throws Exception {
+		
+		System.out.println("hello+++"+userName);
+		System.out.println("Password++++"+password);
+		User user = us.findUserByUserName(userName);
+		UserInfo userInfo = mfp.updateUserPassword(user, password);
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("changePWSuccess");
+		mav.addObject("userName",userName);
 		return mav;
 	}
 	 
