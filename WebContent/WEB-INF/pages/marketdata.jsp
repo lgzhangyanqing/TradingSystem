@@ -145,12 +145,16 @@
                               <tr ng-repeat="stock in stockInfo | orderBy:predicate:reverse | filter:stock.symbol track by $index">
 								<td>{{stock.stock.symbol}}</td>
 								<td>{{stock.stockName}}</td>
-								<td >
+								
+								<td ng-if="stock.change>0" highlighter="stock.price">&#36{{stock.price| number:2}}</td>
+								<td ng-if="stock.change<0" highlighter2="stock.price" >  &#36{{stock.price| number:2}}</td>
+								<td  ng-if="stock.change==0" style="color:black">&#36{{stock.price| number:2}}</td>
+								<!-- <td >
 								
 								<b ng-if="stock.change>0" highlighter="stock.price" >&#36{{stock.price| number:2}}</b>
 									<b ng-if="stock.change<0" highlighter2="stock.price" >&#36{{stock.price| number:2}}</b>
 									<b ng-if="stock.change==0" style="color:black">&#36{{stock.price| number:2}}</b>
-								</td>
+								</td>-->
 								
 								
 					     		<td >

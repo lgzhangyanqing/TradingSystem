@@ -97,6 +97,28 @@
 			<!-- page start-->
 			   <div class="row">
 			   	 
+			   	 
+			   	 <div class="col-lg-3" >
+                      <section class="panel panel-info">
+                          <header class="panel-heading" align="center">
+                              <p style="font-size:20px">Balance</p>
+                          </header>
+                          <div class="panel-body">
+								<div ng-controller="ModalDemoCtrl" style="text-align:center">
+										<span>Current Balance: <b style="color: #27B63F;vertical-align: sub;font-size: 28px;margin-left: 5px;">
+										<br>
+										 {{user.balance | currency}}</b></span>	
+										<div id="addSuccess" ng-show="addSuccess&&!sellSuccess&&!sellSuccess">Adding money Success!</div>	
+										<br>
+										<button id="addBalance" class="btn btn-primary btn-sm"
+											ng-click="openAdd()">Manage Balance</button>
+								</div>
+								
+							</div>
+                      </section>
+                 </div>
+			   	 
+			   	 
                   <div class="col-lg-9" ng-controller="ModalDemoCtrl">
                       <section class="panel panel-info">
                           <header class="panel-heading" align="center">
@@ -131,12 +153,13 @@
 								<td>{{stock.stock.symbol}}</td>
 								<td>{{stock.stockName}}</td>
 								<td>{{stock.quantity}}</td>
-								<td >
-								
-								<b ng-if="stock.change>0" highlighter="stock.price" >&#36{{stock.price| number:2}}</b>
+								<td ng-if="stock.change>0" highlighter="stock.price">&#36{{stock.price| number:2}}</td>
+								<td ng-if="stock.change<0" highlighter2="stock.price" >  &#36{{stock.price| number:2}}</td>
+								<td  ng-if="stock.change==0" style="color:black">&#36{{stock.price| number:2}}</td>
+								<!-- <b ng-if="stock.change>0" highlighter="stock.price" >&#36{{stock.price| number:2}}</b>
 									<b ng-if="stock.change<0" highlighter2="stock.price" >&#36{{stock.price| number:2}}</b>
 									<b ng-if="stock.change==0" style="color:black">&#36{{stock.price| number:2}}</b>
-								</td>
+								</td> -->
 								
 								
 					     		<td >
@@ -179,25 +202,11 @@
 	              </div>
                       </section>
                   </div>
-                  <div class="col-lg-3" >
-                      <section class="panel panel-info">
-                          <header class="panel-heading" align="center">
-                              <p style="font-size:20px">Balance</p>
-                          </header>
-                          <div class="panel-body">
-								<div ng-controller="ModalDemoCtrl" style="text-align:center">
-										<span>Current Balance: <b style="color: #0099CC;vertical-align: sub;font-size: 28px;margin-left: 5px;">
-										<br>
-										 {{user.balance | currency}}</b></span>	
-										<div id="addSuccess" ng-show="addSuccess&&!sellSuccess&&!sellSuccess">Adding money Success!</div>	
-										<br>
-										<button id="addBalance" class="btn btn-primary btn-sm"
-											ng-click="openAdd()">Manage Balance</button>
-								</div>
-								
-							</div>
-                      </section>
-                 </div>
+                  
+                  
+                  
+                  
+                  
               </div>
               
     <!-- <div ng-controller="mainController">
@@ -306,6 +315,18 @@
                         	<div class="tab-pane" id="chartjs">
                       			<div class="row">
                           		<!-- Line -->
+                          		<div class="col-lg-6">
+                              			<section class="panel">
+                                  			<header class="panel-heading" align="center">
+                                      			Stock Quantity Bar Chart
+                                  			</header>
+                                  			<div class="panel-body text-center" ng-controller="BarCtrl">
+												<canvas id="bar" class="chart chart-bar"
+												 		chart-data="data" chart-labels="labels" chart-series="series">
+												</canvas>
+                                  			</div>
+                              			</section>
+                          			</div>     
                           			<div class="col-lg-6">
                               			<section class="panel">
                                   			<header class="panel-heading" align="center">
@@ -317,18 +338,7 @@
                                   			</div>
                               			</section>
                           			</div>   
-                          			<div class="col-lg-6">
-                              			<section class="panel">
-                                  			<header class="panel-heading" align="center">
-                                      			Stock Quantity Bar Chart
-                                  			</header>
-                                  			<div class="panel-body text-center" ng-controller="BarCtrl">
-												<canvas id="bar" class="chart chart-bar"
-												 		chart-data="data" chart-labels="labels" chart-series="series">
-												</canvas>
-                                  			</div>
-                              			</section>
-                          			</div>                            
+                          			                       
                       			</div>
                       		</div>
 						</div>
