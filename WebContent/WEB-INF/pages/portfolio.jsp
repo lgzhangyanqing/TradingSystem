@@ -137,6 +137,7 @@
                                  <th>Price</th>
                                  <th>Change</th>
                                  <th>Change%</th>
+                                 <th>Total Value</th>
                                  
                                  
                               </tr>
@@ -172,6 +173,10 @@
 									<b ng-if="stock.pchange.indexOf('+')>-1"  style="color:green">{{stock.pchange}} <span class="glyphicon glyphicon-arrow-up"></span></b>
 									<b ng-if="stock.pchange.indexOf('0')==0" style="color:black">{{stock.pchange}}</b>
 								</td>
+								
+								<td ng-if="stock.change>0" highlighter="stock.price*stock.quantity">&#36{{stock.price*stock.quantity}}</td>
+								<td ng-if="stock.change<0" highlighter2="stock.price*stock.quantity" >  &#36{{stock.price*stock.quantity| number:2}}</td>
+								<td  ng-if="stock.change==0" style="color:black">&#36{{stock.price*stock.quantity| number:2}}</td>
 								
 								
 								
