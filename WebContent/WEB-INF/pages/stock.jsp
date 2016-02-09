@@ -133,9 +133,9 @@
               	  <div class="col-md-3" >
                       <section class="panel panel-info">
                       	  
-                          <header class="panel-heading" align="center">
+                          <div class="panel-heading" align="center">
                               <p style="font-size:20px">Manage Stock</p>
-                          </header>
+                          </div>
                           
                           
                          <div class="panel-body">
