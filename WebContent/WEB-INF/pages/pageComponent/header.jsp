@@ -32,7 +32,7 @@
 		    </sec:authorize>
 		    <sec:authorize access="hasRole('ROLE_ADMIN')">
               	<li style="float:right;">	
-					<span style="font-size:25px;"><strong>ADMIN PAGE</strong></span>
+					<span style="font-size:25px;"><strong></strong></span>
               	</li>  
             </sec:authorize>  
              </ul>
