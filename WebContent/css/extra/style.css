@@ -1229,9 +1229,9 @@ div[data-role="editor-toolbar"] {
 }
 .panel.panel-info .panel-heading,
 .panel.panel-info .panel-footer {
-  background: #10BFCC;
-  color: rgb(188, 91, 59);
-  border-color: #67c2ef;
+      background: #686868;
+    color: #FFFFFF;
+    border-color: #67c2ef;
 }
 .panel.panel-warning {
   border-color: #fabb3d;
