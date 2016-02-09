@@ -30,6 +30,8 @@
 
     <!-- Bootstrap CSS -->    
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    
+    <link href="css/extra/bootstrap-theme.css" rel="stylesheet">
     <!-- bootstrap theme -->
     <link href="css/bootstrap-theme.css" rel="stylesheet">
     <!--external css-->
@@ -139,7 +141,7 @@
        								<span class="sortorder" ng-show="predicate === 'pchange'" ng-class="{reverse:reverse}"></span>
                                  </th>
 								 <sec:authorize access="hasRole('ROLE_USER')">
-									<th style="color:#007aff">Transaction</th>
+									<th style="color:white">Transaction</th>
 								 </sec:authorize>
                               </tr>
                               <tr ng-repeat="stock in stockInfo | orderBy:predicate:reverse | filter:stock.symbol track by $index">
