@@ -165,9 +165,9 @@
 								
 								
 					     		<td >
-									<b ng-if="stock.change>0" style="color:green">+{{stock.change| number:2}}({{stock.pchange}}) <span class="glyphicon glyphicon-arrow-up"></span></b>
-									<b ng-if="stock.change<0"  style="color:red">{{stock.change| number:2}}({{stock.pchange}}) <span class="glyphicon glyphicon-arrow-down"></span></b>
-									<b ng-if="stock.change==0"  style="color:black">{{stock.change| number:2}}({{stock.pchange}})</b>
+									<b ng-if="stock.change>0" style="color:green">&#36+{{stock.change| number:2}}({{stock.pchange}}) <span class="glyphicon glyphicon-arrow-up"></span></b>
+									<b ng-if="stock.change<0"  style="color:red">&#36{{stock.change| number:2}}({{stock.pchange}}) <span class="glyphicon glyphicon-arrow-down"></span></b>
+									<b ng-if="stock.change==0"  style="color:black">&#36{{stock.change| number:2}}({{stock.pchange}})</b>
 								</td>
 							<!-- 	<td >
 									<b ng-if="stock.pchange.indexOf('-')>-1" style="color:red">{{stock.pchange}} <span class="glyphicon glyphicon-arrow-down"></span></b>
