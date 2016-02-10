@@ -136,8 +136,9 @@
                                  <th>Quantity</th>
                                  <th>Price</th>
                                  <th>Change</th>
-                                 <th>Change%</th>
+                                 <!-- <th>Change%</th>-->
                                  <th>Total Value</th>
+                                 <th>Gain/Loss</th>
                                  
                                  
                               </tr>
@@ -164,19 +165,23 @@
 								
 								
 					     		<td >
-									<b ng-if="stock.change>0" style="color:green">+{{stock.change| number:2}} <span class="glyphicon glyphicon-arrow-up"></span></b>
-									<b ng-if="stock.change<0"  style="color:red">{{stock.change| number:2}} <span class="glyphicon glyphicon-arrow-down"></span></b>
-									<b ng-if="stock.change==0"  style="color:black">{{stock.change| number:2}}</b>
+									<b ng-if="stock.change>0" style="color:green">+{{stock.change| number:2}}({{stock.pchange}}) <span class="glyphicon glyphicon-arrow-up"></span></b>
+									<b ng-if="stock.change<0"  style="color:red">{{stock.change| number:2}}({{stock.pchange}}) <span class="glyphicon glyphicon-arrow-down"></span></b>
+									<b ng-if="stock.change==0"  style="color:black">{{stock.change| number:2}}({{stock.pchange}})</b>
 								</td>
-								<td >
+							<!-- 	<td >
 									<b ng-if="stock.pchange.indexOf('-')>-1" style="color:red">{{stock.pchange}} <span class="glyphicon glyphicon-arrow-down"></span></b>
 									<b ng-if="stock.pchange.indexOf('+')>-1"  style="color:green">{{stock.pchange}} <span class="glyphicon glyphicon-arrow-up"></span></b>
 									<b ng-if="stock.pchange.indexOf('0')==0" style="color:black">{{stock.pchange}}</b>
-								</td>
+								</td>  -->
 								
-								<td ng-if="stock.change>0" highlighter="stock.price*stock.quantity">&#36{{stock.price*stock.quantity}}</td>
-								<td ng-if="stock.change<0" highlighter2="stock.price*stock.quantity" >  &#36{{stock.price*stock.quantity| number:2}}</td>
+								<td ng-if="stock.change>0" >&#36{{stock.price*stock.quantity | number:2}}</td>
+								<td ng-if="stock.change<0" >  &#36{{stock.price*stock.quantity| number:2}}</td>
 								<td  ng-if="stock.change==0" style="color:black">&#36{{stock.price*stock.quantity| number:2}}</td>
+								
+								<td ng-if="stock.change>0" style="color:green">&#36{{stock.quantity*stock.change | number:2}}</td>
+								<td ng-if="stock.change<0"style="color:red" >  &#36{{stock.quantity*stock.change| number:2}}</td>
+								<td  ng-if="stock.change==0" style="color:black">&#36{{stock.quantity*stock.change| number:2}}</td>
 								
 								
 								
